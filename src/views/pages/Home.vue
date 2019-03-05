@@ -17,7 +17,7 @@ div
                     span.u-label.g-color-gray-dark-v1.g-font-weight-700.g-bg-primary.g-px-20.g-py-14 18 Children
                 p.g-max-width-800.g-color-white-opacity-0_7.g-mb-45 [text here]
                 div
-                  a.btn.btn-xxl.text-uppercase.u-btn-primary.g-font-weight-700.g-font-size-11.g-color-gray-dark-v1.g-color-gray-dark-v1--hover.rounded-0.g-py-10.g-py-20--md.g-px-15.g-px-25--md.g-mr-10(href='#' tabindex='0')
+                  router-link.btn.btn-xxl.text-uppercase.u-btn-primary.g-font-weight-700.g-font-size-11.g-color-gray-dark-v1.g-color-gray-dark-v1--hover.rounded-0.g-py-10.g-py-20--md.g-px-15.g-px-25--md.g-mr-10(to='/sponsor')
                     FAIcon(icon="heart")
                     |  Sponsor a Child
                   a.btn.btn-xxl.text-uppercase.u-btn-primary.g-font-weight-700.g-font-size-11.g-color-gray-dark-v1.g-color-gray-dark-v1--hover.rounded-0.g-py-10.g-py-20--md.g-px-15.g-px-25--md(href='#' tabindex='0') Learn more        
