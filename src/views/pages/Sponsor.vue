@@ -57,9 +57,11 @@ export default {
     }
   },
   created() {
-    axios.get(process.env.VUE_APP_API + "/children").then(children => {
-      this.children = children.data;
-    });
+    axios
+      .get(process.env.VUE_APP_API + "/children?isSponsored=false")
+      .then(children => {
+        this.children = children.data;
+      });
   }
 };
 </script>

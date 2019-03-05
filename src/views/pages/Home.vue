@@ -132,12 +132,11 @@ export default {
     };
   },
   created() {
-    /**
-     * @TODO This needs to return only children that need sponsorship
-     */
-    axios.get(process.env.VUE_APP_API + "/children/count").then(res => {
-      this.childrenCount = res.data;
-    });
+    axios
+      .get(process.env.VUE_APP_API + "/children/count?isSponsored=false")
+      .then(res => {
+        this.childrenCount = res.data;
+      });
   }
 };
 </script>
