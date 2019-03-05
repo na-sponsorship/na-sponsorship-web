@@ -1,11 +1,11 @@
 <template lang="pug">
 div
   section#home
-    .js-carousel.slick-initialized.slick-slider.slick-dotted(data-infinite='true' data-fade='true' data-speed='5000' data-pagi-classes='u-carousel-indicators-v1 g-absolute-centered--x g-bottom-30')
-      .slick-list.draggable
-        .slick-track(style='opacity: 1; width: 2904px;')
+    div.js-carousel.slick-initialized.slick-slider.slick-dotted(data-infinite='true' data-fade='true' data-speed='5000' data-pagi-classes='u-carousel-indicators-v1 g-absolute-centered--x g-bottom-30')
+      div.slick-list.draggable
+        div.slick-track(style='opacity: 1; width: 2904px;')
           BgOverlay          
-            .u-bg-overlay__inner.g-flex-centered.g-height-100vh.g-min-height-600.g-py-40
+            div.u-bg-overlay__inner.g-flex-centered.g-height-100vh.g-min-height-600.g-py-40
               div.container
                 h2.h2.text-uppercase.g-line-height-1_2.g-letter-spacing-1.g-font-size-40.g-font-size-65--md.g-color-white.g-mb-40
                   | [Sponsorship
@@ -14,7 +14,7 @@ div
                 div.g-mb-45
                   div.d-inline-flex.text-uppercase.g-font-weight-600.g-font-size-11.g-mr-10.g-mb-10.g-mb-0--md
                     span.u-label.u-ns-bg-v7-right.g-bg-black.g-px-20.g-py-14 Needing Sponsorship
-                    span.u-label.g-color-gray-dark-v1.g-font-weight-700.g-bg-primary.g-px-20.g-py-14 18 Children
+                    span.u-label.g-color-gray-dark-v1.g-font-weight-700.g-bg-primary.g-px-20.g-py-14 {{childrenCount}} Children
                 p.g-max-width-800.g-color-white-opacity-0_7.g-mb-45 [text here]
                 div
                   router-link.btn.btn-xxl.text-uppercase.u-btn-primary.g-font-weight-700.g-font-size-11.g-color-gray-dark-v1.g-color-gray-dark-v1--hover.rounded-0.g-py-10.g-py-20--md.g-px-15.g-px-25--md.g-mr-10(to='/sponsor')
@@ -119,12 +119,25 @@ div
 </template>
 
 <script>
+import axios from "axios";
 import BgOverlay from "@components/BgOverlay";
 
 export default {
-  name: "home",
   components: {
     BgOverlay
+  },
+  data() {
+    return {
+      childrenCount: null
+    };
+  },
+  created() {
+    /**
+     * @TODO This needs to return only children that need sponsorship
+     */
+    axios.get(process.env.VUE_APP_API + "/children/count").then(res => {
+      this.childrenCount = res.data;
+    });
   }
 };
 </script>
