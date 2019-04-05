@@ -59,7 +59,7 @@ div
             | Learn
             strong.g-bg-gray-dark-v1.g-color-primary More
         p.mb-0
-          | Sed faucibus suscipit justo, eu dignissim tellus pretium et. Nam volutpat placerat libero sit amet elementum. Curabitur et neque et mauris maximus efficitur.
+          | Scipit justo, eu dignissim tellus pretium et. Nam volutpat placerat libero sit amet elementum. Curabitur et neque et mauris maximus efficitur.
       .container
         section.js-carousel.g-pt-60.g-pt-0--md.slick-initialized.slick-slider(data-infinite='true' data-arrows-classes='u-arrow-v1 g-pos-abs g-absolute-centered--x--md g-top-0 g-width-40 g-height-40 g-color-white g-color-black--hover g-bg-black g-bg-primary--hover g-transition-0_2 g-transition--ease-in' data-arrow-left-classes='fa fa-chevron-left g-left-0 g-left-50x--md g-ml-35--md' data-arrow-right-classes='fa fa-chevron-right g-right-0 g-right-50x--md g-ml-85--md')
           .js-prev.u-arrow-v1.g-pos-abs.g-absolute-centered--x--md.g-top-0.g-width-40.g-height-40.g-color-white.g-color-black--hover.g-bg-black.g-bg-primary--hover.g-transition-0_2.g-transition--ease-in.fa.fa-chevron-left.g-left-0.g-left-50x--md.g-ml-35--md.slick-arrow(style='')
@@ -69,7 +69,7 @@ div
                 .row
                   .col-md-6
                     .embed-responsive.embed-responsive-16by9.g-mb-0--md.g-mb-30
-                      iframe(width='100%' src='//www.youtube.com/embed/Squv4KI751w' frameborder='0' allowfullscreen='')
+                      iframe(width='100%' src='//www.youtube.com/embed/ykaL-dafIhI' frameborder='0' allowfullscreen='')
                   .col-md-6.g-color-white.g-pt-80--md
                     h3.text-uppercase.g-font-weight-700.g-font-size-18.g-color-white.g-mb-5 Catherine Cameron
                     h4.text-uppercase.g-font-weight-700.g-font-size-10.g-color-primary.g-mb-16 Molestie ullamcorper nisl eget
@@ -79,7 +79,7 @@ div
                 .row
                   .col-md-6
                     .embed-responsive.embed-responsive-16by9.g-mb-0--md.g-mb-30
-                      iframe(src='//player.vimeo.com/video/6202666' width='530' height='300' frameborder='0' webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen='')
+                      iframe(src='//www.youtube.com/embed/ykaL-dafIhI' width='530' height='300' frameborder='0' webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen='')
                   .col-md-6.g-color-white.g-pt-80--md
                     h3.text-uppercase.g-font-weight-700.g-font-size-18.g-color-white.g-mb-5 Catherine Cameron
                     h4.text-uppercase.g-font-weight-700.g-font-size-10.g-color-primary.g-mb-16 Molestie ullamcorper nisl eget
