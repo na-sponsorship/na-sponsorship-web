@@ -6,8 +6,8 @@
         h3.g-font-size-20.g-mb-0.g-font-weight-900(style="color: #e6d47f") {{child['First Name'] | uppercase}}
         h6 {{getAge(child['Date Of Birth'])}} {{getAge(child['Date of Birth']) | pluralize('year')}} old
         p.g-mb-35.g-color-white.pt2
-          span.u-dropcap.g-mr-10.g-mb-5 {{child.Story[0]}}
-          | {{child.Story.substring(1, child.Story.length)}}
+          span.u-dropcap.g-mr-10.g-mb-5 {{child.story[0]}}
+          | {{child.story.substring(1, child.story.length)}}
         Button.corner.right.shadow(size="md" color="yellow" :rounded="50" :border="0" inset @click="sponsor(child)") Sponsor
 
     b-modal(:ref="child.id" :title="'Sponsor ' + child['First Name']")
@@ -43,9 +43,8 @@ export default {
     getBGPicture(picture) {
       return isNull(picture)
         ? ""
-        : `background-image:url("https://res.cloudinary.com/dvbdtz5jq/image/upload/c_crop,g_face:auto,w_691/${
-            picture.public_id
-          }${picture.ext}"); border-right: 8px solid white;`;
+        : `background-image:url("${process.env.VUE_APP_API +
+            picture.url}"); border-right: 8px solid white;`;
     }
   }
 };
