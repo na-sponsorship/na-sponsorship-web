@@ -58,7 +58,7 @@ export default {
   },
   created() {
     axios
-      .get(process.env.VUE_APP_API + "/children?isSponsored=false")
+      .get(process.env.VUE_APP_API + "/children")
       .then(children => {
         this.children = children.data;
       });
