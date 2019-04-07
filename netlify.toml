@@ -4,3 +4,7 @@
 
 [context.branch-deploy]
     command = "yarn build --mode staging"
+
+[[redirects]]
+    from = "/admin"
+    to = "https://na-sponsorship-api-dev.herokuapp.com/admin"
