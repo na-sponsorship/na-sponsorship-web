@@ -7,5 +7,17 @@ module.exports = {
   css: {
     // Enable CSS source maps.
     sourceMap: true
+  },
+  devServer: {
+    proxy: {
+      '/uploads': {
+        target: {
+          host: 'api',
+          protocol: 'http:',
+          port: 1337,
+        },
+        changeOrigin: true
+      }
+    }
   }
 };
