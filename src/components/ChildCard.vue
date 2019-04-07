@@ -43,8 +43,7 @@ export default {
     getBGPicture(picture) {
       return isNull(picture)
         ? ""
-        : `background-image:url("${process.env.VUE_APP_API +
-            picture.url}"); border-right: 8px solid white;`;
+        : `background-image:url("${picture.url}"); border-right: 8px solid white;`;
     }
   }
 };
