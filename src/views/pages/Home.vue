@@ -8,14 +8,12 @@ div
             div.u-bg-overlay__inner.g-flex-centered.g-height-100vh.g-min-height-600.g-py-40
               div.container
                 h2.h2.text-uppercase.g-line-height-1_2.g-letter-spacing-1.g-font-size-40.g-font-size-65--md.g-color-white.g-mb-40
-                  | [Sponsorship
-                  br
-                  strong.g-font-weight-700er Program]
+                  | Noah's 
+                  strong.g-font-weight-700er Arc
                 div.g-mb-45
                   div.d-inline-flex.text-uppercase.g-font-weight-600.g-font-size-11.g-mr-10.g-mb-10.g-mb-0--md
                     span.u-label.u-ns-bg-v7-right.g-bg-black.g-px-20.g-py-14 Needing Sponsorship
-                    span.u-label.g-color-gray-dark-v1.g-font-weight-700.g-bg-primary.g-px-20.g-py-14 {{childrenCount}} Children
-                p.g-max-width-800.g-color-white-opacity-0_7.g-mb-45 [text here]
+                    span.u-label.g-color-gray-dark-v1.g-font-weight-700.g-bg-primary.g-px-20.g-py-14 {{childrenCount}} 5 Children
                 div
                   router-link.btn.btn-xxl.text-uppercase.u-btn-primary.g-font-weight-700.g-font-size-11.g-color-gray-dark-v1.g-color-gray-dark-v1--hover.rounded-0.g-py-10.g-py-20--md.g-px-15.g-px-25--md.g-mr-10(to='/sponsor')
                     FAIcon(icon="heart")

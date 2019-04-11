@@ -19,10 +19,8 @@ export default {
       logoDark: require("@assets/img/dark@3x.png"),
       isScrolling: false,
       menu: [
-        { label: "Home", to: "/" },
+        { label: "About", to: "/" },
         { label: "Sponsor a Child", to: "/sponsor" },
-        { label: "Learn More", to: "/leanMore" },
-        { label: "Account", to: "/account" }
       ]
     };
   },
