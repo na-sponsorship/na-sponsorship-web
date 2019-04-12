@@ -13,7 +13,7 @@ div
                 div.g-mb-45
                   div.d-inline-flex.text-uppercase.g-font-weight-600.g-font-size-11.g-mr-10.g-mb-10.g-mb-0--md
                     span.u-label.u-ns-bg-v7-right.g-bg-black.g-px-20.g-py-14 Needing Sponsorship
-                    span.u-label.g-color-gray-dark-v1.g-font-weight-700.g-bg-primary.g-px-20.g-py-14 {{childrenCount}} 5 Children
+                    span.u-label.g-color-gray-dark-v1.g-font-weight-700.g-bg-primary.g-px-20.g-py-14 {{childrenCount}} Children
                 div
                   router-link.btn.btn-xxl.text-uppercase.u-btn-primary.g-font-weight-700.g-font-size-11.g-color-gray-dark-v1.g-color-gray-dark-v1--hover.rounded-0.g-py-10.g-py-20--md.g-px-15.g-px-25--md.g-mr-10(to='/sponsor')
                     FAIcon(icon="heart")
@@ -132,7 +132,7 @@ export default {
   },
   created() {
     axios
-      .get(process.env.VUE_APP_API + "/children/count?isSponsored=false")
+      .get(process.env.VUE_APP_API + "/children/needingSponsorship")
       .then(res => {
         this.childrenCount = res.data;
       });
