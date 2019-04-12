@@ -101,7 +101,7 @@ export default {
   },
   created() {
     axios
-      .get(process.env.VUE_APP_API + "/children/count?isSponsored=false")
+      .get(process.env.VUE_APP_API + "/children/needingSponsorship")
       .then(res => {
         this.childrenCount = res.data;
       });
