@@ -1,4 +1,4 @@
-FROM node:11 as api
+FROM node:11 as web
 
 WORKDIR /usr/web
 COPY package.json ./
