@@ -19,7 +19,7 @@ export default {
       logoDark: require("@assets/img/dark@3x.png"),
       isScrolling: false,
       menu: [
-        { label: "About", to: "/" },
+        { label: "Home", to: "/" },
         { label: "Sponsor a Child", to: "/sponsor" },
       ]
     };
