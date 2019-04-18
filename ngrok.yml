@@ -1,0 +1,5 @@
+tunnels:
+  web:
+    proto: http
+    addr: 1337
+    host_header: localhost:8080
