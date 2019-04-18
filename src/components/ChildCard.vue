@@ -2,7 +2,7 @@
   div
     article.row.m2(style="min-height: 400px;")
       div.col-sm-6.g-bg-img-hero(:style="getBGPicture(child.picture)")
-      div.col-sm-6.u-ns-bg-v1-top.u-ns-bg-v1-left--md.g-bg-black.g-px-30.g-py-20.shadow.curved(style="min-height: 367px", :class="{'bg-male': child.Gender === 'Male', 'bg-female': child.Gender === 'Female'}")
+      div.col-sm-6.u-ns-bg-v1-top.u-ns-bg-v1-left--md.g-bg-black.g-px-30.g-py-20.shadow.curved(style="min-height: 367px", :class="{'bg-male': child.gender === 'male', 'bg-female': child.gender === 'female'}")
         h3.g-font-size-20.g-mb-0.g-font-weight-900(style="color: #e6d47f") {{child['First Name'] | uppercase}}
         h6 {{getAge(child['Date Of Birth'])}} {{getAge(child['Date of Birth']) | pluralize('year')}} old
         p.g-mb-35.g-color-white.pt2
