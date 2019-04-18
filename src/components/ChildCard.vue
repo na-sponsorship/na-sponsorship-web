@@ -23,7 +23,6 @@
 
 <script>
 import { isNull, isUndefined } from "lodash";
-import moment from "moment";
 import dayjs from 'dayjs';
 import Button from "@components/Button";
 
