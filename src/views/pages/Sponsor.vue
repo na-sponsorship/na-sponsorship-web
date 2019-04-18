@@ -18,6 +18,7 @@ div
         div.row.mb2(v-for="group in groupedChildren")
           div.col(v-for="child in group")
             ChildCard(:child="child")
+          div.col(v-if="group.length === 1")
         div.row.mt3.mb3
           div.col
             nav.text-center
