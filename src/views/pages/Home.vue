@@ -58,31 +58,25 @@
         </section>
     </div>
 </section>
-<section class="g-py-50 text-left">
-    <div class="container g-max-width-780 text-center g-mb-60">
-        <div class="text-center u-heading-v8-1 g-mb-35">
-            <h2 class="h3 text-uppercase u-heading-v8__title g-font-weight-700 g-font-size-26 mb-0">How you<strong class="g-bg-gray-dark-v1 g-color-primary">can help</strong></h2>
-        </div>
-        <p class="mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable.</p>
+<div class="section">
+  <div class="container">
+    <div class="row pb-3">
+      <div class="col"></div>
     </div>
-    <div class="container">
-
-        <div class="row">
-          
-            <div class="col-lg-6">
-              
-                <article class="row align-items-stretch text-center g-color-gray-dark-v5 g-bg-black mx-0">
-                    <div class=" text-align-center col-sm-6 u-ns-bg-v1-bottom u-ns-bg-v1-right--md g-bg-black g-px-30 g-py-45">
-                        <h3 class="text-uppercase g-font-size-20 g-color-white g-mb-25">Became a<strong class="d-block g-font-weight-700 g-color-primary">Volunteer</strong></h3>
-                        <p class="g-mb-25">Praesent pulvinar gravida efficitur. Aenean bibendum purus eu nisi pulvinar venenatis vitae non velit.</p><a class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-11 g-color-gray-dark-v1 g-color-gray-dark-v1--hover rounded-0 g-py-10 g-px-25"
-                            href="#">Join Us</a></div>
-                    <div class="col-sm-6 px-0 u-bg-overlay g-bg-black-opacity-0_2--after g-bg-img-hero g-min-height-300" data-bg-img-src="assets/img-temp/800x842/img1.jpg" style="background-image: url(&quot;assets/img-temp/800x842/img1.jpg&quot;);"></div>
-                </article>
-            </div>
-
-        </div>
+    <div class="row">
+      <div class="col">
+      <div class="col-sm-6 g-bg-black g-px-60 g-py-45">
+            <h3 class="text-uppercase g-font-size-20 g-color-white g-mb-25">Became a<strong class="d-block g-font-weight-700 g-color-primary">Volunteer</strong></h3>
+                <p class="g-mb-25">Praesent pulvinar gravida efficitur. Aenean bibendum purus eu nisi pulvinar venenatis vitae non velit.</p><a class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-11 g-color-gray-dark-v1 g-color-gray-dark-v1--hover rounded-0 g-py-10 g-px-25"
+                href="#">Join Us</a></div>
+           
+       </div>
     </div>
-</section>
+    <div class="row">
+      <div class="col"></div>
+    </div>
+  </div>
+</div>
 </div>
 </template>
 
