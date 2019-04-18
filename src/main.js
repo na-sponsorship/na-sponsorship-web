@@ -4,12 +4,10 @@ import Vue2Filters from "vue2-filters";
 
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { fab } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookF, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(fas);
-library.add(fab);
+library.add(faFacebookF, faTwitter, faYoutube);
 
 Vue.component("FAIcon", FontAwesomeIcon);
 
