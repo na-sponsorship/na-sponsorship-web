@@ -24,6 +24,7 @@
 <script>
 import { isNull, isUndefined } from "lodash";
 import moment from "moment";
+import dayjs from 'dayjs';
 import Button from "@components/Button";
 
 export default {
@@ -38,7 +39,7 @@ export default {
       this.$refs[child.id].show();
     },
     getAge(age) {
-      return moment().diff(age, "years");
+      return dayjs().diff(age, "years");
     },
     getBGPicture(picture) {
       return isNull(picture)
