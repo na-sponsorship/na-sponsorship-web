@@ -1,4 +1,7 @@
-# client
+# Web 
+
+## Theme Sample
+The sample theme can be accessed through the docker container at `http://localhost:8888`
 
 ## Project setup
 ```
