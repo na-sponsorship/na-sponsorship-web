@@ -40,7 +40,7 @@ import axios from "axios";
 
 import BgOverlay from "@components/BgOverlay";
 import ChildCard from "@components/ChildCard";
-import { chunk } from "lodash";
+import { chunk } from "lodash-es";
 
 export default {
   components: {

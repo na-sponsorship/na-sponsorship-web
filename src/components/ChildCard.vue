@@ -22,7 +22,7 @@
 </template> 
 
 <script>
-import { isNull, isUndefined } from "lodash";
+import { isNull, isUndefined } from "lodash-es";
 import dayjs from 'dayjs';
 import Button from "@components/Button";
 
