@@ -1,5 +1,5 @@
 import Vue from "vue";
-import BootstrapVue from "bootstrap-vue";
+// import BootstrapVue from "bootstrap-vue";
 import Vue2Filters from "vue2-filters";
 
 // Icons
@@ -7,7 +7,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebookF, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import '@assets/css/style.css';
+import '@assets/css/style.scss';
 library.add(faFacebookF, faTwitter, faYoutube);
 
 Vue.component("FAIcon", FontAwesomeIcon);
@@ -18,7 +18,7 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
-Vue.use(BootstrapVue);
+// Vue.use(BootstrapVue);
 Vue.use(Vue2Filters);
 
 new Vue({
