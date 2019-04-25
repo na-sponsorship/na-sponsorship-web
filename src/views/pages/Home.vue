@@ -1,7 +1,8 @@
-<template lang="pug">
-  div
-    div.bg-red asdf
-    div.bg-blue blue here
+<template>
+  <div class="">
+    <div class="bg-blue h-new">red zone</div>
+    <div class="bg-red h-new">red zone</div>
+   </div>
 </template>
 
 
