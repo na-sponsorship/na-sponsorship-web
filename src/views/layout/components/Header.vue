@@ -1,15 +1,37 @@
 <template lang="pug">
-header.u-header.u-header--sticky-top
-  div.g-py-12(:class="{'light-theme': !isScrolling, 'dark-theme g-bg-white u-shadow-v27': isScrolling}")
-    nav.navbar.navbar-expand-lg.g-py-0
-      div.container.g-pos-rel
-        a.js-go-to.navbar-brand.u-header__logo
-          img.g-width-220(:src="logoLight" v-if="!isScrolling")
-          img.g-width-220(:src="logoDark" v-if="isScrolling")
-        div.collapse.navbar-collapse.align-items-center.flex-sm-row
-          ul.navbar-nav.text-uppercase.g-font-weight-700.g-font-size-12.g-pt-20.g-pt-7--lg.ml-auto
-            router-link.nav-item.g-mx-10--lg.g-mb-7.g-mb-0--lg(v-for="item in menu" :to="item.to" exact-active-class="active" tag="li"): a.nav-link.p-0 {{item.label}}
+  div.flex.justify-center.bg-grey-darker.opacity-75.flex-no-wrap
+    div.page-width-contraint
+      div.w-64
+        img.logo(:src="logoDark" v-if="!isScrolling")
+      div.flex-1
+        div.flex.justify-end
+          ul.top-menu
+            router-link(v-for="item in menu" :to="item.to" tag="li" active-class="active")
+              a(href="#") {{item.label}}
 </template>
+
+<style lang="postcss">
+.logo {
+  width: 233px;
+}
+.top-menu {
+  @apply flex;
+  @apply list-reset uppercase;
+}
+
+.top-menu li {
+  @apply mr-5
+}
+
+.top-menu a {
+  @apply text-white;
+  @apply  no-underline text-xs font-semibold;
+}
+
+.top-menu li.active a {
+  @apply text-yellow-dark; 
+}
+</style>
 
 <script>
 export default {
@@ -20,7 +42,7 @@ export default {
       isScrolling: false,
       menu: [
         { label: "Home", to: "/" },
-        { label: "Sponsor a Child", to: "/sponsor" },
+        { label: "Sponsor a Child", to: "/sponsor" }
       ]
     };
   },

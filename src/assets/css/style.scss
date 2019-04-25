@@ -4,3 +4,11 @@
 @import "components/buttons.scss";
 
 @tailwind utilities;
+
+.page-width-contraint {
+    @apply w-4/5 max-w-xl;
+}
+
+html {
+    @apply font-sans;
+}

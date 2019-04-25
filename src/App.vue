@@ -12,10 +12,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-/* @import "~bootstrap/dist/css/bootstrap.css";
-@import "./assets/css/unify.css";
-@import "./assets/css/slick.css";
-@import "./assets/css/styles.op-charity.css";
-@import "~basscss/css/basscss.css"; */
-</style>
