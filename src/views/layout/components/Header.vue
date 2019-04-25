@@ -7,7 +7,7 @@
      <div class="flex-1">
        <div class="flex justify-end">
          <ul class="top-menu">
-           <router-link :to="item.to" tag="li" v-for="(item, index) in menu" v-bind:key="index" active-class="active">
+           <router-link :to="item.to" tag="li" v-for="(item, index) in menu" v-bind:key="index" exact-active-class="active">
             <a href="#">{{item.label}}</a>
            </router-link>
          </ul>
