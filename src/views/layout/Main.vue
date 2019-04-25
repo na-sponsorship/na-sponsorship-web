@@ -1,9 +1,9 @@
 <template lang="pug">
-main
-    Header
-    slot
-    Footer
-
+  div.wrapper
+    div.w-full
+      Header
+      slot
+      Footer
 </template>
 
 <script>
@@ -17,3 +17,9 @@ export default {
   }
 };
 </script>
+
+<style lang="postcss">
+.wrapper {
+  @apply flex flex-row m-0 p-0;
+}
+</style>
