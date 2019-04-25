@@ -1,14 +1,22 @@
-<template lang="pug">
-  div.flex.justify-center.bg-grey-darker.opacity-75.flex-no-wrap
-    div.page-width-contraint
-      div.w-64
-        img.logo(:src="logoDark" v-if="!isScrolling")
-      div.flex-1
-        div.flex.justify-end
-          ul.top-menu
-            router-link(v-for="item in menu" :to="item.to" tag="li" active-class="active")
-              a(href="#") {{item.label}}
+<template>
+  <div class="flex justify-center bg-grey-darker opacity-75 flex-no-wrap">
+   <div class="page-width-contraint">
+     <div class="w-64">
+       <img :src="logoDark"/>
+     </div>
+     <div class="flex-1">
+       <div class="flex justify-end">
+         <ul class="top-menu">
+           <router-link :to="item.to" tag="li" v-for="(item, index) in menu" v-bind:key="index" active-class="active">
+            <a href="#">{{item.label}}</a>
+           </router-link>
+         </ul>
+       </div>
+     </div>
+   </div>
+  </div>
 </template>
+
 
 <style lang="postcss">
 .logo {
