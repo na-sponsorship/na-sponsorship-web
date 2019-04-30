@@ -1,22 +1,38 @@
 <template>
-  <div class="">
-    <div class="bg-grey-darker h-new"></div>
-    <div class="bg-grey-darker h-new"></div>
-   </div>
+  <div class="flex flex-col">
+    <div class="flex-1 bg-gray-400 h-new">
+      <div class="h-27-rem overflow-hidden" :style="headerSyles"></div>
+    </div>
+    <div class="flex-1 bg-gray-100 h-new">
+      put video here
+    </div>
+  </div>
 </template>
 
+<style>
+.h-27-rem {
+  height: 27rem;
+}
+</style>
 
 <script>
 import axios from "axios";
-import BgOverlay from "@components/BgOverlay";
 
 export default {
-  components: {
-    BgOverlay
+  components: {},
+  computed: {
+    headerSyles() {
+      return {
+        backgroundImage: `url(${this.header_image})`,
+        backgroundPosition: "100% 5%",
+        backgroundSize: "cover"
+      };
+    }
   },
   data() {
     return {
-      childrenCount: null
+      childrenCount: null,
+      header_image: require("@assets/img/header.jpg")
     };
   },
   created() {
