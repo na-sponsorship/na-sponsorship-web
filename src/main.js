@@ -1,25 +1,43 @@
 import Vue from "vue";
-// import BootstrapVue from "bootstrap-vue";
 import Vue2Filters from "vue2-filters";
 
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faFacebookF, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import {
+  faTimes,
+  faUser,
+  faGift,
+  faCheckCircle
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookF,
+  faTwitter,
+  faYoutube
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import '@assets/css/style.scss';
-library.add(faFacebookF, faTwitter, faYoutube);
+import "@assets/css/style.css";
+library.add(
+  faFacebookF,
+  faTwitter,
+  faYoutube,
+  faTimes,
+  faUser,
+  faGift,
+  faCheckCircle
+);
 
 Vue.component("FAIcon", FontAwesomeIcon);
 
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import StripePlugin from "./plugins/stripe.plugin";
 
 Vue.config.productionTip = false;
 
-// Vue.use(BootstrapVue);
 Vue.use(Vue2Filters);
+Vue.use(StripePlugin);
 
 new Vue({
   router,

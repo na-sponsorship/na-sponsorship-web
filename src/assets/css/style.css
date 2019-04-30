@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+
+@import "components/buttons.css";
+@import "components/forms.css";
+
+
+.page-width-contraint {
+    @apply w-2/3;
+}
+
+html {
+    @apply font-sans;
+}
+
+@tailwind utilities;
