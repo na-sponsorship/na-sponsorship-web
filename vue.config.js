@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   configureWebpack: {
     resolve: {
@@ -9,12 +11,13 @@ module.exports = {
     sourceMap: true
   },
   devServer: {
+    host: '0.0.0.0',
     proxy: {
-      '/uploads': {
+      "/uploads": {
         target: {
-          host: 'api',
-          protocol: 'http:',
-          port: 1337,
+          host: "api",
+          protocol: "http:",
+          port: 1337
         },
         changeOrigin: true
       }
