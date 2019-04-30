@@ -37,7 +37,7 @@
 }
 
 .top-menu a {
-  @apply text-gray-900;
+  @apply text-white;
   @apply no-underline text-xs font-semibold;
 }
 

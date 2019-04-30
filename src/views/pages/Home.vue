@@ -4,7 +4,7 @@
       <div class="h-30-rem overflow-hidden" :style="headerSyles"></div>
     </div>
     <div class="flex-1 bg-gray-100 h-new">
-      put video here
+      Content here
     </div>
   </div>
 </template>
