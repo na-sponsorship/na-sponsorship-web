@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center bg-grey-darker opacity-75 flex-no-wrap">
-   <div class="page-width-contraint">
+   <div class="page-width-contraint flex items-center">
      <div class="w-64">
        <img :src="logoDark"/>
      </div>

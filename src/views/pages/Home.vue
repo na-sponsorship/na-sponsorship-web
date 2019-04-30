@@ -1,7 +1,7 @@
 <template>
   <div class="">
-    <div class="bg-blue h-new">red zone</div>
-    <div class="bg-red h-new">red zone</div>
+    <div class="bg-grey-darker h-new"></div>
+    <div class="bg-grey-darker h-new"></div>
    </div>
 </template>
 
