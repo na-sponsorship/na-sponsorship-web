@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
-    <div class="flex-1 bg-gray-400 h-new">
-      <div class="h-27-rem overflow-hidden" :style="headerSyles"></div>
+    <div class="flex-1 bg-gray-400 -mt-16">
+      <div class="h-30-rem overflow-hidden" :style="headerSyles"></div>
     </div>
     <div class="flex-1 bg-gray-100 h-new">
       put video here
@@ -10,8 +10,8 @@
 </template>
 
 <style>
-.h-27-rem {
-  height: 27rem;
+.h-30-rem {
+  height: 30rem;
 }
 </style>
 
@@ -24,7 +24,7 @@ export default {
     headerSyles() {
       return {
         backgroundImage: `url(${this.header_image})`,
-        backgroundPosition: "100% 5%",
+        backgroundPosition: "100% 1%",
         backgroundSize: "cover"
       };
     }

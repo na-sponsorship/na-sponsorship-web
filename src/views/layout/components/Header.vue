@@ -2,7 +2,7 @@
   <div class="flex justify-center bg-gray-600 opacity-75 flex-no-wrap">
     <div class="page-width-contraint flex items-center">
       <div class="w-56 p-2">
-        <img :src="logoDark" />
+        <img :src="logoLight" />
       </div>
       <div class="flex-1">
         <div class="flex justify-end">
