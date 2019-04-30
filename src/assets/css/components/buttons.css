@@ -1,0 +1,12 @@
+.btn, .btn:focus {
+  @apply pl-3 pr-3 pt-1 pb-1;
+  @apply text-xs uppercase font-semibold;
+  @apply outline-none;
+}
+.btn-primary {
+  @apply text-black bg-yellow-400 ;
+}
+
+.btn-primary:hover {
+  @apply bg-yellow-300 outline-none;
+}

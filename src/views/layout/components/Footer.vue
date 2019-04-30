@@ -1,13 +1,13 @@
 <template>
-  <div class="bg-grey-darkest text-white pt-4">
+  <div class="footer">
     <div class="flex justify-center">
       <div class="page-width-contraint">
         <div class="flex">
           <div class="flex-1">
-            <h2 class="uppercase text-sm mb-2">Text Widget</h2>
+            <h2>Text Widget</h2>
           </div>
-          <div class="flex-1">
-            <h2 class="upppercase text-sm mb-2">Have a Question?</h2>
+          <div class="flex-none w-370">
+            <h2>Have a Question?</h2>
             <form class="contact-form">
               <input class type="text" placeholder="Your Name" />
               <input class type="text" placeholder="Your Email" />
@@ -17,7 +17,7 @@
                 rows="5"
                 placeholder="Your Message"
               ></textarea>
-              <button class="btn btn-primary float-right">Send</button>
+              <button class="btn btn-primary float-right">Submit</button>
             </form>
           </div>
         </div>
@@ -47,15 +47,26 @@
 </template>
 
 <style lang="postcss">
+.w-370 {
+  width: 370px;
+}
+
+.footer {
+  @apply bg-gray-800 text-white pt-4;
+}
+
+.footer h2 {
+  @apply uppercase text-sm mb-2 font-bold;
+}
 .social-icons {
   width: 25px;
   @apply m-2 p-2 text-2xl;
 }
 .contact-form input,
 .contact-form textarea {
-  @apply mt-2 mb-2 p-2 w-full bg-black;
-  @apply text-grey-light text-sm font-light;
-  @apply border-grey-darker border rounded-sm resize-none outline-none;
+  @apply mt-2 mb-2 p-2 w-full bg-gray-900;
+  @apply text-gray-100 text-sm font-light;
+  @apply rounded-sm resize-none outline-none;
 }
 </style>
 
