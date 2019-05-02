@@ -1,6 +1,21 @@
 <template>
   <div class="flex flex-col">
     <div class="flex-1 bg-gray-400 -mt-16">
+      <div class="absolute w-full h-full z-50 ">
+        <div class="flex flex-row justify-center">
+          <div class="page-width-contraint">
+            <div class="flex mt-48">
+              <div class="bg-black text-white p-2 lbl">Needing Sponsorship</div>
+              <div class="bg-yellow-400 p-2">5</div>
+            </div>
+            <button class="btn btn-lg btn-primary z-0 mt-32">
+              
+              Sponsor a Child
+              </button>
+          </div>
+        </div>
+      </div>
+      <div class="bg-black h-30-rem absolute w-full opacity-35 z-0"></div>
       <div class="h-30-rem overflow-hidden" :style="headerSyles"></div>
     </div>
     <div class="flex-1 bg-gray-100 h-new">
@@ -12,6 +27,10 @@
 <style>
 .h-30-rem {
   height: 30rem;
+}
+
+.lbl::before {
+  @apply border-black;
 }
 </style>
 
