@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col z-50">
-    <div class="flex opacity-50 z-40">
+    <div class="flex opacity-0 z-40">
       <div class="flex-1 bg-gray-600 w-full h-16"></div>
     </div>
     <div class="flex flex-row justify-center flex-no-wrap z-40 -mt-16">
