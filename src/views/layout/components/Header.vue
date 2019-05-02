@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col">
-    <div class="flex opacity-0">
+  <div class="flex flex-col z-50">
+    <div class="flex opacity-50 z-40">
       <div class="flex-1 bg-gray-600 w-full h-16"></div>
     </div>
-    <div class="flex flex-row justify-center flex-no-wrap z-50 -mt-16">
+    <div class="flex flex-row justify-center flex-no-wrap z-40 -mt-16">
       <div class="page-width-contraint flex items-center">
         <div class="w-56 p-2">
           <img :src="logoLight" />
@@ -26,7 +26,6 @@
       </div>
     </div>
   </div>
-  
 </template>
 
 <style lang="postcss">
