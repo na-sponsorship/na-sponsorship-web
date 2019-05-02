@@ -1,26 +1,32 @@
 <template>
-  <div class="flex justify-center bg-gray-600 opacity-75 flex-no-wrap">
-    <div class="page-width-contraint flex items-center">
-      <div class="w-56 p-2">
-        <img :src="logoLight" />
-      </div>
-      <div class="flex-1">
-        <div class="flex justify-end">
-          <ul class="top-menu">
-            <router-link
-              :to="item.to"
-              tag="li"
-              v-for="(item, index) in menu"
-              v-bind:key="index"
-              exact-active-class="active"
-            >
-              <a href="#">{{ item.label }}</a>
-            </router-link>
-          </ul>
+  <div class="flex flex-col">
+    <div class="flex opacity-0">
+      <div class="flex-1 bg-gray-600 w-full h-16"></div>
+    </div>
+    <div class="flex flex-row justify-center flex-no-wrap z-50 -mt-16">
+      <div class="page-width-contraint flex items-center">
+        <div class="w-56 p-2">
+          <img :src="logoLight" />
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-end">
+            <ul class="top-menu">
+              <router-link
+                :to="item.to"
+                tag="li"
+                v-for="(item, index) in menu"
+                v-bind:key="index"
+                exact-active-class="active"
+              >
+                <a href="#">{{ item.label }}</a>
+              </router-link>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  
 </template>
 
 <style lang="postcss">

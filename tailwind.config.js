@@ -173,6 +173,7 @@ module.exports = {
       ]
     },
     fontSize: {
+      xxs: "0.65rem",
       xs: "0.75rem",
       sm: "0.875rem",
       base: "1rem",
@@ -363,6 +364,7 @@ module.exports = {
     opacity: {
       "0": "0",
       "25": "0.25",
+      "35": "0.35",
       "50": "0.5",
       "75": "0.75",
       "100": "1"
