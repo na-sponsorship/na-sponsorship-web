@@ -9,12 +9,11 @@
       </div>
       <div class="flex-none">
         <div>
-          <router-link :to="{ name: 'sponsor', params: { id: child.id } }"
+          <router-link
+            class="btn btn-primary float-right"
+            :to="{ name: 'sponsor', params: { id: child.id } }"
             >Learn More
           </router-link>
-          <button class="btn btn-primary float-right" @click="sponsor(child)">
-            Learn more
-          </button>
         </div>
       </div>
     </div>
