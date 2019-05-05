@@ -6,7 +6,9 @@
     <div class="flex flex-row justify-center flex-no-wrap z-40 -mt-16">
       <div class="page-width-contraint flex items-center">
         <div class="w-56 p-2">
-          <img :src="logoLight" />
+          <router-link to="/">
+            <img :src="logo" />
+          </router-link>
         </div>
         <div class="flex-1">
           <div class="flex justify-end">
@@ -29,9 +31,6 @@
 </template>
 
 <style lang="postcss">
-.logo {
-  width: 233px;
-}
 .top-menu {
   @apply flex;
   @apply list-none uppercase;
@@ -53,6 +52,13 @@
 
 <script>
 export default {
+  computed: {
+    logo() {
+      return this.$route.name === "home"
+        ? require("@assets/img/logo/light@3x.png")
+        : require("@assets/img/logo/dark@3x.png");
+    }
+  },
   data() {
     return {
       logoLight: require("@assets/img/logo/light@3x.png"),
@@ -60,7 +66,7 @@ export default {
       isScrolling: false,
       menu: [
         { label: "Home", to: "/" },
-        { label: "Sponsor a Child", to: "/sponsor" }
+        { label: "Sponsor a Child", to: "/children" }
       ]
     };
   },
