@@ -12,7 +12,10 @@
         </div>
         <div class="flex-1">
           <div class="flex justify-end">
-            <ul class="top-menu">
+            <ul
+              class="top-menu"
+              :class="{ 'top-menu-alt': $route.name !== 'home' }"
+            >
               <router-link
                 :to="item.to"
                 tag="li"
@@ -41,12 +44,16 @@
 }
 
 .top-menu a {
-  @apply text-white;
   @apply no-underline text-xs font-semibold;
+  @apply text-white;
 }
 
 .top-menu li.active a {
   @apply text-yellow-500;
+}
+
+.top-menu-alt a {
+  @apply text-gray-600;
 }
 </style>
 
