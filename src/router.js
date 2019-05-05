@@ -14,13 +14,16 @@ export default new Router({
       component: Home
     },
     {
-      path: "/sponsor",
-      name: "sponsor",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      path: "/children",
+      name: "children",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/pages/Sponsor.vue")
+        import(/* webpackChunkName: "sponsor-list" */ "./views/pages/children/ChildrenList.view.vue")
+    },
+    {
+      path: "/sponsor/:id",
+      name: "sponsor",
+      component: () =>
+        import(/* webpackChunkName: "sponsor-list" */ "./views/pages/children/ChildSponsor.view.vue")
     }
   ]
 });
