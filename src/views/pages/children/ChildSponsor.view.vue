@@ -1,5 +1,9 @@
 <template>
-  <pre>child info here</pre>
+  <div class="flex justify-center">
+    <div class="page-width-contraint">
+      <pre>child info here</pre>
+    </div>
+  </div>
 </template>
 
 <script>

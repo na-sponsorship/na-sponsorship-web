@@ -6,14 +6,20 @@
           <div class="page-width-contraint">
             <div class="flex flex-col mt-48">
               <div>
-                <h1 class="text-3xl text-white mb-5">
-                  Catchy slogan or title here
+                <h1 class="text-3xl text-gray-300 mb-5">
+                  Be the reason someone smiles today
                 </h1>
+              </div>
+              <div class="mt-5 mb-5 opacity-75">
+                <span class="text-gray-300 text-base">
+                  With your help, we can change the life stories of many
+                  children
+                </span>
               </div>
               <div>
                 <div class="flex">
                   <div class="flex">
-                    <div class="labeled-tag">
+                    <div class="labeled-tag text-gray-400">
                       <span class="fa-lg">
                         <FAIcon :icon="['fas', 'caret-right']" />
                       </span>
@@ -23,9 +29,12 @@
                       {{ childrenCount }} children
                     </div>
                   </div>
-                  <button class="btn btn-primary ml-5">
-                    Sponsor now
-                  </button>
+                  <router-link
+                    tag="button"
+                    class="btn btn-primary ml-5"
+                    to="/children"
+                    >Sponsor Now
+                  </router-link>
                 </div>
               </div>
             </div>
