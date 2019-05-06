@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col z-30">
     <div class="flex-1 bg-gray-400 -mt-16">
-      <div class="absolute w-full h-30-rem z-20">
+      <div class="absolute w-full h-40-rem z-20">
         <div class="flex flex-row justify-center">
           <div class="page-width-contraint">
             <div class="flex flex-col mt-48">
@@ -41,8 +41,8 @@
           </div>
         </div>
       </div>
-      <div class="bg-black h-30-rem absolute w-full opacity-45 z-10"></div>
-      <div class="h-30-rem overflow-hidden" :style="headerSyles"></div>
+      <div class="bg-black h-40-rem absolute w-full opacity-45 z-10"></div>
+      <div class="h-40-rem overflow-hidden" :style="headerSyles"></div>
     </div>
     <div class="flex-1 bg-gray-100 h-new">
       Content here
@@ -51,8 +51,8 @@
 </template>
 
 <style>
-.h-30-rem {
-  height: 30rem;
+.h-40-rem {
+  height: 40rem;
 }
 
 .lbl::before {
