@@ -1,12 +1,16 @@
 <template>
   <div class="flex justify-center">
-    <div class="page-width-contraint">
+    <div class="page-width-contraint" v-if="child">
       <div class="flex shadow-lg p-2 m-2">
         <div>
-          <img class="rounded-lg border" :src="child.picture.url" alt="" />
+          <img
+            class="shadow rounded-lg border"
+            :src="child.picture.url"
+            alt=""
+          />
         </div>
         <div class="flex-1 p-2">
-          <table>
+          <table class="child-info">
             <tr>
               <td>Name:</td>
               <td>{{ child.firstName }} {{ child.lastName }}</td>
@@ -26,12 +30,29 @@
           </table>
         </div>
       </div>
-      <div class="flex flex-col">
-        
+      <div class="flex flex-col m-2">
+        <h2>Story</h2>
+        <span>
+          {{ child.story }}
+        </span>
+        <h2>Sponsor {{ child.firstName }}</h2>
+        <div>
+          Sponsoring form here
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<style lang="postcss">
+.child-info > tr td:first-child {
+  @apply text-right uppercase font-bold;
+}
+
+.child-info > tr td {
+  @apply pt-2 pb-2 pl-2;
+}
+</style>
 
 <script>
 import axios from "axios";
