@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vue2Filters from "vue2-filters";
-import VueFilterDateFormat from "vue-filter-date-format"
+import VueFilterDateFormat from "vue-filter-date-format";
 
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
