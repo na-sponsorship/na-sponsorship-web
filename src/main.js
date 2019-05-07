@@ -9,7 +9,8 @@ import {
   faUser,
   faGift,
   faCheckCircle,
-  faCaretRight
+  faCaretRight,
+  faCaretLeft
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -27,7 +28,8 @@ library.add(
   faUser,
   faGift,
   faCheckCircle,
-  faCaretRight
+  faCaretRight,
+  faCaretLeft
 );
 
 Vue.component("FAIcon", FontAwesomeIcon);
