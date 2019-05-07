@@ -35,8 +35,27 @@
           {{ child.story }}
         </span>
         <h2>Sponsor {{ child.firstName }}</h2>
-        <div>
-          Sponsoring form here
+           <div class="flex flex-wrap shadow-lg">
+            <div class="w-2/5 p-1">
+              <div class="text-grey-darker text-center bg-grey-light p-2">
+                <textarea v-model="message" placeholder="First Name"></textarea></div>
+              </div>
+            <div class="w-2/5 p-1">
+              <div class="text-grey-darker text-center bg-grey-light p-2">
+                <textarea v-model="message" placeholder="Last Name"></textarea></div>
+            </div>
+            <div class="w-2/5 p-1">
+              <div class="text-grey-darker text-center bg-grey-light p-2">
+                <textarea v-model="message" placeholder="Email"></textarea></div>
+            </div>
+            <div class="w-2/5 p-1">
+              <div class="text-grey-darker text-center bg-grey-light p-2">
+                <textarea v-model="message" placeholder="Country"></textarea></div>
+            </div>
+</div>
+            
+              
+            </div>
         </div>
       </div>
     </div>
