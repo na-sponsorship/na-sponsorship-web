@@ -9493,6 +9493,11 @@ vue-eslint-parser@^5.0.0:
     esquery "^1.0.1"
     lodash "^4.17.11"
 
+vue-filter-date-format@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/vue-filter-date-format/-/vue-filter-date-format-1.2.5.tgz#c26d4c90e6d5335deade98fd46f779fe81a8baf1"
+  integrity sha512-ASag+tRrdyNR/zGACWIkae6lF1VVJ9JFo1WmxyxXOuNp3fihSBI3HAANof7EakE26ciL0if4zz2z6Z/yWM8J5A==
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"

@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vue2Filters from "vue2-filters";
+import VueFilterDateFormat from "vue-filter-date-format"
 
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -40,6 +41,7 @@ Vue.config.productionTip = false;
 
 Vue.use(Vue2Filters);
 Vue.use(StripePlugin);
+Vue.use(VueFilterDateFormat);
 
 new Vue({
   router,

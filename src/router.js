@@ -20,8 +20,8 @@ export default new Router({
         import(/* webpackChunkName: "sponsor-list" */ "./views/pages/children/ChildrenList.view.vue")
     },
     {
-      path: "/sponsor/:id",
-      name: "sponsor",
+      path: "/children/:id",
+      name: "children.view",
       component: () =>
         import(/* webpackChunkName: "sponsor-list" */ "./views/pages/children/ChildSponsor.view.vue")
     }
