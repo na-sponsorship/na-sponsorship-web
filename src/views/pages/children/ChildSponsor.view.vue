@@ -1,13 +1,12 @@
 <template>
   <div class="flex justify-center">
     <div class="page-width-contraint" v-if="child">
+      <router-link class="btn btn-primary" to="/children">
+        <FAIcon :icon="['fas', 'caret-left']" />&nbsp; All Children
+      </router-link>
       <div class="flex shadow-lg p-2 m-2">
         <div>
-          <img
-            class="shadow rounded-lg border"
-            :src="child.picture.url"
-            alt=""
-          />
+          <img class="shadow rounded-lg border" :src="child.picture.url" />
         </div>
         <div class="flex-1 p-2">
           <table class="child-info">
