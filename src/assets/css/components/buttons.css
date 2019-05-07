@@ -17,3 +17,11 @@
   @apply bg-yellow-300 outline-none;
 }
 
+.labeled-tag {
+  @apply  bg-black text-white p-2 z-50;
+}
+
+.labeled-tag span {
+  @apply float-right text-black;
+  margin-right: -.9rem;
+}

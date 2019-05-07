@@ -1,22 +1,48 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col z-30">
     <div class="flex-1 bg-gray-400 -mt-16">
-      <div class="absolute w-full h-full z-50 ">
+      <div class="absolute w-full h-40-rem z-20">
         <div class="flex flex-row justify-center">
           <div class="page-width-contraint">
-            <div class="flex mt-48">
-              <div class="bg-black text-white p-2 lbl">Needing Sponsorship</div>
-              <div class="bg-yellow-400 p-2">5</div>
+            <div class="flex flex-col mt-48">
+              <div>
+                <h1 class="text-3xl text-gray-300 mb-5">
+                  Be the reason someone smiles today
+                </h1>
+              </div>
+              <div class="mt-5 mb-5 opacity-75">
+                <span class="text-gray-300 text-base">
+                  With your help, we can change the life stories of many
+                  children
+                </span>
+              </div>
+              <div>
+                <div class="flex">
+                  <div class="flex">
+                    <div class="labeled-tag text-gray-400">
+                      <span class="fa-lg">
+                        <FAIcon :icon="['fas', 'caret-right']" />
+                      </span>
+                      Needing Sponsorship
+                    </div>
+                    <div class="bg-yellow-400 pr-3 pl-3 pt-2">
+                      {{ childrenCount }} children
+                    </div>
+                  </div>
+                  <router-link
+                    tag="button"
+                    class="btn btn-primary ml-5"
+                    to="/children"
+                    >Sponsor Now
+                  </router-link>
+                </div>
+              </div>
             </div>
-            <button class="btn btn-lg btn-primary z-0 mt-32">
-              
-              Sponsor a Child
-              </button>
           </div>
         </div>
       </div>
-      <div class="bg-black h-30-rem absolute w-full opacity-35 z-0"></div>
-      <div class="h-30-rem overflow-hidden" :style="headerSyles"></div>
+      <div class="bg-black h-40-rem absolute w-full opacity-45 z-10"></div>
+      <div class="h-40-rem overflow-hidden" :style="headerSyles"></div>
     </div>
     <div class="flex-1 bg-gray-100 h-new">
       Content here
@@ -25,8 +51,8 @@
 </template>
 
 <style>
-.h-30-rem {
-  height: 30rem;
+.h-40-rem {
+  height: 40rem;
 }
 
 .lbl::before {
@@ -43,7 +69,7 @@ export default {
     headerSyles() {
       return {
         backgroundImage: `url(${this.header_image})`,
-        backgroundPosition: "100% 1%",
+        backgroundPosition: "100% 30%",
         backgroundSize: "cover"
       };
     }
