@@ -11,7 +11,7 @@
         <div>
           <router-link
             class="btn btn-primary float-right"
-            :to="{ name: 'sponsor', params: { id: child.id } }"
+            :to="{ name: 'children.view', params: { id: child.id } }"
             >Learn More
           </router-link>
         </div>
