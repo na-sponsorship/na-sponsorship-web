@@ -52,14 +52,11 @@
               <div class="text-grey-darker text-center bg-grey-light p-2">
                 <textarea v-model="message" placeholder="Country"></textarea></div>
             </div>
-</div>
-            
-              
-            </div>
-        </div>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
+ </div>
+  
 </template>
 
 <style lang="postcss">
