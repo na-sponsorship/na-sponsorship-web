@@ -35,28 +35,58 @@
           {{ child.story }}
         </span>
         <h2>Sponsor {{ child.firstName }}</h2>
-           <div class="flex flex-wrap shadow-lg">
-            <div class="w-2/5 p-1">
-              <div class="text-grey-darker text-center bg-grey-light p-2">
-                <textarea v-model="message" placeholder="First Name"></textarea></div>
-              </div>
-            <div class="w-2/5 p-1">
-              <div class="text-grey-darker text-center bg-grey-light p-2">
-                <textarea v-model="message" placeholder="Last Name"></textarea></div>
+        <div class="flex flex-col shadow-lg p-3">
+          <div class="flex">
+            <div>
+              <input v-model="sponsor.firstName" placeholder="First Name" />
             </div>
-            <div class="w-2/5 p-1">
-              <div class="text-grey-darker text-center bg-grey-light p-2">
-                <textarea v-model="message" placeholder="Email"></textarea></div>
+            <div>
+              <input v-model="sponsor.lastName" placeholder="Last Name" />
             </div>
-            <div class="w-2/5 p-1">
-              <div class="text-grey-darker text-center bg-grey-light p-2">
-                <textarea v-model="message" placeholder="Country"></textarea></div>
+          </div>
+          <div class="flex">
+            <div>
+              <input v-model="sponsor.email" placeholder="Email" />
             </div>
-         </div>
+            <div>
+              <select v-model="sponsor.country">
+                <option value="" selected>Select a Country</option>
+                <option
+                  v-for="(country_code, country_name) in countries"
+                  :value="country_code"
+                  :key="country_code"
+                  >{{ country_name }}</option
+                >
+              </select>
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <input v-model="sponsor.address" placeholder="Address" />
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <input v-model="sponsor.city" placeholder="City" />
+            </div>
+            <div>
+              <select v-model="sponsor.state">
+                <option
+                  v-for="(state_code, state_name) in states"
+                  :value="state_code"
+                  :key="state_code"
+                  >{{ state_name }}</option
+                >
+              </select>
+            </div>
+            <div>
+              <input v-model="sponsor.zip" placeholder="Zip" />
+            </div>
+          </div>
+        </div>
       </div>
-   </div>
- </div>
-  
+    </div>
+  </div>
 </template>
 
 <style lang="postcss">
@@ -72,11 +102,25 @@
 <script>
 import axios from "axios";
 import dayjs from "dayjs";
+import countries from "@src/helpers/countries.helper";
+import states from "@src/helpers/states.helper";
 
 export default {
   data() {
     return {
-      child: null
+      countries: countries,
+      states: states,
+      child: null,
+      sponsor: {
+        firstName: null,
+        lastName: null,
+        email: null,
+        country: "",
+        address: null,
+        city: null,
+        state: null,
+        zip: null
+      }
     };
   },
   created() {
