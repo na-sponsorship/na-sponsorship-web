@@ -87,12 +87,13 @@
           <h4>$39.00 per month</h4>
           <div>
             <label for="card-element">
-              Add extra 5$ to the general children's fund?
+              Add extra $5.00 to the general children's fund?
             </label>
             <input type="checkbox" v-model="sponsor.payment.extraMonthly" />
           </div>
           <h3>
-            Total per month: {{ 39.0 + (sponsor.payment.extraMonthly ? 5 : 0) }}
+            Total per month:
+            {{ (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency }}
           </h3>
           <CrediCardForm></CrediCardForm>
         </div>
