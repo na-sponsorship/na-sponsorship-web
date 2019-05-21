@@ -55,7 +55,7 @@
                   v-for="(country_code, country_name) in countries"
                   :value="country_code"
                   :key="country_code"
-                  >{{ country_name }}</option
+                  >{{ country_name | capitalize }}</option
                 >
               </select>
             </div>
@@ -75,7 +75,7 @@
                   v-for="(state_code, state_name) in states"
                   :value="state_code"
                   :key="state_code"
-                  >{{ state_name }}</option
+                  >{{ state_name | lowercase | capitalize }}</option
                 >
               </select>
             </div>
@@ -83,6 +83,18 @@
               <input v-model="sponsor.zip" placeholder="Zip" />
             </div>
           </div>
+          <hr />
+          <h4>$39.00 per month</h4>
+          <div>
+            <label for="card-element">
+              Add extra 5$ to the general children's fund?
+            </label>
+            <input type="checkbox" v-model="sponsor.payment.extraMonthly" />
+          </div>
+          <h3>
+            Total per month: {{ 39.0 + (sponsor.payment.extraMonthly ? 5 : 0) }}
+          </h3>
+          <CrediCardForm></CrediCardForm>
         </div>
       </div>
     </div>
@@ -104,8 +116,10 @@ import axios from "axios";
 import dayjs from "dayjs";
 import countries from "@src/helpers/countries.helper";
 import states from "@src/helpers/states.helper";
+import CrediCardForm from "@components/CreditCardForm";
 
 export default {
+  components: { CrediCardForm },
   data() {
     return {
       countries: countries,
@@ -119,7 +133,11 @@ export default {
         address: null,
         city: null,
         state: null,
-        zip: null
+        zip: null,
+        payment: {
+          token: null,
+          extraMonthly: false
+        }
       }
     };
   },
