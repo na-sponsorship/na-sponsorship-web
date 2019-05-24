@@ -9,7 +9,7 @@
       <div id="card-errors" role="alert"></div>
     </div>
     <button type="button" class="btn-primary" @click.prevent="submit()">
-      Submit Payment
+      Validate Cards
     </button>
   </form>
 </template>
@@ -35,12 +35,13 @@ export default {
     submit() {
       this.$Stripe
         .createToken(card)
-        .then(token => {
-          if (token.error) {
-            console.log(token.error);
+        .then(data => {
+          if (data.error) {
+            console.log(data.error);
             return;
           }
 
+          this.$emit("ontoken", data.token.id);
           // send token to server
         })
         .catch(err => {

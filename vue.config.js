@@ -11,11 +11,11 @@ module.exports = {
     sourceMap: true
   },
   devServer: {
-    host: '0.0.0.0',
+    host: "0.0.0.0",
     proxy: {
       "/uploads": {
         target: {
-          host: "api",
+          host: "0.0.0.0",
           protocol: "http:",
           port: 1337
         },

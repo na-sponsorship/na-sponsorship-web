@@ -73,7 +73,9 @@ export default {
       isScrolling: false,
       menu: [
         { label: "Home", to: "/" },
-        { label: "Sponsor a Child", to: "/children" }
+        { label: "Sponsor a Child", to: "/children" },
+        { label: "Account", to: "/account" },
+        { label: "Login", to: "/login" }
       ]
     };
   },

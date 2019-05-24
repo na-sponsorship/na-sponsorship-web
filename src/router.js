@@ -23,7 +23,13 @@ export default new Router({
       path: "/children/:id",
       name: "children.view",
       component: () =>
-        import(/* webpackChunkName: "sponsor-list" */ "./views/pages/children/ChildSponsor.view.vue")
+        import(/* webpackChunkName: "child-sponsor-view" */ "./views/pages/children/ChildSponsor.view.vue")
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () =>
+        import(/* webpackChunkName: "login-view" */ "./views/pages/Login.view.vue")
     }
   ]
 });
