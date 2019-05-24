@@ -95,7 +95,14 @@
             Total per month:
             {{ (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency }}
           </h3>
-          <CrediCardForm></CrediCardForm>
+          <CrediCardForm @ontoken="setToken"></CrediCardForm>
+          <button
+            type="button"
+            class="btn-primary right mt-2"
+            @click.prevent="startSponsorship(sponsor)"
+          >
+            Start Sponsorships
+          </button>
         </div>
       </div>
     </div>
@@ -135,6 +142,7 @@ export default {
         city: null,
         state: null,
         zip: null,
+        child_id: null,
         payment: {
           token: null,
           extraMonthly: false
@@ -150,11 +158,22 @@ export default {
         // // Create date Objects
         // child.data.dateOfBirth = dayjs(child.data.dateOfBirth);
         this.child = child.data;
+        this.sponsor.child_id = child.data.id;
       });
   },
   methods: {
+    setToken(token) {
+      this.sponsor.payment.token = token;
+    },
     getAge(age) {
       return dayjs().diff(age, "years");
+    },
+    startSponsorship(sponsor) {
+      axios
+        .post(`${process.env.VUE_APP_API}/sponsorChild`, sponsor)
+        .then(() => {
+          console.log("sponsor added");
+        });
     }
   }
 };
