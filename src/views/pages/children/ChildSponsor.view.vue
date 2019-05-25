@@ -49,7 +49,7 @@
               <input v-model="sponsor.email" placeholder="Email" />
             </div>
             <div>
-              <select v-model="sponsor.country">
+              <select v-model="sponsor.address.country">
                 <option value="" selected>Select a Country</option>
                 <option
                   v-for="(country_code, country_name) in countries"
@@ -62,15 +62,15 @@
           </div>
           <div class="flex">
             <div>
-              <input v-model="sponsor.address" placeholder="Address" />
+              <input v-model="sponsor.address.line1" placeholder="Address" />
             </div>
           </div>
           <div class="flex">
             <div>
-              <input v-model="sponsor.city" placeholder="City" />
+              <input v-model="sponsor.address.city" placeholder="City" />
             </div>
             <div>
-              <select v-model="sponsor.state">
+              <select v-model="sponsor.address.state">
                 <option
                   v-for="(state_code, state_name) in states"
                   :value="state_code"
@@ -80,7 +80,7 @@
               </select>
             </div>
             <div>
-              <input v-model="sponsor.zip" placeholder="Zip" />
+              <input v-model="sponsor.address.postal_code" placeholder="Zip" />
             </div>
           </div>
           <hr />
@@ -134,14 +134,16 @@ export default {
       states: states,
       child: null,
       sponsor: {
+        address: {
+          line1: null,
+          city: null,
+          country: null,
+          postal_code: null,
+          state: null
+        },
         firstName: null,
         lastName: null,
         email: null,
-        country: "",
-        address: null,
-        city: null,
-        state: null,
-        zip: null,
         child_id: null,
         payment: {
           token: null,
