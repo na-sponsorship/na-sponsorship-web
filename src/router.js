@@ -35,7 +35,7 @@ export default new Router({
       path: "/account",
       name: "account",
       component: () =>
-        import(/* webpackChunkName: "login-view" */ "./views/pages/Account.view.vue")
+        import(/* webpackChunkName: "account-view" */ "./views/pages/Account.view.vue")
     }
   ]
 });
