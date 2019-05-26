@@ -7,10 +7,10 @@
     </div>
     <div class="flex">
       <div>
-        <input class="w-full py-2 px-20" type="text" name="" id="">
+        <input class="w-full py-2 px-20 border rounded w-full" type="text" name="" id="">
       </div>
-      <div>
-        <button class="bg btn-primary w-full py-2 px-3 mb-2">GET CODE</button>
+      <div class="flex">
+        <button class="bg btn-primary border rounded w-full py-2 px-3 mb-2">GET CODE</button>
       </div>
     </div>
 
