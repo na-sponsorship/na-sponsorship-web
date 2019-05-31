@@ -50,6 +50,13 @@ export default {
       axios.post(`${process.env.VUE_APP_API}/getCode`, { email }).then(() => {
         this.codeRequested = true;
       });
+    },
+    verifyCode(email, code) {
+      axios
+        .post(`${process.env.VUE_APP_API}/verifyCode`, { email, code })
+        .then(() => {
+          this.$router.replace({ name: "account" });
+        });
     }
   }
 };
