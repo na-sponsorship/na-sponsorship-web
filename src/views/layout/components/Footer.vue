@@ -52,7 +52,7 @@
 }
 
 .footer {
-  @apply bg-gray-800 text-white pt-4;
+  @apply bg-gray-400 text-white pt-4;
 }
 
 .footer h2 {
@@ -64,7 +64,7 @@
 }
 .contact-form input,
 .contact-form textarea {
-  @apply mt-2 mb-2 p-2 w-full bg-gray-900;
+  @apply mt-2 mb-2 p-2 w-full bg-gray-400;
   @apply text-gray-100 text-sm font-light;
   @apply rounded-sm resize-none outline-none;
 }

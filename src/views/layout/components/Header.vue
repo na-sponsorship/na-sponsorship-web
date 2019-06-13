@@ -49,11 +49,11 @@
 }
 
 .top-menu li.active a {
-  @apply text-yellow-500;
+  @apply text-yellow-900;
 }
 
 .top-menu-alt a {
-  @apply text-gray-600;
+  @apply text-gray-400;
 }
 </style>
 

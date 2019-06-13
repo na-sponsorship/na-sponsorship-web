@@ -10,11 +10,11 @@
 }
 
 .btn-primary {
-  @apply text-black bg-yellow-400 ;
+  @apply text-white bg-red-500 rounded-lg;
 }
 
 .btn-primary:hover {
-  @apply bg-yellow-300 outline-none;
+  @apply bg-yellow-900 outline-none;
 }
 
 .labeled-tag {
