@@ -7,7 +7,7 @@
 }
 
 .form-group input {
-  @apply appearance-none block w-full bg-gray-200 text-gray-400 border border-red-500 rounded py-3 px-4 mb-3 leading-tight;
+  @apply appearance-none block w-full bg-gray-200 text-gray-400 border border-brown-500 rounded py-3 px-4 mb-3 leading-tight;
 }
 
 .form-group input:focus {

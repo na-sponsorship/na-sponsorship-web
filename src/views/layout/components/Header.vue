@@ -49,7 +49,7 @@
 }
 
 .top-menu li.active a {
-  @apply text-yellow-900;
+  @apply text-yellow-700;
 }
 
 .top-menu-alt a {
