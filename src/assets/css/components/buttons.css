@@ -1,7 +1,11 @@
-.btn, .btn:focus {
+.btn {
   @apply pl-3 pr-3 pt-1 pb-1;
   @apply text-xs uppercase font-semibold;
+
+  &:focus{
   @apply outline-none;
+
+  }
 }
 
 .btn-lg {

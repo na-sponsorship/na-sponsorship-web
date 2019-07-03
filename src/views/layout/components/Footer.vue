@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="bg-brown-500">
     <div class="flex justify-center">
       <div class="page-width-contraint">
         <div class="flex">
@@ -7,7 +7,7 @@
             <h2>Text Widget</h2>
           </div>
           <div class="flex-none w-370">
-            <h2>Have a Question?</h2>
+            <h2 class="text-white">Have a Question?</h2>
             <form class="contact-form">
               <input class type="text" placeholder="Your Name" />
               <input class type="text" placeholder="Your Email" />
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center border-t border-grey-darker mt-4 pt-5 pb-5">
+    <div class="flex justify-center border-t border-grey-darker mt-4 pt-5 pb-5 bg-black text-gray-500 opacity-75 border-gray-600">
       <div class="page-width-contraint">
         <div class="flex items-center">
           <div class="w-3/4 text-center text-grey text-sm">
@@ -51,21 +51,14 @@
   width: 370px;
 }
 
-.footer {
-  @apply bg-gray-400 text-white pt-4;
-}
-
-.footer h2 {
-  @apply uppercase text-sm mb-2 font-bold;
-}
 .social-icons {
   width: 25px;
   @apply m-2 p-2 text-2xl;
 }
 .contact-form input,
 .contact-form textarea {
-  @apply mt-2 mb-2 p-2 w-full bg-gray-400;
-  @apply text-gray-100 text-sm font-light;
+  @apply mt-2 mb-2 p-2 w-full bg-white;
+  @apply text-black text-sm font-light;
   @apply rounded-sm resize-none outline-none;
 }
 </style>
