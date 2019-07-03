@@ -9,26 +9,33 @@
         </div>
       </div>
     </div>
-    <div class="bg-black h-40-rem absolute w-full opacity-45 z-10"></div>
+    <div class="absolute bg-black h-full opacity-50 w-full h-40-rem"></div>
     <div class="h-40-rem overflow-hidden" :style="headerSyles"></div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    headerBg: {
+      type: String,
+      default: "header.jpg"
+    }
+  },
   computed: {
     headerSyles() {
       return {
-        backgroundImage: `url(${this.header_image})`,
+        backgroundImage: `url(${this.headerBg})`,
         backgroundPosition: "100% 30%",
         backgroundSize: "cover"
       };
     }
   },
-  data() {
-    return {
-      header_image: require("@assets/img/header.jpg")
-    };
-  }
 };
 </script>
+
+<style scoped>
+.h-40-rem {
+  height: 40rem;
+}
+</style>

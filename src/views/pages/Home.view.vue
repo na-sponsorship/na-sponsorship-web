@@ -30,10 +30,6 @@
 </template>
 
 <style>
-.h-40-rem {
-  height: 40rem;
-}
-
 .lbl::before {
   @apply border-black;
 }
