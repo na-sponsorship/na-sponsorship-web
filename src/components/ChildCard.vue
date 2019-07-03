@@ -1,13 +1,13 @@
 <template>
   <div class="m-8 w-64 bg-white p-4 rounded rounded-lg shadow-2xl">
-    <div class="flex flex-col content-start">
-      <div class="flex-1 h-48 image">
-        <img class="w-full rounded rounded-lg flex-auto" :src="child.image" />
+    <div class="flex flex-col content-start h-full">
+      <div class="flex-1 h-64">
+        <img class="w-full rounded rounded-lg flex-auto h-full w-full object-cover" :src="child.image" />
       </div>
       <div class="flex-1">
         <div class="flex flex-col h-48">
-          <p class="flex p-2">{{ child.story | truncate(200) | capitalize }}</p>
-          <div class="flex-auto">
+          <p class="flex p-2 h-full story-fade overflow-hidden relative">{{ child.story | capitalize }}</p>
+          <div class="flex-auto mt-2 text-center">
             <router-link
               class="btn btn-primary"
               :to="{ name: 'children.view', params: { id: child.id } }"
@@ -49,30 +49,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.curved {
-  border-radius: 0px 30px 30px 30px;
-}
-.corner {
+<style lang="scss" scoped>
+.story-fade::after {
+  content: " ";
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-}
-.shadow {
-  box-shadow: 6px 9px 11px 0px rgba(0, 0, 0, 0.2) !important;
-}
-.bg-male {
-  background-color: #50bde7 !important;
-
-  &:before {
-    border-right-color: #50bde7 !important;
-  }
-}
-.bg-female {
-  background-color: #de3680 !important;
-
-  &:before {
-    border-right-color: #de3680 !important;
-  }
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient( to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50% );
+  height: 2rem;
 }
 </style>
