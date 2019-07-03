@@ -1,19 +1,22 @@
 <template>
-  <div class="border m-2 p-1 text-white w-64" :class="genderClass">
+  <div class="m-8 w-64 bg-white p-4 rounded rounded-lg shadow-2xl">
     <div class="flex flex-col content-start">
-      <img width="0" class="w-full" :src="child.picture.url" />
-      <div class="flex-none">
-        <p class="antialiased p-2">
-          {{ child.story | truncate(200) | capitalize }}
-        </p>
+      <div class="flex-1 h-48 image">
+        <img class="w-full rounded rounded-lg flex-auto" :src="child.image" />
       </div>
-      <div class="flex-none">
-        <div>
-          <router-link
-            class="btn btn-primary float-right"
-            :to="{ name: 'children.view', params: { id: child.id } }"
-            >Learn More
-          </router-link>
+      <div class="flex-1">
+        <div class="flex flex-col h-48">
+          <p class="flex p-2">{{ child.story | truncate(200) | capitalize }}</p>
+          <div class="flex-auto">
+            <router-link
+              class="btn btn-primary"
+              :to="{ name: 'children.view', params: { id: child.id } }"
+            >Learn More</router-link>
+            <router-link
+              class="btn btn-primary ml-2"
+              :to="{ name: 'children.view', params: { id: child.id } }"
+            >sponsor</router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -24,11 +27,6 @@
 import dayjs from "dayjs";
 
 export default {
-  computed: {
-    genderClass() {
-      return this.child.gender === "male" ? "bg-blue-500" : "bg-red-700";
-    }
-  },
   created() {
     console.log(this.child);
   },

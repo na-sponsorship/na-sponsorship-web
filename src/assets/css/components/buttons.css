@@ -10,18 +10,9 @@
 }
 
 .btn-primary {
-  @apply text-white bg-brown-500 rounded-lg;
+  @apply text-white bg-orange-500 rounded-lg;
 }
 
 .btn-primary:hover {
-  @apply bg-yellow-700 outline-none;
-}
-
-.labeled-tag {
-  @apply  bg-black text-white p-2 z-50;
-}
-
-.labeled-tag span {
-  @apply float-right text-black;
-  margin-right: -.9rem;
+  @apply bg-orange-600 outline-none;
 }
