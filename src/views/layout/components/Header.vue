@@ -7,15 +7,12 @@
       <div class="page-width-contraint flex items-center">
         <div class="w-56 p-2">
           <router-link to="/">
-            <img :src="logo" />
+            <img :src="logoLight" />
           </router-link>
         </div>
         <div class="flex-1">
           <div class="flex justify-end">
-            <ul
-              class="top-menu"
-              :class="{ 'top-menu-alt': $route.name !== 'home' }"
-            >
+            <ul class="top-menu items-center" :class="{ 'top-menu-alt': $route.name !== 'home' }">
               <router-link
                 :to="item.to"
                 tag="li"
@@ -24,6 +21,9 @@
                 exact-active-class="active"
               >
                 <a href="#">{{ item.label }}</a>
+              </router-link>
+              <router-link to="/login" tag="li">
+                <button class="btn btn-primary px-8 py-2" href="#">Login</button>
               </router-link>
             </ul>
           </div>
@@ -49,7 +49,7 @@
 }
 
 .top-menu li.active a {
-  @apply text-orange-700;
+  @apply text-orange-500;
 }
 
 .top-menu-alt a {
@@ -59,23 +59,13 @@
 
 <script>
 export default {
-  computed: {
-    logo() {
-      return this.$route.name === "home"
-        ? require("@assets/img/logo/light@3x.png")
-        : require("@assets/img/logo/dark@3x.png");
-    }
-  },
   data() {
     return {
       logoLight: require("@assets/img/logo/light@3x.png"),
-      logoDark: require("@assets/img/logo/dark@3x.png"),
       isScrolling: false,
       menu: [
         { label: "Home", to: "/" },
-        { label: "Sponsor a Child", to: "/children" },
-        { label: "Account", to: "/account" },
-        { label: "Login", to: "/login" }
+        { label: "Sponsor a Child", to: "/children" }
       ]
     };
   },
