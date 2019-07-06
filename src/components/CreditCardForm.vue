@@ -1,21 +1,28 @@
 <template>
   <form id="credit-card-payment-form">
+    <div class="flex-col">
+      <div class="flex">
+        <div
+          id="card-number"
+          class="flex-1 border border-gray-400 rounded-lg py-3 px-2 my-2 bg-white"
+        ></div>
+      </div>
+      <div class="flex">
+        <div
+          id="card-expiration"
+          class="flex-1 mr-2 border border-gray-400 rounded-lg py-3 px-2 my-2 bg-white"
+        ></div>
+        <div id="card-cvc" class="flex-1 border border-gray-400 rounded-lg py-3 px-2 my-2 bg-white"></div>
+      </div>
+    </div>
     <div class="form-control">
-      <label for="card-element">
-        Credit or debit card
-      </label>
-      <div id="card-element"></div>
-
       <div id="card-errors" role="alert"></div>
     </div>
-    <button type="button" class="btn-primary" @click.prevent="submit()">
-      Validate Cards
-    </button>
   </form>
 </template>
 
 <script>
-let card;
+let card, expiration, cvc;
 
 export default {
   mounted() {
@@ -28,8 +35,13 @@ export default {
       }
     };
 
-    card = elements.create("card", { style });
-    card.mount("#card-element");
+    card = elements.create("cardNumber", { style });
+    expiration = elements.create("cardExpiry", { style });
+    cvc = elements.create("cardCvc", { style });
+
+    card.mount("#card-number");
+    expiration.mount("#card-expiration");
+    cvc.mount("#card-cvc");
   },
   methods: {
     submit() {

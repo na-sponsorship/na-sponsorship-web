@@ -14,4 +14,8 @@ html {
     @apply font-sans;
 }
 
+.text-indent {
+    text-indent: 2em;
+}
+
 @tailwind utilities;

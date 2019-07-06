@@ -1,4 +1,5 @@
 export default {
+  "Select a State": -1,
   ALABAMA: "AL",
   ALASKA: "AK",
   "AMERICAN SAMOA": "AS",

@@ -31,10 +31,9 @@
 
 <script>
 import axios from "axios";
-import hero from "../../../components/Hero";
+import hero from "@components/Hero";
 import ChildCard from "@components/ChildCard";
 import { chunk } from "lodash-es";
-import bgImage from "@assets/img/headers/children.jpg";
 
 export default {
   components: {
@@ -45,7 +44,7 @@ export default {
     return {
       children: [],
       selectedChild: null,
-      bgImage
+      bgImage: require("@assets/img/headers/children.jpg")
     };
   },
   computed: {

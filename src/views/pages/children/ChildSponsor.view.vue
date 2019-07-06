@@ -1,125 +1,147 @@
 <template>
-
-  <div class="flex justify-center">
-    
-    <div class="page-width-contraint" v-if="child">
-      <router-link class="btn btn-primary" to="/children">
-        <FAIcon :icon="['fas', 'caret-left']" />&nbsp; All Children
-      </router-link>
-      <div class="flex shadow-lg p-2 m-2">
-        <div>
-          <img class="shadow rounded-lg border" :src="child.image" />
+  <div>
+    <hero :header-bg="bgImage"></hero>
+    <div class="flex justify-center">
+      <div class="page-width-contraint z-10" v-if="child">
+        <div class="flex shadow-lg -mt-64 bg-white rounded-lg p-3">
+          <div class="flex-1 h-auto">
+            <img class="rounded-lg flex-auto h-full w-full object-cover" :src="child.image" />
+          </div>
+          <div class="flex-1 p-2">
+            <div class="flex flex-col">
+              <div class="px-5">
+                <h2 class="text-4xl font-bold text-gray-700">{{child.firstName}} {{child.lastName}}</h2>
+                <hr class="border border-gray-200" />
+                <p class="text-gray-700 pb-5 text-indent">{{child.story}}</p>
+                <span
+                  class="block uppercase font-semibold text-gray-700 py-1"
+                >Age: {{child.dateOfBirth}}</span>
+                <span
+                  class="block uppercase font-semibold text-gray-700 py-1"
+                >Gender: {{child.gender}}</span>
+                <span
+                  class="block uppercase font-semibold text-gray-700 py-1"
+                >Grade: {{child.grade}}</span>
+                <button class="btn-lg btn-primary my-5 px-12">Sponsor Now</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex-1 p-2">
-          <table class="child-info">
-            <tr>
-              <td>Name:</td>
-              <td>{{ child.firstName }} {{ child.lastName }}</td>
-            </tr>
-            <tr>
-              <td>Gender:</td>
-              <td>{{ child.gender }}</td>
-            </tr>
-            <tr>
-              <td>AGE:</td>
-              <td>{{ getAge(child.dateOfBirth) }} years old</td>
-            </tr>
-            <tr>
-              <td>Grade:</td>
-              <td>{{ child.grade }}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="flex flex-col m-2">
-        <h2>Story</h2>
-        <span>
-          {{ child.story }}
-        </span>
-        <h2>Sponsor {{ child.firstName }}</h2>
-        <div class="flex flex-col shadow-lg p-3">
-          <div class="flex">
-            <div>
-              <input v-model="sponsor.firstName" placeholder="First Name" />
+        <div class="flex flex-col my-5">
+          <div class="flex flex-col px-16 bg-gray-200 rounded-lg shadow-2xl">
+            <span class="text-green-600 text-4xl font-bold my-3">Sponsor Child</span>
+            <span class="uppercase text-sm my-4 font-bold text-gray-700">Your Information</span>
+            <div class="flex mb-3">
+              <div class="flex-1 mr-2">
+                <input
+                  class="form-input w-full"
+                  v-model="sponsor.firstName"
+                  placeholder="First Name"
+                />
+              </div>
+              <div class="flex-1">
+                <input class="form-input w-full" v-model="sponsor.lastName" placeholder="Last Name" />
+              </div>
             </div>
-            <div>
-              <input v-model="sponsor.lastName" placeholder="Last Name" />
+            <div class="flex mb-3">
+              <div class="flex-1">
+                <input class="form-input w-full" v-model="sponsor.email" placeholder="Email" />
+              </div>
+            </div>
+            <div class="flex mb-3">
+              <div class="flex-1">
+                <input
+                  class="form-input w-full"
+                  v-model="sponsor.address.line1"
+                  placeholder="Address"
+                />
+              </div>
+            </div>
+            <div class="flex mb-3">
+              <div class="flex-1 mr-2">
+                <input class="form-input w-full" v-model="sponsor.address.city" placeholder="City" />
+              </div>
+              <div class="flex-1 mr-2">
+                <select class="form-select" v-model="sponsor.address.state">
+                  <option
+                    v-for="(state_code, state_name) in states"
+                    :value="state_code"
+                    :key="state_code"
+                  >{{ state_name | lowercase | capitalize }}</option>
+                </select>
+              </div>
+              <div class="flex-1">
+                <input
+                  class="form-input w-full"
+                  v-model="sponsor.address.postal_code"
+                  placeholder="Zip Code"
+                />
+              </div>
+            </div>
+            <div class="flex my-5">
+              <div class="bg-green-400 p-2 rounded-lg text-white text-xl">
+                <FAIcon class="mx-1" :icon="['fas', 'dollar-sign']" />
+                <span v-if="!oneTimeDonation">35.00/month</span>
+                <input
+                  v-if="oneTimeDonation"
+                  class="form-input rounded-l-none text-black"
+                  placeholder="Donation Amount"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <label class="inline-flex items-center mb-3">
+                <input class="form-checkbox" type="checkbox" v-model="oneTimeDonation" />
+                <span class="ml-3 text-gray-800 font-medium">Make One-Time donation instead</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input class="form-checkbox" type="checkbox" v-model="sponsor.payment.extraMonthly" />
+                <span class="ml-3 text-gray-800 font-medium cursor-pointer">
+                  Add extra $5.00 to the general children's fund?
+                  <FAIcon class="mx-1" :icon="['fas', 'question-circle']" />
+                </span>
+              </label>
+            </div>
+            <span class="uppercase text-sm my-5 font-bold text-gray-700">Payment Information</span>
+            <div class="flex">
+              <div class="flex-1">
+                <label class="inline-flex items-center">
+                  <input
+                    class="form-radio"
+                    type="radio"
+                    value="true"
+                    v-model="selectedPaymentMethod"
+                  />
+                  <span class="ml-2 text-gray-800">Credit Card</span>
+                </label>
+              </div>
+            </div>
+            <CrediCardForm @ontoken="setToken"></CrediCardForm>
+            <div class="flex my-3">
+              <div class="flex-1 text-gray-200 mt-2">
+                <span class="rounded-l-lg bg-green-500 p-2">Donation total:</span>
+                <span
+                  class="text-black ml-2"
+                >{{ (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency }}</span>
+              </div>
+              <div class="flex-1 pt-2 text-right">
+                <FAIcon class="mx-1 text-green-600 text-lg" :icon="['fas', 'shield-alt']" />
+                <span class="text-gray-700">This is a secure SSL payment</span>
+              </div>
+            </div>
+            <div class="flex mt-5 mb-3 pb-3">
+              <button
+                type="button"
+                class="btn btn-primary mt-2 px-6 py-2 text-base"
+                @click.prevent="startSponsorship(sponsor)"
+              >{{oneTimeDonation ? 'Donate' : 'Start Monthly Sponsorship'}}</button>
             </div>
           </div>
-          <div class="flex">
-            <div>
-              <input v-model="sponsor.email" placeholder="Email" />
-            </div>
-            <div>
-              <select v-model="sponsor.address.country">
-                <option value="" selected>Select a Country</option>
-                <option
-                  v-for="(country_code, country_name) in countries"
-                  :value="country_code"
-                  :key="country_code"
-                  >{{ country_name | capitalize }}</option
-                >
-              </select>
-            </div>
-          </div>
-          <div class="flex">
-            <div>
-              <input v-model="sponsor.address.line1" placeholder="Address" />
-            </div>
-          </div>
-          <div class="flex">
-            <div>
-              <input v-model="sponsor.address.city" placeholder="City" />
-            </div>
-            <div>
-              <select v-model="sponsor.address.state">
-                <option
-                  v-for="(state_code, state_name) in states"
-                  :value="state_code"
-                  :key="state_code"
-                  >{{ state_name | lowercase | capitalize }}</option
-                >
-              </select>
-            </div>
-            <div>
-              <input v-model="sponsor.address.postal_code" placeholder="Zip" />
-            </div>
-          </div>
-          <hr />
-          <h4>$39.00 per month</h4>
-          <div>
-            <label for="card-element">
-              Add extra $5.00 to the general children's fund?
-            </label>
-            <input type="checkbox" v-model="sponsor.payment.extraMonthly" />
-          </div>
-          <h3>
-            Total per month:
-            {{ (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency }}
-          </h3>
-          <CrediCardForm @ontoken="setToken"></CrediCardForm>
-          <button
-            type="button"
-            class="btn-primary right mt-2"
-            @click.prevent="startSponsorship(sponsor)"
-          >
-            Start Sponsorships
-          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<style lang="postcss">
-.child-info > tr td:first-child {
-  @apply text-right uppercase font-bold;
-}
-
-.child-info > tr td {
-  @apply pt-2 pb-2 pl-2;
-}
-</style>
 
 <script>
 import axios from "axios";
@@ -127,21 +149,26 @@ import dayjs from "dayjs";
 import countries from "@src/helpers/countries.helper";
 import states from "@src/helpers/states.helper";
 import CrediCardForm from "@components/CreditCardForm";
+import hero from "@components/Hero";
 
 export default {
-  components: { CrediCardForm },
+  components: { CrediCardForm, hero },
   data() {
     return {
+      bgImage: require("@assets/img/headers/children.jpg"),
       countries: countries,
       states: states,
+      paymentMethods: ["card", "ach"],
+      selectedPaymentMethod: "true",
       child: null,
+      oneTimeDonation: false,
       sponsor: {
         address: {
           line1: null,
           city: null,
           country: null,
           postal_code: null,
-          state: null
+          state: -1
         },
         firstName: null,
         lastName: null,
