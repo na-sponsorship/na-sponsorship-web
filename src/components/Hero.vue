@@ -30,7 +30,7 @@ export default {
         backgroundSize: "cover"
       };
     }
-  },
+  }
 };
 </script>
 

@@ -5,32 +5,46 @@
       <div class="page-width-contraint z-10" v-if="child">
         <div class="flex shadow-lg -mt-64 bg-white rounded-lg p-3">
           <div class="flex-initial w-1/4 h-auto">
-            <img class="rounded-lg flex-auto h-full w-full object-cover" :src="child.image" />
+            <img
+              class="rounded-lg flex-auto h-full w-full object-cover"
+              :src="child.image"
+            />
           </div>
           <div class="flex-1 p-2">
             <div class="flex flex-col">
               <div class="px-5">
-                <h2 class="text-4xl font-bold text-gray-700">{{child.firstName}} {{child.lastName}}</h2>
+                <h2 class="text-4xl font-bold text-gray-700">
+                  {{ child.firstName | lowercase | capitalize }}
+                  {{ child.lastName | lowercase | capitalize }}
+                </h2>
                 <hr class="border border-gray-200" />
-                <p class="text-gray-700 pb-5 text-indent">{{child.story}}</p>
-                <span
-                  class="block uppercase font-semibold text-gray-700 py-1"
-                >Age: {{child.dateOfBirth}}</span>
-                <span
-                  class="block uppercase font-semibold text-gray-700 py-1"
-                >Gender: {{child.gender}}</span>
-                <span
-                  class="block uppercase font-semibold text-gray-700 py-1"
-                >Grade: {{child.grade}}</span>
-                <button class="btn-lg btn-primary my-5 px-12">Sponsor Now</button>
+                <p class="text-gray-700 pb-5 text-indent">
+                  {{ child.story | capitalize({ onlyFirstLetter: true }) }}
+                </p>
+                <span class="block uppercase font-semibold text-gray-700 py-1"
+                  >Age: {{ child.dateOfBirth }}</span
+                >
+                <span class="block uppercase font-semibold text-gray-700 py-1"
+                  >Gender: {{ child.gender }}</span
+                >
+                <span class="block uppercase font-semibold text-gray-700 py-1"
+                  >Grade: {{ child.grade }}</span
+                >
+                <button class="btn-lg btn-primary my-5 px-12">
+                  Sponsor Now
+                </button>
               </div>
             </div>
           </div>
         </div>
         <div class="flex flex-col my-5">
           <div class="flex flex-col px-16 bg-gray-200 rounded-lg shadow-2xl">
-            <span class="text-green-600 text-4xl font-bold my-3">Sponsor Child</span>
-            <span class="uppercase text-sm my-4 font-bold text-gray-700">Your Information</span>
+            <span class="text-green-600 text-4xl font-bold my-3"
+              >Sponsor Child</span
+            >
+            <span class="uppercase text-sm my-4 font-bold text-gray-700"
+              >Your Information</span
+            >
             <div class="flex mb-3">
               <div class="flex-1 mr-2">
                 <input
@@ -40,12 +54,20 @@
                 />
               </div>
               <div class="flex-1">
-                <input class="form-input w-full" v-model="sponsor.lastName" placeholder="Last Name" />
+                <input
+                  class="form-input w-full"
+                  v-model="sponsor.lastName"
+                  placeholder="Last Name"
+                />
               </div>
             </div>
             <div class="flex mb-3">
               <div class="flex-1">
-                <input class="form-input w-full" v-model="sponsor.email" placeholder="Email" />
+                <input
+                  class="form-input w-full"
+                  v-model="sponsor.email"
+                  placeholder="Email"
+                />
               </div>
             </div>
             <div class="flex mb-3">
@@ -59,7 +81,11 @@
             </div>
             <div class="flex mb-3">
               <div class="flex-1 mr-2">
-                <input class="form-input w-full" v-model="sponsor.address.city" placeholder="City" />
+                <input
+                  class="form-input w-full"
+                  v-model="sponsor.address.city"
+                  placeholder="City"
+                />
               </div>
               <div class="flex-1 mr-2">
                 <select class="form-select" v-model="sponsor.address.state">
@@ -67,7 +93,8 @@
                     v-for="(state_code, state_name) in states"
                     :value="state_code"
                     :key="state_code"
-                  >{{ state_name | lowercase | capitalize }}</option>
+                    >{{ state_name | lowercase | capitalize }}</option
+                  >
                 </select>
               </div>
               <div class="flex-1">
@@ -91,18 +118,30 @@
             </div>
             <div class="flex flex-col">
               <label class="inline-flex items-center mb-3">
-                <input class="form-checkbox" type="checkbox" v-model="oneTimeDonation" />
-                <span class="ml-3 text-gray-800 font-medium">Make One-Time donation instead</span>
+                <input
+                  class="form-checkbox"
+                  type="checkbox"
+                  v-model="oneTimeDonation"
+                />
+                <span class="ml-3 text-gray-800 font-medium"
+                  >Make One-Time donation instead</span
+                >
               </label>
               <label class="inline-flex items-center">
-                <input class="form-checkbox" type="checkbox" v-model="sponsor.payment.extraMonthly" />
+                <input
+                  class="form-checkbox"
+                  type="checkbox"
+                  v-model="sponsor.payment.extraMonthly"
+                />
                 <span class="ml-3 text-gray-800 font-medium cursor-pointer">
                   Add extra $5.00 to the general children's fund?
                   <FAIcon class="mx-1" :icon="['fas', 'question-circle']" />
                 </span>
               </label>
             </div>
-            <span class="uppercase text-sm my-5 font-bold text-gray-700">Payment Information</span>
+            <span class="uppercase text-sm my-5 font-bold text-gray-700"
+              >Payment Information</span
+            >
             <div class="flex">
               <div class="flex-1">
                 <label class="inline-flex items-center">
@@ -119,13 +158,18 @@
             <CrediCardForm @ontoken="setToken"></CrediCardForm>
             <div class="flex my-3">
               <div class="flex-1 text-gray-200 mt-2">
-                <span class="rounded-l-lg bg-green-500 p-2">Donation total:</span>
-                <span
-                  class="text-black ml-2"
-                >{{ (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency }}</span>
+                <span class="rounded-l-lg bg-green-500 p-2"
+                  >Donation total:</span
+                >
+                <span class="text-black ml-2">{{
+                  (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency
+                }}</span>
               </div>
               <div class="flex-1 pt-2 text-right">
-                <FAIcon class="mx-1 text-green-600 text-lg" :icon="['fas', 'shield-alt']" />
+                <FAIcon
+                  class="mx-1 text-green-600 text-lg"
+                  :icon="['fas', 'shield-alt']"
+                />
                 <span class="text-gray-700">This is a secure SSL payment</span>
               </div>
             </div>
@@ -134,7 +178,9 @@
                 type="button"
                 class="btn btn-primary mt-2 px-6 py-2 text-base"
                 @click.prevent="startSponsorship(sponsor)"
-              >{{oneTimeDonation ? 'Donate' : 'Start Monthly Sponsorship'}}</button>
+              >
+                {{ oneTimeDonation ? "Donate" : "Start Monthly Sponsorship" }}
+              </button>
             </div>
           </div>
         </div>
@@ -209,4 +255,3 @@ export default {
   }
 };
 </script>
-

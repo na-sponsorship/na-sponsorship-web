@@ -1,6 +1,9 @@
 <template>
   <div class="flex justify-center mb-10 mt-10">
-    <div class="page-width-contraint flex-col shadow-lg p-3" v-if="!codeRequested">
+    <div
+      class="page-width-contraint flex-col shadow-lg p-3"
+      v-if="!codeRequested"
+    >
       <div class="">
         <h1 class="font-medium text-4xl">Secure Donation</h1>
         <p class="text-lg mb-4">
@@ -25,7 +28,10 @@
         </div>
       </div>
     </div>
-    <div class="page-width-contraint flex-col shadow-lg p-3" v-if="codeRequested">
+    <div
+      class="page-width-contraint flex-col shadow-lg p-3"
+      v-if="codeRequested"
+    >
       <div class="">
         <h1 class="font-medium text-4xl">Verify code</h1>
         <p class="text-lg mb-4">
@@ -50,7 +56,6 @@
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -64,9 +69,9 @@ export default {
     return {
       data: {
         email: null,
-        verifycationCode: null,
+        verifycationCode: null
       },
-      codeRequested:true
+      codeRequested: true
     };
   },
   methods: {
@@ -77,13 +82,7 @@ export default {
     },
     verifyCode(email, code) {
       this.$router.replace({ name: "account" });
-      axios
-        .post(`${process.env.VUE_APP_API}/verifyCode`, { email, code })
-        .then((isValid) => {
-          if(isValid){
-
-          }
-        });
+      axios.post(`${process.env.VUE_APP_API}/verifyCode`, { email, code });
     }
   }
 };

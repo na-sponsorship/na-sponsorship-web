@@ -2,17 +2,11 @@
   <form id="credit-card-payment-form">
     <div class="flex-col">
       <div class="flex">
-        <div
-          id="card-number"
-          class="flex-1 border border-gray-400 rounded-lg py-3 px-2 my-2 bg-white"
-        ></div>
+        <div id="card-number" class="flex-1 stripe-field"></div>
       </div>
       <div class="flex">
-        <div
-          id="card-expiration"
-          class="flex-1 mr-2 border border-gray-400 rounded-lg py-3 px-2 my-2 bg-white"
-        ></div>
-        <div id="card-cvc" class="flex-1 border border-gray-400 rounded-lg py-3 px-2 my-2 bg-white"></div>
+        <div id="card-expiration" class="flex-1 mr-2 stripe-field"></div>
+        <div id="card-cvc" class="flex-1 stripe-field"></div>
       </div>
     </div>
     <div class="form-control">
@@ -20,6 +14,14 @@
     </div>
   </form>
 </template>
+
+<style lang="postcss" scoped>
+#credit-card-payment-form {
+  .stripe-field {
+    @apply border border-gray-400 rounded-lg py-3 px-2 my-2 bg-white;
+  }
+}
+</style>
 
 <script>
 let card, expiration, cvc;

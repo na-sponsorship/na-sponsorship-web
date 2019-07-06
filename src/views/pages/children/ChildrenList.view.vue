@@ -58,7 +58,6 @@ export default {
     }
   },
   created() {
-    var elements = this.$Stripe.elements();
     axios.get(process.env.VUE_APP_API + "/children").then(children => {
       this.children = children.data;
     });

@@ -12,7 +12,10 @@
         </div>
         <div class="flex-1">
           <div class="flex justify-end">
-            <ul class="top-menu items-center" :class="{ 'top-menu-alt': $route.name !== 'home' }">
+            <ul
+              class="top-menu items-center"
+              :class="{ 'top-menu-alt': $route.name !== 'home' }"
+            >
               <router-link
                 :to="item.to"
                 tag="li"
@@ -23,7 +26,9 @@
                 <a href="#">{{ item.label }}</a>
               </router-link>
               <router-link to="/login" tag="li">
-                <button class="btn btn-primary px-8 py-2" href="#">Login</button>
+                <button class="btn btn-primary px-8 py-2" href="#">
+                  Login
+                </button>
               </router-link>
             </ul>
           </div>
