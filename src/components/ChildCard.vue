@@ -34,9 +34,6 @@
 import dayjs from "dayjs";
 
 export default {
-  created() {
-    console.log(this.child);
-  },
   props: {
     child: {
       type: Object

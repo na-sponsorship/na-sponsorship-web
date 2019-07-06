@@ -47,21 +47,14 @@ export default {
   },
   methods: {
     submit() {
-      this.$Stripe
-        .createToken(card)
-        .then(data => {
-          if (data.error) {
-            console.log(data.error);
-            return;
-          }
+      this.$Stripe.createToken(card).then(data => {
+        if (data.error) {
+          return;
+        }
 
-          this.$emit("ontoken", data.token.id);
-          // send token to server
-        })
-        .catch(err => {
-          debugger;
-          console.log(err);
-        });
+        this.$emit("ontoken", data.token.id);
+        // send token to server
+      });
     }
   }
 };

@@ -246,11 +246,7 @@ export default {
       return dayjs().diff(age, "years");
     },
     startSponsorship(sponsor) {
-      axios
-        .post(`${process.env.VUE_APP_API}/sponsorChild`, sponsor)
-        .then(() => {
-          console.log("sponsor added");
-        });
+      axios.post(`${process.env.VUE_APP_API}/sponsorChild`, sponsor);
     }
   }
 };
