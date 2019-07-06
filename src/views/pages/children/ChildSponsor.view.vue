@@ -244,9 +244,6 @@ export default {
     setToken(token) {
       this.sponsor.payment.token = token;
     },
-    getAge(birthday) {
-      return dayjs().diff(age, "years");
-    },
     startSponsorship(sponsor) {
       axios.post(`${process.env.VUE_APP_API}/sponsorChild`, sponsor);
     }
