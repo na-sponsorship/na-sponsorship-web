@@ -22,7 +22,7 @@
                   {{ child.story | capitalize({ onlyFirstLetter: true }) }}
                 </p>
                 <span class="block uppercase font-semibold text-gray-700 py-1"
-                  >Age: {{ child.dateOfBirth }}</span
+                  >Age: {{ age }} {{ age | pluralize("year") }} old</span
                 >
                 <span class="block uppercase font-semibold text-gray-700 py-1"
                   >Gender: {{ child.gender }}</span
@@ -231,18 +231,20 @@ export default {
     axios
       .get(`${process.env.VUE_APP_API}/children/${this.$route.params.id}`)
       .then(child => {
-        // var d = dayjs;
-        // // Create date Objects
-        // child.data.dateOfBirth = dayjs(child.data.dateOfBirth);
         this.child = child.data;
         this.sponsor.child_id = child.data.id;
       });
+  },
+  computed: {
+    age() {
+      return dayjs().diff(this.child.dateOfBirth, "years");
+    }
   },
   methods: {
     setToken(token) {
       this.sponsor.payment.token = token;
     },
-    getAge(age) {
+    getAge(birthday) {
       return dayjs().diff(age, "years");
     },
     startSponsorship(sponsor) {
