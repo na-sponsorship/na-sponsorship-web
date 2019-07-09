@@ -13,14 +13,14 @@
         'btn ': currentPage != page
       }"
       v-for="page in pages"
-      :key="page" 
+      :key="page"
       @click="$emit('on-page-navigate', page)"
     >
       {{ page }}
     </button>
     <button
       :disabled="currentPage == pages"
-      class="btn btn-secondary ml-3" 
+      class="btn btn-secondary ml-3"
       @click="$emit('on-page-navigate', currentPage + 1)"
     >
       Next
