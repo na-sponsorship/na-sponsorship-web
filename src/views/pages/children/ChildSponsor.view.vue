@@ -127,17 +127,23 @@
                   >Make One-Time donation instead</span
                 >
               </label>
-              <label class="inline-flex items-center">
-                <input
-                  class="form-checkbox"
-                  type="checkbox"
-                  v-model="sponsor.payment.extraMonthly"
+              <div class="flex items-center">
+                <label class="inline-flex items-center">
+                  <input
+                    class="form-checkbox"
+                    type="checkbox"
+                    v-model="sponsor.payment.extraMonthly"
+                  />
+                  <span class="ml-3 text-gray-800 font-medium cursor-pointer">
+                    Add extra $5.00 to the general children's fund?
+                  </span>
+                </label>
+                <FAIcon
+                  v-tooltip="'This amount will support the ministry as a whole'"
+                  class="mx-2 cursor-pointer"
+                  :icon="['fas', 'question-circle']"
                 />
-                <span class="ml-3 text-gray-800 font-medium cursor-pointer">
-                  Add extra $5.00 to the general children's fund?
-                  <FAIcon class="mx-1" :icon="['fas', 'question-circle']" />
-                </span>
-              </label>
+              </div>
             </div>
             <span class="uppercase text-sm my-5 font-bold text-gray-700"
               >Payment Information</span
