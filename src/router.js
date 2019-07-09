@@ -16,6 +16,9 @@ export default new Router({
     {
       path: "/children",
       name: "children",
+      query: {
+        page: 1
+      },
       component: () =>
         import(/* webpackChunkName: "sponsor-list" */ "./views/pages/children/ChildrenList.view.vue")
     },

@@ -2,9 +2,14 @@
   @apply pl-3 pr-3 pt-1 pb-1;
   @apply text-xs uppercase font-semibold;
 
-  &:focus{
-  @apply outline-none;
+  &:focus {
+    @apply outline-none;
+  }
 
+  &[disabled] {
+    @apply bg-green-400;
+    @apply text-gray-200;
+    @apply cursor-auto;
   }
 }
 
@@ -15,16 +20,16 @@
 
 .btn-primary {
   @apply text-white bg-orange-500 rounded-lg;
-}
 
-.btn-primary:hover {
-  @apply bg-orange-600 outline-none;
+  &:hover {
+    @apply bg-orange-600 outline-none;
+  }
 }
 
 .btn-secondary {
   @apply text-white bg-green-500 rounded-lg;
-}
 
-.btn-secondary:hover {
-  @apply bg-green-600 outline-none;
+  &:hover:enabled {
+    @apply bg-green-600 outline-none;
+  }
 }

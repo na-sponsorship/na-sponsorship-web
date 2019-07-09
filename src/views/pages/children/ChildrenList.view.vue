@@ -19,10 +19,32 @@
           </div>
         </div>
         <div class="flex justify-center my-10">
-          <button class="btn btn-secondary mx-2">Previous</button>
-          <button class="btn btn-secondary mx-2">1</button>
-          <button class="mx-2 font-bold text-gray-700">2</button>
-          <button class="btn btn-secondary mx-2">Next</button>
+          <button
+            :disabled="pagination.currentPage <= 1"
+            class="btn btn-secondary mr-6"
+            @click="goToPage(pagination.currentPage - 1)"
+          >
+            Previous
+          </button>
+          <button
+            class="mx-2"
+            :class="{
+              'btn btn-secondary': pagination.currentPage == page,
+              'font-bold text-gray-700': pagination.currentPage != page
+            }"
+            v-for="page in pagination.pageCount"
+            :key="page"
+            @click="goToPage(page)"
+          >
+            {{ page }}
+          </button>
+          <button
+            :disabled="pagination.currentPage == pagination.pageCount"
+            class="btn btn-secondary ml-6"
+            @click="goToPage(pagination.currentPage + 1)"
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>
@@ -33,7 +55,7 @@
 import axios from "axios";
 import hero from "@components/Hero";
 import ChildCard from "@components/ChildCard";
-import { chunk } from "lodash-es";
+import { chunk, get } from "lodash-es";
 
 export default {
   components: {
@@ -44,7 +66,12 @@ export default {
     return {
       children: [],
       selectedChild: null,
-      bgImage: require("@assets/img/headers/children.jpg")
+      bgImage: require("@assets/img/headers/children.jpg"),
+      pagination: {
+        currentPage: null,
+        totalItems: null,
+        pageCount: null
+      }
     };
   },
   computed: {
@@ -53,14 +80,31 @@ export default {
     }
   },
   methods: {
+    goToPage(page) {
+      this.$router.push({ path: "/children", query: { page } });
+    },
+
+    loadPage(page) {
+      axios
+        .get(`${process.env.VUE_APP_API}/children?page=${page}`)
+        .then(children => {
+          this.children = children.data.items;
+          this.pagination.pageCount = children.data.pageCount;
+          this.pagination.totalItems = children.data.totalItems;
+
+          if (this.children.length === 0) {
+            this.$router.replace({ path: "/children" });
+          }
+        });
+    },
     sponsor(child) {
       this.selectedChild = child;
     }
   },
   created() {
-    axios.get(process.env.VUE_APP_API + "/children").then(children => {
-      this.children = children.data;
-    });
+    this.pagination.currentPage = get(this, "$route.query.page", 1);
+
+    this.loadPage(this.pagination.currentPage);
   },
   mounted() {}
 };
