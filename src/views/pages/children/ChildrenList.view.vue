@@ -19,32 +19,11 @@
           </div>
         </div>
         <div class="flex justify-center my-10">
-          <button
-            :disabled="pagination.currentPage <= 1"
-            class="btn btn-secondary mr-6"
-            @click="goToPage(pagination.currentPage - 1)"
-          >
-            Previous
-          </button>
-          <button
-            class="mx-2"
-            :class="{
-              'btn btn-secondary': pagination.currentPage == page,
-              'font-bold text-gray-700': pagination.currentPage != page
-            }"
-            v-for="page in pagination.pageCount"
-            :key="page"
-            @click="goToPage(page)"
-          >
-            {{ page }}
-          </button>
-          <button
-            :disabled="pagination.currentPage == pagination.pageCount"
-            class="btn btn-secondary ml-6"
-            @click="goToPage(pagination.currentPage + 1)"
-          >
-            Next
-          </button>
+          <Pagination
+            :pages="pagination.pageCount"
+            :currentPage="pagination.currentPage"
+            @on-page-navigate="goToPage"
+          ></Pagination>
         </div>
       </div>
     </div>
@@ -55,10 +34,12 @@
 import axios from "axios";
 import hero from "@components/Hero";
 import ChildCard from "@components/ChildCard";
+import Pagination from "@components/Pagination";
 import { chunk, get } from "lodash-es";
 
 export default {
   components: {
+    Pagination,
     ChildCard,
     hero
   },
@@ -102,7 +83,7 @@ export default {
     }
   },
   created() {
-    this.pagination.currentPage = get(this, "$route.query.page", 1);
+    this.pagination.currentPage = parseInt(get(this, "$route.query.page", 1));
 
     this.loadPage(this.pagination.currentPage);
   },
