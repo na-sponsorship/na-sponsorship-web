@@ -8,7 +8,7 @@ module.exports = {
     },
     plugins: [
       new ImageminPlugin({
-        disable: process.env.NODE_ENV === "production",
+        disable: process.env.NODE_ENV !== "production",
         plugins: [
           imageminMozjpeg({
             quality: 75,
