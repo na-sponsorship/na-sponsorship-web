@@ -108,7 +108,7 @@
             <div class="flex my-5">
               <div class="bg-green-400 p-2 rounded-lg text-white text-xl">
                 <FAIcon class="mx-1" :icon="['fas', 'dollar-sign']" />
-                <span v-if="!oneTimeDonation">35.00/month</span>
+                <span v-if="!oneTimeDonation">39.00/month</span>
                 <input
                   v-if="oneTimeDonation"
                   class="form-input rounded-l-none text-black"
