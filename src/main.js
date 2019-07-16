@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vue2Filters from "vue2-filters";
 import VueFilterDateFormat from "vue-filter-date-format";
 import VTooltip from "v-tooltip";
+import Vuelidate from "vuelidate";
 
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -52,7 +53,7 @@ Vue.use(Vue2Filters);
 Vue.use(StripePlugin);
 Vue.use(VueFilterDateFormat);
 Vue.use(VTooltip);
-
+Vue.use(Vuelidate);
 new Vue({
   router,
   store,

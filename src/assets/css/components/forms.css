@@ -1,15 +1,24 @@
 .form-group {
-  @apply flex flex-wrap mb-6 -mx-3;
-}
+  &.is-valid {
+    input, select {
+      @apply border-green-500 border-2;
 
-.form-group label {
-  @apply block uppercase tracking-wide text-gray-400 text-xs font-bold mb-2;
-}
+      &:focus {
+        @apply shadow-none;
+      }
+    }  
+  }
 
-.form-group input {
-  @apply appearance-none block w-full bg-gray-200 text-gray-400 border border-brown-500 rounded py-3 px-4 mb-3 leading-tight;
-}
+  &.has-error {
+    input, select {
+      @apply border-red-500;
 
-.form-group input:focus {
-  @apply outline-none bg-white;
+      &:focus {
+        @apply shadow-none;
+      }
+    }
+    .error {
+      @apply text-red-500 font-medium;
+    }
+  }
 }

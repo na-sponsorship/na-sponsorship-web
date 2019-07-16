@@ -46,48 +46,138 @@
               >Your Information</span
             >
             <div class="flex mb-3">
-              <div class="flex-1 mr-2">
+              <div
+                class="flex-1 mr-2 form-group"
+                :class="{
+                  'has-error': $v.sponsor.firstName.$error,
+                  'is-valid':
+                    $v.sponsor.firstName.$dirty &&
+                    !$v.sponsor.firstName.$invalid
+                }"
+              >
                 <input
                   class="form-input w-full"
-                  v-model="sponsor.firstName"
+                  v-model="$v.sponsor.firstName.$model"
                   placeholder="First Name"
                 />
+                <div
+                  class="error"
+                  v-if="
+                    !$v.sponsor.firstName.required &&
+                      $v.sponsor.firstName.$dirty
+                  "
+                >
+                  Please enter a first name
+                </div>
               </div>
-              <div class="flex-1">
+              <div
+                class="flex-1 form-group"
+                :class="{
+                  'has-error': $v.sponsor.lastName.$error,
+                  'is-valid':
+                    $v.sponsor.lastName.$dirty && !$v.sponsor.lastName.$invalid
+                }"
+              >
                 <input
                   class="form-input w-full"
-                  v-model="sponsor.lastName"
+                  v-model="$v.sponsor.lastName.$model"
                   placeholder="Last Name"
                 />
+                <div
+                  class="error"
+                  v-if="
+                    !$v.sponsor.lastName.required && $v.sponsor.lastName.$dirty
+                  "
+                >
+                  Please enter a last name
+                </div>
               </div>
             </div>
             <div class="flex mb-3">
-              <div class="flex-1">
+              <div
+                class="flex-1 form-group"
+                :class="{
+                  'has-error': $v.sponsor.email.$error,
+                  'is-valid':
+                    $v.sponsor.email.$dirty && !$v.sponsor.email.$invalid
+                }"
+              >
                 <input
                   class="form-input w-full"
-                  v-model="sponsor.email"
+                  v-model="$v.sponsor.email.$model"
                   placeholder="Email"
                 />
+                <div
+                  class="error"
+                  v-if="!$v.sponsor.email.required && $v.sponsor.email.$dirty"
+                >
+                  Please enter an email
+                </div>
+                <div class="error" v-if="!$v.sponsor.email.email">
+                  Please enter a valid email address
+                </div>
               </div>
             </div>
             <div class="flex mb-3">
-              <div class="flex-1">
+              <div
+                class="flex-1 form-group"
+                :class="{
+                  'has-error': $v.sponsor.address.line1.$error,
+                  'is-valid':
+                    $v.sponsor.address.line1.$dirty &&
+                    !$v.sponsor.address.line1.$invalid
+                }"
+              >
                 <input
                   class="form-input w-full"
-                  v-model="sponsor.address.line1"
+                  v-model="$v.sponsor.address.line1.$model"
                   placeholder="Address"
                 />
+                <div
+                  class="error"
+                  v-if="
+                    !$v.sponsor.address.line1.required &&
+                      $v.sponsor.address.line1.$dirty
+                  "
+                >
+                  Please enter an address
+                </div>
               </div>
             </div>
             <div class="flex mb-3">
-              <div class="flex-1 mr-2">
+              <div
+                class="flex-1 mr-2 form-group"
+                :class="{
+                  'has-error': $v.sponsor.address.city.$error,
+                  'is-valid':
+                    $v.sponsor.address.city.$dirty &&
+                    !$v.sponsor.address.city.$invalid
+                }"
+              >
                 <input
                   class="form-input w-full"
                   v-model="sponsor.address.city"
                   placeholder="City"
                 />
+                <div
+                  class="error"
+                  v-if="
+                    !$v.sponsor.address.city.required &&
+                      $v.sponsor.address.city.$dirty
+                  "
+                >
+                  Please enter a city
+                </div>
               </div>
-              <div class="flex-1 mr-2">
+              <div
+                class="flex-1 mr-2 form-group"
+                :class="{
+                  'has-error': $v.sponsor.address.state.$error,
+                  'is-valid':
+                    $v.sponsor.address.state.$dirty &&
+                    !$v.sponsor.address.state.$invalid
+                }"
+              >
                 <select class="form-select" v-model="sponsor.address.state">
                   <option
                     v-for="(state_code, state_name) in states"
@@ -96,13 +186,40 @@
                     >{{ state_name | lowercase | capitalize }}</option
                   >
                 </select>
+                <div
+                  class="error"
+                  v-if="
+                    !$v.sponsor.address.state.mustHaveSelection &&
+                      $v.sponsor.address.state.$dirty
+                  "
+                >
+                  Please select a state
+                </div>
               </div>
-              <div class="flex-1">
+              <div
+                class="flex-1 form-group"
+                :class="{
+                  'has-error': $v.sponsor.address.postal_code.$error,
+                  'is-valid':
+                    $v.sponsor.address.postal_code.$dirty &&
+                    !$v.sponsor.address.postal_code.$invalid
+                }"
+              >
                 <input
                   class="form-input w-full"
                   v-model="sponsor.address.postal_code"
                   placeholder="Zip Code"
                 />
+
+                <div
+                  class="error"
+                  v-if="
+                    !$v.sponsor.address.postal_code.required &&
+                      $v.sponsor.address.postal_code.$dirty
+                  "
+                >
+                  Please enter a zip code
+                </div>
               </div>
             </div>
             <div class="flex my-5">
@@ -183,6 +300,7 @@
               <button
                 type="button"
                 class="btn btn-primary mt-2 px-6 py-2 text-base"
+                :disabled="$v.$anyDirty && $v.$anyError"
                 @click.prevent="startSponsorship(sponsor)"
               >
                 {{ oneTimeDonation ? "Donate" : "Start Monthly Sponsorship" }}
@@ -202,9 +320,40 @@ import countries from "@src/helpers/countries.helper";
 import states from "@src/helpers/states.helper";
 import CrediCardForm from "@components/CreditCardForm";
 import hero from "@components/Hero";
+import { required, email, not, sameAs } from "vuelidate/lib/validators";
 
 export default {
   components: { CrediCardForm, hero },
+  validations: {
+    sponsor: {
+      firstName: {
+        required
+      },
+      lastName: {
+        required
+      },
+      email: {
+        required,
+        email
+      },
+      address: {
+        line1: {
+          required
+        },
+        city: {
+          required
+        },
+        postal_code: {
+          required
+        },
+        state: {
+          mustHaveSelection: (value) => {
+            return value !== -1 
+          }
+        }
+      }
+    }
+  },
   data() {
     return {
       bgImage: require("@assets/img/headers/children.jpg"),
@@ -218,7 +367,6 @@ export default {
         address: {
           line1: null,
           city: null,
-          country: null,
           postal_code: null,
           state: -1
         },
@@ -251,7 +399,8 @@ export default {
       this.sponsor.payment.token = token;
     },
     startSponsorship(sponsor) {
-      axios.post(`${process.env.VUE_APP_API}/sponsorChild`, sponsor);
+      this.$v.$touch();
+      // axios.post(`${process.env.VUE_APP_API}/sponsorChild`, sponsor);
     }
   }
 };
