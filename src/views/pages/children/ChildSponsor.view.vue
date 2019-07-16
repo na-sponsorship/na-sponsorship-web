@@ -320,7 +320,7 @@ import countries from "@src/helpers/countries.helper";
 import states from "@src/helpers/states.helper";
 import CrediCardForm from "@components/CreditCardForm";
 import hero from "@components/Hero";
-import { required, email, not, sameAs } from "vuelidate/lib/validators";
+import { required, email } from "vuelidate/lib/validators";
 
 export default {
   components: { CrediCardForm, hero },
@@ -347,9 +347,7 @@ export default {
           required
         },
         state: {
-          mustHaveSelection: (value) => {
-            return value !== -1 
-          }
+          mustHaveSelection: value => value !== -1
         }
       }
     }
@@ -400,7 +398,9 @@ export default {
     },
     startSponsorship(sponsor) {
       this.$v.$touch();
-      // axios.post(`${process.env.VUE_APP_API}/sponsorChild`, sponsor);
+      if (!this.$v.$invalid) {
+        axios.post(`${process.env.VUE_APP_API}/sponsorChild`, sponsor);
+      }
     }
   }
 };
