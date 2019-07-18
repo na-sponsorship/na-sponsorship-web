@@ -300,7 +300,6 @@
               <button
                 type="button"
                 class="btn btn-primary mt-2 px-6 py-2 text-base"
-                :disabled="$v.$anyDirty && $v.$anyError"
                 @click.prevent="startSponsorship(sponsor)"
               >
                 {{ oneTimeDonation ? "Donate" : "Start Monthly Sponsorship" }}
