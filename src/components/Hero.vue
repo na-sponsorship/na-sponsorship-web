@@ -1,6 +1,6 @@
 <template>
   <div class="flex-1 bg-gray-400 -mt-16">
-    <div class="absolute w-full h-40-rem z-20">
+    <div class="absolute w-full h-40-rem">
       <div class="flex flex-row justify-center">
         <div class="page-width-contraint">
           <div class="flex flex-col mt-48">

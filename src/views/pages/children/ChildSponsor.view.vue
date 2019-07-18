@@ -3,307 +3,324 @@
     <hero :header-bg="bgImage"></hero>
     <div class="flex justify-center">
       <div class="page-width-contraint z-10" v-if="child">
-        <div class="flex shadow-lg -mt-64 bg-white rounded-lg p-3">
-          <div class="flex-initial w-1/4 h-auto">
-            <img
-              class="rounded-lg flex-auto h-full w-full object-cover"
-              :src="child.image"
-            />
-          </div>
-          <div class="flex-1 p-2">
-            <div class="flex flex-col">
-              <div class="px-5">
-                <h2 class="text-4xl font-bold text-gray-700">
-                  {{ child.firstName | lowercase | capitalize }}
-                  {{ child.lastName | lowercase | capitalize }}
-                </h2>
-                <hr class="border border-gray-200" />
-                <p class="text-gray-700 pb-5 text-indent">
-                  {{ child.story | capitalize({ onlyFirstLetter: true }) }}
-                </p>
-                <span class="block uppercase font-semibold text-gray-700 py-1"
-                  >Age: {{ age }} {{ age | pluralize("year") }} old</span
-                >
-                <span class="block uppercase font-semibold text-gray-700 py-1"
-                  >Gender: {{ child.gender }}</span
-                >
-                <span class="block uppercase font-semibold text-gray-700 py-1"
-                  >Grade: {{ child.grade }}</span
-                >
-                <button class="btn-lg btn-primary my-5 px-12">
-                  Sponsor Now
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col my-5">
-          <div class="flex flex-col px-16 bg-gray-200 rounded-lg shadow-2xl">
-            <span class="text-green-600 text-4xl font-bold my-3"
-              >Sponsor Child</span
+        <div class="flex flex-col -mt-64">
+          <div class="text-right mb-4">
+            <a
+              @click="$router.go(-1)"
+              class="cursor-pointer font-semibold text-gray-400 bg-gray-800 hover:bg-gray-700 opacity-75 border rounded-lg px-3 py-1"
             >
-            <span class="uppercase text-sm my-4 font-bold text-gray-700"
-              >Your Information</span
-            >
-            <div class="flex mb-3">
-              <div
-                class="flex-1 mr-2 form-group"
-                :class="{
-                  'has-error': $v.sponsor.firstName.$error,
-                  'is-valid':
-                    $v.sponsor.firstName.$dirty &&
-                    !$v.sponsor.firstName.$invalid
-                }"
-              >
-                <input
-                  class="form-input w-full"
-                  v-model="$v.sponsor.firstName.$model"
-                  placeholder="First Name"
-                />
-                <div
-                  class="error"
-                  v-if="
-                    !$v.sponsor.firstName.required &&
-                      $v.sponsor.firstName.$dirty
-                  "
-                >
-                  Please enter a first name
-                </div>
-              </div>
-              <div
-                class="flex-1 form-group"
-                :class="{
-                  'has-error': $v.sponsor.lastName.$error,
-                  'is-valid':
-                    $v.sponsor.lastName.$dirty && !$v.sponsor.lastName.$invalid
-                }"
-              >
-                <input
-                  class="form-input w-full"
-                  v-model="$v.sponsor.lastName.$model"
-                  placeholder="Last Name"
-                />
-                <div
-                  class="error"
-                  v-if="
-                    !$v.sponsor.lastName.required && $v.sponsor.lastName.$dirty
-                  "
-                >
-                  Please enter a last name
-                </div>
-              </div>
+              <FAIcon :icon="['fas', 'long-arrow-alt-left']" />&nbsp; RETURN TO
+              ALL CHILDREN
+            </a>
+          </div>
+          <div class="flex shadow-lg bg-white rounded-lg p-3">
+            <div class="flex-initial w-1/4 h-auto">
+              <img
+                class="rounded-lg flex-auto h-full w-full object-cover"
+                :src="child.image"
+              />
             </div>
-            <div class="flex mb-3">
-              <div
-                class="flex-1 form-group"
-                :class="{
-                  'has-error': $v.sponsor.email.$error,
-                  'is-valid':
-                    $v.sponsor.email.$dirty && !$v.sponsor.email.$invalid
-                }"
-              >
-                <input
-                  class="form-input w-full"
-                  v-model="$v.sponsor.email.$model"
-                  placeholder="Email"
-                />
-                <div
-                  class="error"
-                  v-if="!$v.sponsor.email.required && $v.sponsor.email.$dirty"
-                >
-                  Please enter an email
-                </div>
-                <div class="error" v-if="!$v.sponsor.email.email">
-                  Please enter a valid email address
-                </div>
-              </div>
-            </div>
-            <div class="flex mb-3">
-              <div
-                class="flex-1 form-group"
-                :class="{
-                  'has-error': $v.sponsor.address.line1.$error,
-                  'is-valid':
-                    $v.sponsor.address.line1.$dirty &&
-                    !$v.sponsor.address.line1.$invalid
-                }"
-              >
-                <input
-                  class="form-input w-full"
-                  v-model="$v.sponsor.address.line1.$model"
-                  placeholder="Address"
-                />
-                <div
-                  class="error"
-                  v-if="
-                    !$v.sponsor.address.line1.required &&
-                      $v.sponsor.address.line1.$dirty
-                  "
-                >
-                  Please enter an address
-                </div>
-              </div>
-            </div>
-            <div class="flex mb-3">
-              <div
-                class="flex-1 mr-2 form-group"
-                :class="{
-                  'has-error': $v.sponsor.address.city.$error,
-                  'is-valid':
-                    $v.sponsor.address.city.$dirty &&
-                    !$v.sponsor.address.city.$invalid
-                }"
-              >
-                <input
-                  class="form-input w-full"
-                  v-model="sponsor.address.city"
-                  placeholder="City"
-                />
-                <div
-                  class="error"
-                  v-if="
-                    !$v.sponsor.address.city.required &&
-                      $v.sponsor.address.city.$dirty
-                  "
-                >
-                  Please enter a city
-                </div>
-              </div>
-              <div
-                class="flex-1 mr-2 form-group"
-                :class="{
-                  'has-error': $v.sponsor.address.state.$error,
-                  'is-valid':
-                    $v.sponsor.address.state.$dirty &&
-                    !$v.sponsor.address.state.$invalid
-                }"
-              >
-                <select class="form-select" v-model="sponsor.address.state">
-                  <option
-                    v-for="(state_code, state_name) in states"
-                    :value="state_code"
-                    :key="state_code"
-                    >{{ state_name | lowercase | capitalize }}</option
+            <div class="flex-1 p-2">
+              <div class="flex flex-col">
+                <div class="px-5">
+                  <h2 class="text-4xl font-bold text-gray-700">
+                    {{ child.firstName | lowercase | capitalize }}
+                    {{ child.lastName | lowercase | capitalize }}
+                  </h2>
+                  <hr class="border border-gray-200" />
+                  <p class="text-gray-700 pb-5 text-indent">
+                    {{ child.story | capitalize({ onlyFirstLetter: true }) }}
+                  </p>
+                  <span class="block uppercase font-semibold text-gray-700 py-1"
+                    >Age: {{ age }} {{ age | pluralize("year") }} old</span
                   >
-                </select>
-                <div
-                  class="error"
-                  v-if="
-                    !$v.sponsor.address.state.mustHaveSelection &&
-                      $v.sponsor.address.state.$dirty
-                  "
-                >
-                  Please select a state
+                  <span class="block uppercase font-semibold text-gray-700 py-1"
+                    >Gender: {{ child.gender }}</span
+                  >
+                  <span class="block uppercase font-semibold text-gray-700 py-1"
+                    >Grade: {{ child.grade }}</span
+                  >
+                  <button class="btn-lg btn-primary my-5 px-12">
+                    Sponsor Now
+                  </button>
                 </div>
               </div>
-              <div
-                class="flex-1 form-group"
-                :class="{
-                  'has-error': $v.sponsor.address.postal_code.$error,
-                  'is-valid':
-                    $v.sponsor.address.postal_code.$dirty &&
-                    !$v.sponsor.address.postal_code.$invalid
-                }"
+            </div>
+          </div>
+          <div class="flex flex-col my-5">
+            <div class="flex flex-col px-16 bg-gray-200 rounded-lg shadow-2xl">
+              <span class="text-green-600 text-4xl font-bold my-3"
+                >Sponsor Child</span
               >
-                <input
-                  class="form-input w-full"
-                  v-model="sponsor.address.postal_code"
-                  placeholder="Zip Code"
-                />
-
+              <span class="uppercase text-sm my-4 font-bold text-gray-700"
+                >Your Information</span
+              >
+              <div class="flex mb-3">
                 <div
-                  class="error"
-                  v-if="
-                    !$v.sponsor.address.postal_code.required &&
-                      $v.sponsor.address.postal_code.$dirty
-                  "
+                  class="flex-1 mr-2 form-group"
+                  :class="{
+                    'has-error': $v.sponsor.firstName.$error,
+                    'is-valid':
+                      $v.sponsor.firstName.$dirty &&
+                      !$v.sponsor.firstName.$invalid
+                  }"
                 >
-                  Please enter a zip code
+                  <input
+                    class="form-input w-full"
+                    v-model="$v.sponsor.firstName.$model"
+                    placeholder="First Name"
+                  />
+                  <div
+                    class="error"
+                    v-if="
+                      !$v.sponsor.firstName.required &&
+                        $v.sponsor.firstName.$dirty
+                    "
+                  >
+                    Please enter a first name
+                  </div>
+                </div>
+                <div
+                  class="flex-1 form-group"
+                  :class="{
+                    'has-error': $v.sponsor.lastName.$error,
+                    'is-valid':
+                      $v.sponsor.lastName.$dirty &&
+                      !$v.sponsor.lastName.$invalid
+                  }"
+                >
+                  <input
+                    class="form-input w-full"
+                    v-model="$v.sponsor.lastName.$model"
+                    placeholder="Last Name"
+                  />
+                  <div
+                    class="error"
+                    v-if="
+                      !$v.sponsor.lastName.required &&
+                        $v.sponsor.lastName.$dirty
+                    "
+                  >
+                    Please enter a last name
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="flex my-5">
-              <div class="bg-green-400 p-2 rounded-lg text-white text-xl">
-                <FAIcon class="mx-1" :icon="['fas', 'dollar-sign']" />
-                <span v-if="!oneTimeDonation">39.00/month</span>
-                <input
-                  v-if="oneTimeDonation"
-                  class="form-input rounded-l-none text-black"
-                  placeholder="Donation Amount"
-                />
-              </div>
-            </div>
-            <div class="flex flex-col">
-              <label class="inline-flex items-center mb-3">
-                <input
-                  class="form-checkbox"
-                  type="checkbox"
-                  v-model="oneTimeDonation"
-                />
-                <span class="ml-3 text-gray-800 font-medium"
-                  >Make One-Time donation instead</span
+              <div class="flex mb-3">
+                <div
+                  class="flex-1 form-group"
+                  :class="{
+                    'has-error': $v.sponsor.email.$error,
+                    'is-valid':
+                      $v.sponsor.email.$dirty && !$v.sponsor.email.$invalid
+                  }"
                 >
-              </label>
-              <div class="flex items-center">
-                <label class="inline-flex items-center">
+                  <input
+                    class="form-input w-full"
+                    v-model="$v.sponsor.email.$model"
+                    placeholder="Email"
+                  />
+                  <div
+                    class="error"
+                    v-if="!$v.sponsor.email.required && $v.sponsor.email.$dirty"
+                  >
+                    Please enter an email
+                  </div>
+                  <div class="error" v-if="!$v.sponsor.email.email">
+                    Please enter a valid email address
+                  </div>
+                </div>
+              </div>
+              <div class="flex mb-3">
+                <div
+                  class="flex-1 form-group"
+                  :class="{
+                    'has-error': $v.sponsor.address.line1.$error,
+                    'is-valid':
+                      $v.sponsor.address.line1.$dirty &&
+                      !$v.sponsor.address.line1.$invalid
+                  }"
+                >
+                  <input
+                    class="form-input w-full"
+                    v-model="$v.sponsor.address.line1.$model"
+                    placeholder="Address"
+                  />
+                  <div
+                    class="error"
+                    v-if="
+                      !$v.sponsor.address.line1.required &&
+                        $v.sponsor.address.line1.$dirty
+                    "
+                  >
+                    Please enter an address
+                  </div>
+                </div>
+              </div>
+              <div class="flex mb-3">
+                <div
+                  class="flex-1 mr-2 form-group"
+                  :class="{
+                    'has-error': $v.sponsor.address.city.$error,
+                    'is-valid':
+                      $v.sponsor.address.city.$dirty &&
+                      !$v.sponsor.address.city.$invalid
+                  }"
+                >
+                  <input
+                    class="form-input w-full"
+                    v-model="sponsor.address.city"
+                    placeholder="City"
+                  />
+                  <div
+                    class="error"
+                    v-if="
+                      !$v.sponsor.address.city.required &&
+                        $v.sponsor.address.city.$dirty
+                    "
+                  >
+                    Please enter a city
+                  </div>
+                </div>
+                <div
+                  class="flex-1 mr-2 form-group"
+                  :class="{
+                    'has-error': $v.sponsor.address.state.$error,
+                    'is-valid':
+                      $v.sponsor.address.state.$dirty &&
+                      !$v.sponsor.address.state.$invalid
+                  }"
+                >
+                  <select class="form-select" v-model="sponsor.address.state">
+                    <option
+                      v-for="(state_code, state_name) in states"
+                      :value="state_code"
+                      :key="state_code"
+                      >{{ state_name | lowercase | capitalize }}</option
+                    >
+                  </select>
+                  <div
+                    class="error"
+                    v-if="
+                      !$v.sponsor.address.state.mustHaveSelection &&
+                        $v.sponsor.address.state.$dirty
+                    "
+                  >
+                    Please select a state
+                  </div>
+                </div>
+                <div
+                  class="flex-1 form-group"
+                  :class="{
+                    'has-error': $v.sponsor.address.postal_code.$error,
+                    'is-valid':
+                      $v.sponsor.address.postal_code.$dirty &&
+                      !$v.sponsor.address.postal_code.$invalid
+                  }"
+                >
+                  <input
+                    class="form-input w-full"
+                    v-model="sponsor.address.postal_code"
+                    placeholder="Zip Code"
+                  />
+
+                  <div
+                    class="error"
+                    v-if="
+                      !$v.sponsor.address.postal_code.required &&
+                        $v.sponsor.address.postal_code.$dirty
+                    "
+                  >
+                    Please enter a zip code
+                  </div>
+                </div>
+              </div>
+              <div class="flex my-5">
+                <div class="bg-green-400 p-2 rounded-lg text-white text-xl">
+                  <FAIcon class="mx-1" :icon="['fas', 'dollar-sign']" />
+                  <span v-if="!oneTimeDonation">39.00/month</span>
+                  <input
+                    v-if="oneTimeDonation"
+                    class="form-input rounded-l-none text-black"
+                    placeholder="Donation Amount"
+                  />
+                </div>
+              </div>
+              <div class="flex flex-col">
+                <label class="inline-flex items-center mb-3">
                   <input
                     class="form-checkbox"
                     type="checkbox"
-                    v-model="sponsor.payment.extraMonthly"
+                    v-model="oneTimeDonation"
                   />
-                  <span class="ml-3 text-gray-800 font-medium cursor-pointer">
-                    Add extra $5.00 to the general children's fund?
-                  </span>
+                  <span class="ml-3 text-gray-800 font-medium"
+                    >Make One-Time donation instead</span
+                  >
                 </label>
-                <FAIcon
-                  v-tooltip="'This amount will support the ministry as a whole'"
-                  class="mx-2 cursor-pointer"
-                  :icon="['fas', 'question-circle']"
-                />
-              </div>
-            </div>
-            <span class="uppercase text-sm my-5 font-bold text-gray-700"
-              >Payment Information</span
-            >
-            <div class="flex">
-              <div class="flex-1">
-                <label class="inline-flex items-center">
-                  <input
-                    class="form-radio"
-                    type="radio"
-                    value="true"
-                    v-model="selectedPaymentMethod"
+                <div class="flex items-center">
+                  <label class="inline-flex items-center">
+                    <input
+                      class="form-checkbox"
+                      type="checkbox"
+                      v-model="sponsor.payment.extraMonthly"
+                    />
+                    <span class="ml-3 text-gray-800 font-medium cursor-pointer">
+                      Add extra $5.00 to the general children's fund?
+                    </span>
+                  </label>
+                  <FAIcon
+                    v-tooltip="
+                      'This amount will support the ministry as a whole'
+                    "
+                    class="mx-2 cursor-pointer"
+                    :icon="['fas', 'question-circle']"
                   />
-                  <span class="ml-2 text-gray-800">Credit Card</span>
-                </label>
+                </div>
               </div>
-            </div>
-            <CrediCardForm @ontoken="setToken"></CrediCardForm>
-            <div class="flex my-3">
-              <div class="flex-1 text-gray-200 mt-2">
-                <span class="rounded-l-lg bg-green-500 p-2"
-                  >Donation total:</span
-                >
-                <span class="text-black ml-2">{{
-                  (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency
-                }}</span>
-              </div>
-              <div class="flex-1 pt-2 text-right">
-                <FAIcon
-                  class="mx-1 text-green-600 text-lg"
-                  :icon="['fas', 'shield-alt']"
-                />
-                <span class="text-gray-700">This is a secure SSL payment</span>
-              </div>
-            </div>
-            <div class="flex mt-5 mb-3 pb-3">
-              <button
-                type="button"
-                class="btn btn-primary mt-2 px-6 py-2 text-base"
-                @click.prevent="startSponsorship(sponsor)"
+              <span class="uppercase text-sm my-5 font-bold text-gray-700"
+                >Payment Information</span
               >
-                {{ oneTimeDonation ? "Donate" : "Start Monthly Sponsorship" }}
-              </button>
+              <div class="flex">
+                <div class="flex-1">
+                  <label class="inline-flex items-center">
+                    <input
+                      class="form-radio"
+                      type="radio"
+                      value="true"
+                      v-model="selectedPaymentMethod"
+                    />
+                    <span class="ml-2 text-gray-800">Credit Card</span>
+                  </label>
+                </div>
+              </div>
+              <CrediCardForm @ontoken="setToken"></CrediCardForm>
+              <div class="flex my-3">
+                <div class="flex-1 text-gray-200 mt-2">
+                  <span class="rounded-l-lg bg-green-500 p-2"
+                    >Donation total:</span
+                  >
+                  <span class="text-black ml-2">{{
+                    (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency
+                  }}</span>
+                </div>
+                <div class="flex-1 pt-2 text-right">
+                  <FAIcon
+                    class="mx-1 text-green-600 text-lg"
+                    :icon="['fas', 'shield-alt']"
+                  />
+                  <span class="text-gray-700"
+                    >This is a secure SSL payment</span
+                  >
+                </div>
+              </div>
+              <div class="flex mt-5 mb-3 pb-3">
+                <button
+                  type="button"
+                  class="btn btn-primary mt-2 px-6 py-2 text-base"
+                  @click.prevent="startSponsorship(sponsor)"
+                >
+                  {{ oneTimeDonation ? "Donate" : "Start Monthly Sponsorship" }}
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -15,7 +15,8 @@ import {
   faCaretLeft,
   faDollarSign,
   faQuestionCircle,
-  faShieldAlt
+  faShieldAlt,
+  faLongArrowAltLeft
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -37,7 +38,8 @@ library.add(
   faCaretLeft,
   faDollarSign,
   faQuestionCircle,
-  faShieldAlt
+  faShieldAlt,
+  faLongArrowAltLeft
 );
 
 Vue.component("FAIcon", FontAwesomeIcon);
