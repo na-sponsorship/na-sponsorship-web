@@ -5,7 +5,7 @@
 @import "components/forms.css";
 @import "typography.css";
 .page-width-contraint {
-    @apply w-2/3;
+    @apply w-3/4 max-w-6xl;
 }
 
 html {
