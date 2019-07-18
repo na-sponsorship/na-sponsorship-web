@@ -3,7 +3,7 @@
     <hero :header-bg="bgImage"></hero>
     <div class="flex justify-center">
       <div class="page-width-contraint z-10" v-if="child">
-        <div class="flex flex-col -mt-64">
+        <div class="flex flex-col -mt-64 -mb-20">
           <div class="text-right mb-4">
             <a
               @click="$router.go(-1)"
@@ -27,7 +27,7 @@
                     {{ child.firstName | lowercase | capitalize }}
                     {{ child.lastName | lowercase | capitalize }}
                   </h2>
-                  <hr class="border border-gray-200" />
+                  <hr class="bg-gray-500 h-px" />
                   <p class="text-gray-700 pb-5 text-indent">
                     {{ child.story | capitalize({ onlyFirstLetter: true }) }}
                   </p>
@@ -40,9 +40,6 @@
                   <span class="block uppercase font-semibold text-gray-700 py-1"
                     >Grade: {{ child.grade }}</span
                   >
-                  <button class="btn-lg btn-primary my-5 px-12">
-                    Sponsor Now
-                  </button>
                 </div>
               </div>
             </div>
@@ -234,92 +231,92 @@
                   </div>
                 </div>
               </div>
-              <div class="flex my-5">
-                <div class="bg-green-400 p-2 rounded-lg text-white text-xl">
-                  <FAIcon class="mx-1" :icon="['fas', 'dollar-sign']" />
-                  <span v-if="!oneTimeDonation">39.00/month</span>
+              <div class="flex mt-4 items-center">
+                <label
+                  class="bg-green-500 inline-flex items-center px-4 py-2 rounded-full cursor-pointer"
+                >
                   <input
-                    v-if="oneTimeDonation"
-                    class="form-input rounded-l-none text-black"
-                    placeholder="Donation Amount"
+                    class="form-radio cursor-pointer"
+                    name="donationFrequency"
+                    type="radio"
+                    value="recurring"
+                    v-model="oneTimeDonation"
                   />
-                </div>
+                  <span class="ml-2 text-gray-200 uppercase font-semibold"
+                    >Give $39.00 Monthly</span
+                  >
+                </label>
+                <span class="px-5 text-gray-700 font-bold">OR</span>
+                <label
+                  class="bg-green-500 inline-flex items-center px-4 py-2 rounded-full z-0 cursor-pointer"
+                >
+                  <input
+                    class="form-radio cursor-pointer"
+                    type="radio"
+                    v-model="oneTimeDonation"
+                    value="single"
+                    name="donationFrequency"
+                  />
+                  <span class="font-semibold ml-2 text-gray-200 uppercase"
+                    >One Time:</span
+                  >
+                </label>
+                <input
+                  class="-ml-8 focus:border-gray-400 focus:outline-none focus:shadow-none form-input pl-10 py-3 w-1/3"
+                  @focus="oneTimeDonation = 'single'"
+                  type="number"
+                  placeholder="Enter a one time donation"
+                />
               </div>
-              <div class="flex flex-col">
-                <label class="inline-flex items-center mb-3">
+              <hr class="bg-gray-400 h-px mt-6 w-full" />
+              <span class="font-bold mb-2 mt-3 text-gray-700 text-sm uppercase"
+                >Payment Information</span
+              >
+              <CrediCardForm @ontoken="setToken"></CrediCardForm>
+              <div class="flex-1 mb-6 mt-2">
+                <FAIcon
+                  class="mx-1 text-green-600 text-lg"
+                  :icon="['fas', 'shield-alt']"
+                />
+                <span class="text-gray-700">This is a secure SSL payment</span>
+              </div>
+              <div class="flex items-center">
+                <label class="inline-flex items-center">
                   <input
                     class="form-checkbox"
                     type="checkbox"
-                    v-model="oneTimeDonation"
+                    v-model="sponsor.payment.extraMonthly"
                   />
-                  <span class="ml-3 text-gray-800 font-medium"
-                    >Make One-Time donation instead</span
-                  >
+                  <span class="ml-3 text-gray-800 font-medium cursor-pointer">
+                    Add extra $5.00 to the general children's fund
+                  </span>
                 </label>
-                <div class="flex items-center">
-                  <label class="inline-flex items-center">
-                    <input
-                      class="form-checkbox"
-                      type="checkbox"
-                      v-model="sponsor.payment.extraMonthly"
-                    />
-                    <span class="ml-3 text-gray-800 font-medium cursor-pointer">
-                      Add extra $5.00 to the general children's fund?
-                    </span>
-                  </label>
-                  <FAIcon
-                    v-tooltip="
-                      'This amount will support the ministry as a whole'
-                    "
-                    class="mx-2 cursor-pointer"
-                    :icon="['fas', 'question-circle']"
-                  />
-                </div>
+                <FAIcon
+                  v-tooltip="'This amount will support the ministry as a whole'"
+                  class="mx-2 cursor-pointer"
+                  :icon="['fas', 'question-circle']"
+                />
               </div>
-              <span class="uppercase text-sm my-5 font-bold text-gray-700"
-                >Payment Information</span
-              >
-              <div class="flex">
+              <hr class="bg-gray-400 h-px my-8 w-full" />
+              <div class="flex mb-12">
+                <div class="flex-auto uppercase">
+                  <span class="font-bold text-4xl text-orange-500"
+                    >Donation total:
+                    {{
+                      (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency
+                    }}</span
+                  >
+                </div>
                 <div class="flex-1">
-                  <label class="inline-flex items-center">
-                    <input
-                      class="form-radio"
-                      type="radio"
-                      value="true"
-                      v-model="selectedPaymentMethod"
-                    />
-                    <span class="ml-2 text-gray-800">Credit Card</span>
-                  </label>
-                </div>
-              </div>
-              <CrediCardForm @ontoken="setToken"></CrediCardForm>
-              <div class="flex my-3">
-                <div class="flex-1 text-gray-200 mt-2">
-                  <span class="rounded-l-lg bg-green-500 p-2"
-                    >Donation total:</span
+                  <button
+                    type="button"
+                    class="btn btn-primary mt-2 px-6 py-2 text-base float-right"
+                    @click.prevent="startSponsorship(sponsor)"
                   >
-                  <span class="text-black ml-2">{{
-                    (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency
-                  }}</span>
+                    {{ oneTimeDonation === "single" ? "Give" : "Give Monthly" }}
+                    Now
+                  </button>
                 </div>
-                <div class="flex-1 pt-2 text-right">
-                  <FAIcon
-                    class="mx-1 text-green-600 text-lg"
-                    :icon="['fas', 'shield-alt']"
-                  />
-                  <span class="text-gray-700"
-                    >This is a secure SSL payment</span
-                  >
-                </div>
-              </div>
-              <div class="flex mt-5 mb-3 pb-3">
-                <button
-                  type="button"
-                  class="btn btn-primary mt-2 px-6 py-2 text-base"
-                  @click.prevent="startSponsorship(sponsor)"
-                >
-                  {{ oneTimeDonation ? "Donate" : "Start Monthly Sponsorship" }}
-                </button>
               </div>
             </div>
           </div>
@@ -376,7 +373,7 @@ export default {
       paymentMethods: ["card", "ach"],
       selectedPaymentMethod: "true",
       child: null,
-      oneTimeDonation: false,
+      oneTimeDonation: "recurring",
       sponsor: {
         address: {
           line1: null,

@@ -19,12 +19,17 @@ module.exports = {
         checkbox: {
           height: theme("spacing.8"),
           width: theme("spacing.8"),
-          color: theme("colors.orange.500")
+          color: theme("colors.orange.500"),
+          borderRadius: theme("borderRadius.lg")
         },
         radio: {
           height: theme("spacing.8"),
           width: theme("spacing.8"),
-          color: theme("colors.orange.500")
+          color: theme("colors.orange.500"),
+          iconColor: theme("colors.green.500"),
+          "&:checked": {
+            backgroundColor: theme("colors.white")
+          }
         }
       }
     }),
