@@ -3,9 +3,18 @@
     <div class="flex justify-center">
       <div class="page-width-contraint">
         <div class="antialiased flex font-bold opacity-75 py-20 text-gray-300">
-          <div class="flex-1">
+          <div class="flex-1 font-medium leading-relaxed text-indent">
             <img :src="logoLight" />
-            <p>Noah's arc overview</p>
+            <p>
+              Noah’s ARC is a Christian based NGO/CBO operating in Kyenjojo
+              District, Mid-Western Uganda.
+            </p>
+            <p>
+              The main focus is on aimed at fighting and eradicating hunger,
+              poverty, illiteracy, and exposure to preventable diseases to all
+              unconditionally regardless of religion, race and political
+              affiliation.
+            </p>
           </div>
           <div class="flex-1 mx-4 uppercase">
             <h2 class="text-3xl">About Us</h2>
