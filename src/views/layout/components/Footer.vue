@@ -2,23 +2,37 @@
   <div class="bg-brown-500">
     <div class="flex justify-center">
       <div class="page-width-contraint">
-        <div class="flex">
+        <div class="antialiased flex font-bold opacity-75 py-20 text-gray-300">
           <div class="flex-1">
-            <h2>Text Widget</h2>
+            <img :src="logoLight" />
+            <p>Noah's arc overview</p>
           </div>
-          <div class="flex-none w-370">
-            <h2 class="text-white">Have a Question?</h2>
-            <form class="contact-form">
-              <input class type="text" placeholder="Your Name" />
-              <input class type="text" placeholder="Your Email" />
-              <textarea
-                class
-                cols="30"
-                rows="5"
-                placeholder="Your Message"
-              ></textarea>
-              <button class="btn btn-primary float-right">Submit</button>
-            </form>
+          <div class="flex-1 mx-4 uppercase">
+            <h2 class="text-3xl">About Us</h2>
+            <span class="block border-b h-2 mb-2 w-1/6">&nbsp;</span>
+            <ul>
+              <li>
+                <a href="">History</a>
+              </li>
+              <li>
+                <a href="">How We Serve</a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-1 mx-2 uppercase">
+            <h2 class="text-3xl">Conect with Us:</h2>
+            <span class="block border-b h-2 mb-2 w-1/6">&nbsp;</span>
+            <ul>
+              <li>
+                <a href="">Facebook</a>
+              </li>
+              <li>
+                <a href="">Instagram</a>
+              </li>
+              <li>
+                <a href="">Twitter</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -69,6 +83,7 @@
 export default {
   data() {
     return {
+      logoLight: require("@assets/img/logo/light@3x.png"),
       socialLinks: [
         { icon: "facebook-f", to: "http://www.facebook.com" },
         { icon: "twitter", to: "http://www.twitter.com" },
