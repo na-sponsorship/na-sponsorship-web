@@ -61,7 +61,9 @@
                 v-bind:key="index"
                 v-for="(item, index) in socialLinks"
               >
+              <a :href="item.to" target="_blank">  
                 <FAIcon class="block" :icon="['fab', item.icon]" />
+                </a>
               </div>
             </div>
           </div>
@@ -94,6 +96,7 @@ export default {
     return {
       logoLight: require("@assets/img/logo/light@3x.png"),
       socialLinks: [
+        { icon: "instagram", to: "http://www.instagram.com/" },
         { icon: "facebook-f", to: "http://www.facebook.com" },
         { icon: "twitter", to: "http://www.twitter.com" },
         { icon: "youtube", to: "http://www.youtube.com" }
