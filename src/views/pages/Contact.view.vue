@@ -1,6 +1,6 @@
 <template>
-<div class="flex justify-center">
-    <div class="flex flex-col px-16 bg-gray-200 rounded-lg shadow-2xl">
+<div class="flex justify-center mb-6">
+    <div class="flex flex-col px-16 bg-gray-200 rounded-lg shadow-2xl mb-4 pb-10">
         <span class="text-green-600 text-4xl font-bold my-3">Contact Form</span>
         <span class="uppercase text-sm my-4 font-bold text-gray-700">Your Information</span>
             <div class="flex mb-3">
