@@ -96,10 +96,10 @@ export default {
     return {
       logoLight: require("@assets/img/logo/light@3x.png"),
       socialLinks: [
-        { icon: "instagram", to: "http://www.instagram.com/" },
-        { icon: "facebook-f", to: "http://www.facebook.com" },
+        { icon: "instagram", to: "http://www.instagram.com/noahsark10/" },
+        { icon: "facebook-f", to: "http://www.facebook.com/profile.php?id=100000461473064&ref=content_filter" },
         { icon: "twitter", to: "http://www.twitter.com" },
-        { icon: "youtube", to: "http://www.youtube.com" }
+        { icon: "youtube", to: "http://www.youtube.com/channel/UCpHmZSfKw3iFA0hnWI9CX6A" }
       ]
     };
   }

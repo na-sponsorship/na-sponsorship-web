@@ -30,6 +30,7 @@
                   Login
                 </button>
               </router-link>
+              
             </ul>
           </div>
         </div>
@@ -70,7 +71,8 @@ export default {
       isScrolling: false,
       menu: [
         { label: "Home", to: "/" },
-        { label: "Sponsor a Child", to: "/children" }
+        { label: "Sponsor a Child", to: "/children" },
+        { label: "About", to: "/about" }
       ]
     };
   },
