@@ -4,7 +4,9 @@
       <div class="flex flex-row justify-center">
         <div class="page-width-contraint">
           <div class="flex flex-col mt-48">
-            <slot></slot>
+            <div class="z-10">
+              <slot></slot>
+            </div>
           </div>
         </div>
       </div>
