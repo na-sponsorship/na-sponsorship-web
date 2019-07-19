@@ -1,32 +1,34 @@
 <template>
-  <div class="flex flex-col z-30">
-    <hero>
+  <div>
+    <hero :header-bg="bgImage">
       <div>
-        <h1 class="text-3xl text-gray-300 mb-5">
+        <h1 class="text-3xl text-gray-300 font-bold">
           Be the reason someone smiles today
         </h1>
       </div>
-      <div class="mt-5 mb-5 opacity-75">
-        <span class="text-gray-300 text-base">
+      <div class="mt-2 mb-8 opacity-75">
+        <span class="text-gray-500 text-base">
           With your help, we can change the life stories of many children
         </span>
       </div>
-      <div>
-        <div class="flex">
-          <div class="flex">
-            <div class="labeled-tag text-gray-400">
-              <span class="fa-lg">
-                <FAIcon :icon="['fas', 'caret-right']" />
-              </span>
-              Needing Sponsorship
-            </div>
-            <div class="bg-yellow-400 pr-3 pl-3 pt-2">
-              {{ childrenCount }} children
-            </div>
-          </div>
-          <router-link tag="button" class="btn btn-primary ml-5" to="/children"
+      <div class="flex">
+        <div class="flex tracking-widest text-lg">
+          <router-link
+            to="/children"
+            class="btn btn-primary text-lg flex items-center"
             >Sponsor Now</router-link
           >
+          <div class="flex ml-4">
+            <span
+              class="text-gray-300 rounded-l-lg border px-6 border-gray-500 flex items-center"
+            >
+              {{ childrenCount }}
+            </span>
+            <span
+              class="items-center flex -ml-1 rounded-l-none bg-green-500 px-6 py-2 rounded-r-lg text-gray-300 uppercase font-semibold"
+              >Children in Program</span
+            >
+          </div>
         </div>
       </div>
     </hero>
@@ -48,6 +50,7 @@ export default {
   components: { hero },
   data() {
     return {
+      bgImage: require("@assets/img/headers/children.jpg"),
       childrenCount: null
     };
   },
