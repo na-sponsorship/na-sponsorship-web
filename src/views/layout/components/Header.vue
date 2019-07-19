@@ -65,7 +65,9 @@ export default {
       isScrolling: false,
       menu: [
         { label: "Home", to: "/" },
-        { label: "Sponsor a Child", to: "/children" }
+        { label: "Sponsor a Child", to: "/children" },
+        { label: "Contact Us", to: "/contact" },
+        { label: "About Us", to: "/about" }
       ]
     };
   },
