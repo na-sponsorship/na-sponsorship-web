@@ -1,3 +1,25 @@
 <template>
-<h1>Contact</h1>
+<div class="flex justify-center">
+    <div class="flex flex-col px-16 bg-gray-200 rounded-lg shadow-2xl">
+        <span class="text-green-600 text-4xl font-bold my-3">Contact Form</span>
+        <span class="uppercase text-sm my-4 font-bold text-gray-700">Your Information</span>
+            <div class="flex mb-3">
+            <div class="flex-1 mr-2 form-group">
+                <input placeholder="First Name" class="form-input w-full">
+            </div>
+              <div class="flex-1 form-group">
+                 <input placeholder="Last Name" class="form-input w-full">
+            </div>
+        </div>
+        <div class="flex mb-3">
+            <div class="flex-1 form-group"><input placeholder="Email" class="form-input w-full"></div>
+        </div>
+         <div class="flex mb-5">
+            <div class="flex-1 form-group pb-4"><input placeholder="Send us a message" class="form-input w-full"></div>
+        </div>
+         <button type="button" class="btn btn-secondary mt-2 px-3 py-2 text-base float-right">
+                  Send
+        </button>
+    </div>
+</div>
 </template>
