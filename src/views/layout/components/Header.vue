@@ -72,7 +72,9 @@ export default {
       menu: [
         { label: "Home", to: "/" },
         { label: "Sponsor a Child", to: "/children" },
-        { label: "About", to: "/about" }
+        { label: "About", to: "/about" },
+        { label: "Contact", to: "/contact" }
+
       ]
     };
   },
