@@ -50,7 +50,7 @@ export default {
   components: { hero },
   data() {
     return {
-      bgImage: require("@assets/img/headers/children.jpg"),
+      bgImage: require("@assets/img/headers/children2.jpg"),
       childrenCount: null
     };
   },
