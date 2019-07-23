@@ -2,18 +2,17 @@
 <div>
     <hero :header-bg="bgImage">
         <div>
-            <h1 class="text-3xl text-gray-300 font-bold text-center">
+            <h1 class="text-3xl text-white font-bold text-center">
                 Contact Us
             </h1>
         </div>
         <hr class="bg-white h-px opacity-50 w-1/2">
-        <div class="text-sm text-gray-300  text-center">
-            <h2>A simply dummy text of the printing and typesetting industry.</h2>
+        <div class="text-sm text-white text-center">
+            <h2>A simply dummy text of the pribeen the industry's standard dum .</h2>
         </div>
     </hero>
     <div class="flex justify-center">
-        <div class="page-width-contraint z-10 -mt-56 bg-gray-100 px-16 rounded-lg">
-            
+        <div class="page-width-contraint z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white">
             <div class="flex mb-3 mt-10">
                 <div class="flex-1 mr-2 form-group">
                    <input placeholder="First Name" class="form-input w-full">
@@ -33,7 +32,7 @@
             </div>
         </div>
         <div class="flex-1">
-            <button class="btn btn-primary mt-2 px-6 py-2 text-base mb-8">Submit</button>
+            <button class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 float-right mr-2">Submit</button>
         </div>
        </div>  
     </div>
