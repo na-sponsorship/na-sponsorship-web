@@ -1,31 +1,44 @@
 <template>
-  <div>
-      <div class="bg-auto">
-      <hero :header-bg="bgImage"></hero></div>
-       <div class="flex justify-center mb-6">
-        <div class="flex flex-col px-16 bg-gray-200 rounded-lg shadow-2xl mb-4 pb-10 -m-64 z-10">
-            <span class="text-green-600 text-4xl font-bold my-3">Contact Form</span>
-            <span class="uppercase text-sm my-4 font-bold text-gray-700">Your Information</span>
-                <div class="flex mb-3">
-                <div class="flex-1 mr-2 form-group">
-                    <input placeholder="First Name" class="form-input w-full">
-                </div>
-                <div class="flex-1 form-group">
-                    <input placeholder="Last Name" class="form-input w-full">
-                </div>
-            </div>
-            <div class="flex mb-3">
-                <div class="flex-1 form-group"><input placeholder="Email" class="form-input w-full"></div>
-            </div>
-            <div class="flex mb-5">
-                <div class="flex-1 form-group pb-4"><input placeholder="Send us a message" class="form-input w-full"></div>
-            </div>
-            <button type="button" class="btn btn-secondary mt-2 px-3 py-2 text-base float-right">
-                    Send
-            </button>
+<div>
+    <hero :header-bg="bgImage">
+        <div>
+            <h1 class="text-3xl text-gray-300 font-bold text-center">
+                Contact Us
+            </h1>
         </div>
+        <hr class="bg-white h-px opacity-50 w-1/2">
+        <div class="text-sm text-gray-300  text-center">
+            <h2>A simply dummy text of the printing and typesetting industry.</h2>
+        </div>
+    </hero>
+    <div class="flex justify-center">
+        <div class="page-width-contraint z-10 -mt-56 bg-gray-100 px-16 rounded-lg">
+            
+            <div class="flex mb-3 mt-10">
+                <div class="flex-1 mr-2 form-group">
+                   <input placeholder="First Name" class="form-input w-full">
+                </div>
+                <div class="flex-1 mr-2 form-group">
+                   <input placeholder="Last Name" class="form-input w-full">
+                </div>
+            </div>
+        <div class="flex mb-3">
+            <div class="flex-1 mr-2 form-group">
+                <input placeholder="Email" class="form-input w-full">
+            </div>
+        </div>
+        <div class="flex mb-3">
+            <div class="flex-1 mr-2 form-group">
+                <textarea placeholder="Message Us" class="form-input w-full h-56"></textarea>
+            </div>
+        </div>
+        <div class="flex-1">
+            <button class="btn btn-primary mt-2 px-6 py-2 text-base mb-8">Submit</button>
+        </div>
+       </div>  
     </div>
-</div>
+</div>  
+   
 </template>
 <script>
 import axios from "axios";
