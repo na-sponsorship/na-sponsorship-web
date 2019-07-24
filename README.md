@@ -1,5 +1,6 @@
 # Web 
-[![CircleCI](https://circleci.com/gh/genu/na-sponsorship-web.svg?style=svg)](https://circleci.com/gh/genu/na-sponsorship-web)
+[![CircleCI](https://circleci.com/gh/genu/na-sponsorship-web/tree/master.svg?style=svg&circle-token=5a5a88d6083eefc6b7a67acbf2d0d5caf6381742)](https://circleci.com/gh/genu/na-sponsorship-web/tree/master)
+
 ## Theme Sample
 The sample theme can be accessed through the docker container at `http://localhost:8888`
 
