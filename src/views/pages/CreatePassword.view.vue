@@ -18,8 +18,8 @@
         <div
           class="page-width-contraint z-10 -mt-32 px-8 rounded-lg shadow-2xl mb-3 pt-3 bg-white w-full"
         >
-          <h2 class="flex mt-5 text-orange-500 font-semibold">Email:</h2>
-          <h3 class="text-gray-700 font-medium">eugenistoc@gmail.com</h3>
+          <h2 class="flex mt-5 text-orange-500 font-semibold">Username:</h2>
+          <h3 class="text-gray-700 font-medium">{{ username }}</h3>
           <div class="flex mb-3 mt-5">
             <div class="flex-1 mr-2 form-group">
               <input placeholder="New Password" class="form-input w-full" />
@@ -52,15 +52,31 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 import hero from "../../components/Hero";
 
 export default {
   components: { hero },
   created() {
-    // debugger;
+    // If there is no token present, send them to the login page
+    if (!this.$route.query.token) {
+      this.$router.replace("/login");
+    }
+
+    // Look up the username based on the token
+    axios
+      .get(
+        `${process.env.VUE_APP_API}/user/usernameFromToken/${
+          this.$route.query.token
+        }`
+      )
+      .then(username => {
+        console.log(username);
+      });
   },
   data() {
     return {
+      username: null,
       bgImage: require("@assets/img/headers/children2.jpg")
     };
   }
