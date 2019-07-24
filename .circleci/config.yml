@@ -9,7 +9,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run: yarn install
       - save_cache:
@@ -17,3 +16,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn lint
+      - run: 
+          name: Trigger Netfliy build
+          command: 'curl -X POST -d {} https://api.netlify.com/build_hooks/5d3844cd05a46e080f3f6303'
