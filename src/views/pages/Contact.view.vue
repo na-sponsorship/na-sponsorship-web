@@ -32,10 +32,36 @@
             </div>
         </div>
         <div class="flex-1">
-            <button class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 float-right mr-2">Submit</button>
+            <button class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 float-right mr-2 ">Submit</button>
         </div>
-       </div>  
-    </div>
+        
+    </div> 
+    
+  </div>
+  <div class="flex justify-center mb-20 mt-10">
+      <div class="page-width-contraint">
+         <div class="flex mb-4">
+        <div class="w-1/4 bg-white-500 h-12">
+           <h1>Our Location</h1>
+           <p>Str 24 Avenue North Atlanta Georgia 30043 USA</p>
+        </div>
+        <div class="w-1/4 bg-white-400 h-12"></div>
+        <div class="w-1/4 bg-white-500 h-12">
+        
+        </div>
+        <div class="w-1/4 bg-white-500 h-12">
+           <h1 class="fas fa-phone-alt"></h1>
+           <p>404-384-4324</p>
+           <p>404-384-4324</p>
+        </div>
+        <div class="w-1/4 bg-white-400 h-12">
+            <h1>Email</h1>
+            <p>info@noahsarc.com</p>
+        </div>
+        </div>
+      </div>
+</div>
+       
 </div>  
    
 </template>
