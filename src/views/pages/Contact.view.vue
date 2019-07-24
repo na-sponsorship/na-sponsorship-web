@@ -68,9 +68,11 @@
         </div>
       </div>
     </div>
+        <pre>lint break</pre>
   </div>
 </template>
 <script>
+import axios from 'axios';
 import hero from "../../components/Hero";
 
 export default {
