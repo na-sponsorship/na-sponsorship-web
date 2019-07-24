@@ -52,6 +52,15 @@ export default new Router({
       name: "contact",
       component: () =>
         import(/* webpackChunkName: "home" */ "./views/pages/Contact.view.vue")
+    },
+    {
+      path: "/create-password",
+      name: "create-password",
+      query: {
+        token: ""
+      },
+      component: () =>
+        import(/* webpackChunkName: "create-password" */ "./views/pages/CreatePassword.view.vue")
     }
   ]
 });
