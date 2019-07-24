@@ -7,41 +7,41 @@ import Vuelidate from "vuelidate";
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-    faTimes,
-    faUser,
-    faGift,
-    faCheckCircle,
-    faCaretRight,
-    faCaretLeft,
-    faDollarSign,
-    faQuestionCircle,
-    faShieldAlt,
-    faLongArrowAltLeft
+  faTimes,
+  faUser,
+  faGift,
+  faCheckCircle,
+  faCaretRight,
+  faCaretLeft,
+  faDollarSign,
+  faQuestionCircle,
+  faShieldAlt,
+  faLongArrowAltLeft
 } from "@fortawesome/free-solid-svg-icons";
 import {
-    faFacebookF,
-    faTwitter,
-    faYoutube,
-    faInstagram
+  faFacebookF,
+  faTwitter,
+  faYoutube,
+  faInstagram
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import "@assets/css/style.css";
 library.add(
-    faFacebookF,
-    faTwitter,
-    faYoutube,
-    faInstagram,
-    faTimes,
-    faUser,
-    faGift,
-    faCheckCircle,
-    faCaretRight,
-    faCaretLeft,
-    faDollarSign,
-    faQuestionCircle,
-    faShieldAlt,
-    faLongArrowAltLeft
+  faFacebookF,
+  faTwitter,
+  faYoutube,
+  faInstagram,
+  faTimes,
+  faUser,
+  faGift,
+  faCheckCircle,
+  faCaretRight,
+  faCaretLeft,
+  faDollarSign,
+  faQuestionCircle,
+  faShieldAlt,
+  faLongArrowAltLeft
 );
 
 Vue.component("FAIcon", FontAwesomeIcon);
@@ -59,7 +59,7 @@ Vue.use(VueFilterDateFormat);
 Vue.use(VTooltip);
 Vue.use(Vuelidate);
 new Vue({
-    router,
-    store,
-    render: h => h(App)
+  router,
+  store,
+  render: h => h(App)
 }).$mount("#app");

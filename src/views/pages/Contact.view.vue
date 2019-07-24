@@ -1,81 +1,84 @@
 <template>
-<div>
+  <div>
     <hero :header-bg="bgImage">
-        <div>
-            <h1 class="text-3xl text-white font-bold text-center">
-                Contact Us
-            </h1>
-        </div>
-        <hr class="bg-white h-px opacity-50 w-1/2">
-        <div class="text-sm text-white text-center">
-            <h2>A simply dummy text of the pribeen the industry's standard dum .</h2>
-        </div>
+      <div>
+        <h1 class="text-3xl text-white font-bold text-center">
+          Contact Us
+        </h1>
+      </div>
+      <hr class="bg-white h-px opacity-50 w-1/2" />
+      <div class="text-sm text-white text-center">
+        <h2>
+          A simply dummy text of the pribeen the industry's standard dum .
+        </h2>
+      </div>
     </hero>
     <div class="flex justify-center">
-        <div class="page-width-contraint z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white">
-            <div class="flex mb-3 mt-10">
-                <div class="flex-1 mr-2 form-group">
-                   <input placeholder="First Name" class="form-input w-full">
-                </div>
-                <div class="flex-1 mr-2 form-group">
-                   <input placeholder="Last Name" class="form-input w-full">
-                </div>
-            </div>
-        <div class="flex mb-3">
-            <div class="flex-1 mr-2 form-group">
-                <input placeholder="Email" class="form-input w-full">
-            </div>
+      <div
+        class="page-width-contraint z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white"
+      >
+        <div class="flex mb-3 mt-10">
+          <div class="flex-1 mr-2 form-group">
+            <input placeholder="First Name" class="form-input w-full" />
+          </div>
+          <div class="flex-1 mr-2 form-group">
+            <input placeholder="Last Name" class="form-input w-full" />
+          </div>
         </div>
         <div class="flex mb-3">
-            <div class="flex-1 mr-2 form-group">
-                <textarea placeholder="Message Us" class="form-input w-full h-56"></textarea>
-            </div>
+          <div class="flex-1 mr-2 form-group">
+            <input placeholder="Email" class="form-input w-full" />
+          </div>
+        </div>
+        <div class="flex mb-3">
+          <div class="flex-1 mr-2 form-group">
+            <textarea
+              placeholder="Message Us"
+              class="form-input w-full h-56"
+            ></textarea>
+          </div>
         </div>
         <div class="flex-1">
-            <button class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 float-right mr-2 ">Submit</button>
-        </div>
-        
-    </div> 
-    
-  </div>
-  <div class="flex justify-center mb-20 mt-10">
-      <div class="page-width-contraint">
-         <div class="flex mb-4">
-        <div class="w-1/4 bg-white-500 h-12">
-           <h1>Our Location</h1>
-           <p>Str 24 Avenue North Atlanta Georgia 30043 USA</p>
-        </div>
-        <div class="w-1/4 bg-white-400 h-12"></div>
-        <div class="w-1/4 bg-white-500 h-12">
-        
-        </div>
-        <div class="w-1/4 bg-white-500 h-12">
-           <h1 class="fas fa-phone-alt"></h1>
-           <p>404-384-4324</p>
-           <p>404-384-4324</p>
-        </div>
-        <div class="w-1/4 bg-white-400 h-12">
-            <h1>Email</h1>
-            <p>info@noahsarc.com</p>
-        </div>
+          <button
+            class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 float-right mr-2 "
+          >
+            Submit
+          </button>
         </div>
       </div>
-</div>
-       
-</div>  
-   
+    </div>
+    <div class="flex justify-center mb-20 mt-10">
+      <div class="page-width-contraint">
+        <div class="flex mb-4">
+          <div class="w-1/4 bg-white-500 h-12">
+            <h1>Our Location</h1>
+            <p>Str 24 Avenue North Atlanta Georgia 30043 USA</p>
+          </div>
+          <div class="w-1/4 bg-white-400 h-12"></div>
+          <div class="w-1/4 bg-white-500 h-12"></div>
+          <div class="w-1/4 bg-white-500 h-12">
+            <h1 class="fas fa-phone-alt"></h1>
+            <p>404-384-4324</p>
+            <p>404-384-4324</p>
+          </div>
+          <div class="w-1/4 bg-white-400 h-12">
+            <h1>Email</h1>
+            <p>info@noahsarc.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-import axios from "axios";
 import hero from "../../components/Hero";
 
 export default {
   components: { hero },
   data() {
     return {
-      bgImage: require("@assets/img/headers/children2.jpg"),
-      
-    }
+      bgImage: require("@assets/img/headers/children2.jpg")
+    };
   }
- };
+};
 </script>

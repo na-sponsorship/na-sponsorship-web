@@ -30,7 +30,6 @@
                   Login
                 </button>
               </router-link>
-              
             </ul>
           </div>
         </div>

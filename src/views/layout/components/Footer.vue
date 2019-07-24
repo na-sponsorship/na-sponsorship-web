@@ -61,8 +61,8 @@
                 v-bind:key="index"
                 v-for="(item, index) in socialLinks"
               >
-              <a :href="item.to" target="_blank">  
-                <FAIcon class="block" :icon="['fab', item.icon]" />
+                <a :href="item.to" target="_blank">
+                  <FAIcon class="block" :icon="['fab', item.icon]" />
                 </a>
               </div>
             </div>
@@ -97,9 +97,16 @@ export default {
       logoLight: require("@assets/img/logo/light@3x.png"),
       socialLinks: [
         { icon: "instagram", to: "http://www.instagram.com/noahsark10/" },
-        { icon: "facebook-f", to: "http://www.facebook.com/profile.php?id=100000461473064&ref=content_filter" },
+        {
+          icon: "facebook-f",
+          to:
+            "http://www.facebook.com/profile.php?id=100000461473064&ref=content_filter"
+        },
         { icon: "twitter", to: "http://www.twitter.com" },
-        { icon: "youtube", to: "http://www.youtube.com/channel/UCpHmZSfKw3iFA0hnWI9CX6A" }
+        {
+          icon: "youtube",
+          to: "http://www.youtube.com/channel/UCpHmZSfKw3iFA0hnWI9CX6A"
+        }
       ]
     };
   }
