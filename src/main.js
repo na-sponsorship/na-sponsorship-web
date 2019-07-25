@@ -43,9 +43,10 @@ library.add(
   faShieldAlt,
   faLongArrowAltLeft
 );
+import FeatureFlagged from "./components/FeatureFlagged";
 
 Vue.component("FAIcon", FontAwesomeIcon);
-
+Vue.component("FeatureFlagged", FeatureFlagged);
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";

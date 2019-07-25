@@ -25,11 +25,13 @@
               >
                 <a href="#">{{ item.label }}</a>
               </router-link>
-              <router-link to="/login" tag="li">
-                <button class="btn btn-primary px-8 py-2" href="#">
-                  Login
-                </button>
-              </router-link>
+              <FeatureFlagged in="production">
+                <router-link to="/login" tag="li">
+                  <button class="btn btn-primary px-8 py-2" href="#">
+                    Login
+                  </button>
+                </router-link>
+              </FeatureFlagged>
             </ul>
           </div>
         </div>
