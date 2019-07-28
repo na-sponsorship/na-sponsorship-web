@@ -73,7 +73,26 @@
         </div>
       </div>
     </div>
-    <hero :header-bg="bgImage"></hero>
+    <hero :header-bg="bgImage">
+      <div>
+        <h1 class="text-3xl text-green-500 font-bold text-center">
+          Vestibulum id nisi Est
+        </h1>
+      </div>
+
+      <div class="text-sm text-white text-center">
+        <h2>
+          A simply dummy text of the pribeen the industry's standard dum
+        </h2>
+        <h3>
+          imply dummy text of the pribeen the industry's standard dum fsafsfsfa
+        </h3>
+        <h4>imply dummy text of the pribeen the industry's standard</h4>
+        <button class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 mr-2 mt-4">
+          Read More
+        </button>
+      </div>
+    </hero>
   </div>
 </template>
 <script>
