@@ -16,7 +16,9 @@ import {
   faDollarSign,
   faQuestionCircle,
   faShieldAlt,
-  faLongArrowAltLeft
+  faLongArrowAltLeft,
+  faPhone,
+  faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -41,7 +43,9 @@ library.add(
   faDollarSign,
   faQuestionCircle,
   faShieldAlt,
-  faLongArrowAltLeft
+  faLongArrowAltLeft,
+  faPhone,
+  faEnvelope
 );
 import FeatureFlagged from "./components/FeatureFlagged";
 
