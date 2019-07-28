@@ -51,22 +51,29 @@
       <div class="page-width-contraint">
         <div class="flex mb-4">
           <div class="w-1/4 bg-white-500 h-12">
-            <h1 class="font-bold">Our Location</h1>
-            <p>Str 24 Avenue North Atlanta Georgia 30043 USA</p>
+            <h1 class="font-bold text-gray-700">Our Location</h1>
+            <p class="text-gray-700">
+              Str 24 Avenue North Atlanta Georgia 30043 USA
+            </p>
           </div>
           <div class="w-1/4 bg-white-400 h-12"></div>
           <div class="w-1/4 bg-white-500 h-12"></div>
           <div class="w-1/4 bg-white-500 h-12">
-            <h1 class="font-bold">Phone</h1>
-            <p>
-              <FAIcon class="inline-flex mr-1" :icon="['fas', 'phone']" />+ 1
-              404-384-4324
+            <h1 class="font-bold text-gray-700">Phone</h1>
+            <p class="text-gray-700">
+              <FAIcon
+                class="inline-flex mr-1 text-gray-700"
+                :icon="['fas', 'phone']"
+              />+ 1 404-384-4324
             </p>
           </div>
           <div class="w-1/4 bg-white-400 h-12">
-            <h1 class="font-bold">Email</h1>
-            <p>
-              <FAIcon class="inline-flex mr-1" :icon="['fas', 'envelope']" />
+            <h1 class="font-bold text-gray-700">Email</h1>
+            <p class="text-gray-700">
+              <FAIcon
+                class="inline-flex mr-1 text-gray-700"
+                :icon="['fas', 'envelope']"
+              />
               info@noahsarc.com
             </p>
           </div>
