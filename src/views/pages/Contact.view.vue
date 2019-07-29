@@ -19,7 +19,11 @@
       >
         <div class="flex mb-3 mt-10">
           <div class="flex-1 mr-2 form-group">
-            <input placeholder="First Name" class="form-input w-full" />
+            <input
+              placeholder="First Name"
+              class="form-input w-full"
+              v-model="username"
+            />
           </div>
           <div class="flex-1 mr-2 form-group">
             <input placeholder="Last Name" class="form-input w-full" />
