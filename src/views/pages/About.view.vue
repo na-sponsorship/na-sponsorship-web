@@ -13,20 +13,6 @@
         </h2>
       </div>
     </hero>
-    <div class="flex justify-center">
-      <div class="page-width-constraint z-10">
-        <div class="flex flex-col -mt-64 -mb-20">
-          <div class="flex shadow-lg bg-white rounded-lg p-3">
-            <div class="flex-initial w-1/4 h-auto">
-              <img
-                class="rounded-lg flex-auto h-full w-full object-cover"
-                :src="child.image"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 <script>
