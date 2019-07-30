@@ -1,5 +1,5 @@
 <template>
-  <div class="m-8 w-64 bg-white p-4 rounded rounded-lg shadow-2xl">
+  <div class="m-8 w-20-rem bg-white p-4 rounded rounded-lg shadow-2xl">
     <div class="flex flex-col content-start h-full">
       <div class="flex-1 h-64">
         <img
@@ -8,20 +8,25 @@
         />
       </div>
       <div class="flex-1">
-        <div class="flex flex-col h-48">
+        <div class="flex flex-col h-27-rem">
+          <h3 class="ml-2 mt-5 text-2xl tracking-widest">
+            {{ child.firstName }} {{ child.lastName }}
+          </h3>
+          <hr class="mx-2 bg-gray-300 h-px w-full" />
+          <h3
+            class="ml-2 uppercase text-xs font-bold tracking-widest"
+            :class="genderStyle"
+          >
+            {{ child.gender }}, &nbsp;{{ age }}
+          </h3>
           <p class="flex p-2 h-full story-fade overflow-hidden relative">
             {{ child.story | capitalize }}
           </p>
-          <div class="flex-auto mt-2 text-center">
-            <router-link
-              class="btn btn-primary"
-              :to="{ name: 'children.view', params: { id: child.id } }"
-              >Learn More</router-link
-            >
+          <div class="flex-auto mt-2">
             <router-link
               class="btn btn-primary ml-2"
               :to="{ name: 'children.view', params: { id: child.id } }"
-              >sponsor</router-link
+              >Read More</router-link
             >
           </div>
         </div>
@@ -39,6 +44,24 @@ export default {
       type: Object
     }
   },
+  computed: {
+    age() {
+      return dayjs().diff(this.child.dateOfBirth, "years");
+    },
+    genderStyle() {
+      let style = "";
+      switch (this.child.gender) {
+        case "female":
+          style = "text-orange-500";
+          break;
+        case "male":
+          style = "text-green-500";
+          break;
+      }
+
+      return style;
+    }
+  },
   methods: {
     sponsor(child) {
       this.$emit("onSponsor", child);
@@ -54,6 +77,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.w-20-rem {
+  width: 20rem;
+}
+.h-27-rem {
+  height: 27rem;
+}
+
 .story-fade::after {
   content: " ";
   position: absolute;
