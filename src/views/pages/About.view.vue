@@ -1,7 +1,7 @@
 <template>
   <div>
     <hero :header-bg="bgImage">
-      <div>
+      <div class="mt-48">
         <h1 class="text-3xl text-white font-bold text-center">
           About Us
         </h1>

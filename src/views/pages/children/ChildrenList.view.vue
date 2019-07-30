@@ -1,7 +1,7 @@
 <template>
   <div>
     <hero :header-bg="bgImage">
-      <div class="text-center">
+      <div class="text-center mt-48">
         <span class="text-white text-4xl">Sponsor a Child</span>
         <hr class="bg-white h-px opacity-50 w-1/2" />
       </div>
