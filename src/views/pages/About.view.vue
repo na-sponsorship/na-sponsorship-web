@@ -13,6 +13,26 @@
         </h2>
       </div>
     </hero>
+    <div class="flex justify-center">
+      <div class="page-width-constraint z-10">
+        <div class="flex flex-col -mt-40 -mb-20">
+          <div class="flex shadow-lg bg-white rounded-lg p-3">
+            <h2 class="uppercase block">Our Vision</h2>
+            <p class="block">
+              about page
+              <br />
+              sadf sdf
+              <br />
+              sadf sdf
+              <br />
+              sadf sdf ds
+              <br />
+              fssf
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
