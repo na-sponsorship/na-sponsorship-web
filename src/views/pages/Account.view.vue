@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <div class="page-width-contraint">
+    <div class="page-width-constraint">
       <div class="flex flex-col">
         <h2>Hello, Sponsor</h2>
         <div class="flex-1">

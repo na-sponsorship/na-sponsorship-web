@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center mb-10 mt-10">
     <div
-      class="page-width-contraint flex-col shadow-lg p-3"
+      class="page-width-constraint flex-col shadow-lg p-3"
       v-if="!codeRequested"
     >
       <div class="">
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div
-      class="page-width-contraint flex-col shadow-lg p-3"
+      class="page-width-constraint flex-col shadow-lg p-3"
       v-if="codeRequested"
     >
       <div class="">

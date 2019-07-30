@@ -4,7 +4,7 @@
 @import "components/tooltips.css";
 @import "components/forms.css";
 @import "typography.css";
-.page-width-contraint {
+.page-width-constraint {
     @apply w-3/4 max-w-6xl;
 }
 

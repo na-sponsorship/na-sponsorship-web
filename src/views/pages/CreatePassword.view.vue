@@ -16,7 +16,7 @@
     <div class="flex justify-center">
       <div class="flex flex-col">
         <div
-          class="page-width-contraint z-10 -mt-32 px-8 rounded-lg shadow-2xl mb-3 pt-3 bg-white w-full"
+          class="page-width-constraint z-10 -mt-32 px-8 rounded-lg shadow-2xl mb-3 pt-3 bg-white w-full"
         >
           <h2 class="flex mt-5 text-orange-500 font-semibold">Username:</h2>
           <h3 class="text-gray-700 font-medium">{{ username }}</h3>

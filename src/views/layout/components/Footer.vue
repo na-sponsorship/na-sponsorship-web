@@ -1,7 +1,7 @@
 <template>
   <div class="bg-brown-500">
     <div class="flex justify-center">
-      <div class="page-width-contraint">
+      <div class="page-width-constraint">
         <div class="antialiased flex font-bold opacity-75 py-20 text-gray-300">
           <div class="flex-1 font-medium leading-relaxed text-indent">
             <img :src="logoLight" />
@@ -49,7 +49,7 @@
     <div
       class="flex justify-center border-t border-grey-darker mt-4 pt-5 pb-5 bg-black text-gray-500 opacity-75 border-gray-600"
     >
-      <div class="page-width-contraint">
+      <div class="page-width-constraint">
         <div class="flex items-center">
           <div class="w-3/4 text-center text-grey text-sm">
             &copy; 2019 All right reserved. Noah's Arc

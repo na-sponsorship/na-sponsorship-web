@@ -4,7 +4,7 @@
       <div class="flex-1 bg-gray-600 w-full h-16"></div>
     </div>
     <div class="flex flex-row justify-center flex-no-wrap z-40 -mt-20 pt-3">
-      <div class="page-width-contraint flex items-center">
+      <div class="page-width-constraint flex items-center">
         <div class="w-56 p-2">
           <router-link to="/">
             <img :src="logoLight" />

@@ -2,7 +2,7 @@
   <div>
     <hero :header-bg="bgImage"></hero>
     <div class="flex justify-center">
-      <div class="page-width-contraint z-10" v-if="child">
+      <div class="page-width-constraint z-10" v-if="child">
         <div class="flex flex-col -mt-64 -mb-20">
           <div class="text-right mb-4">
             <a

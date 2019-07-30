@@ -7,7 +7,7 @@
       </div>
     </hero>
     <div class="flex justify-center">
-      <div class="page-width-contraint -mt-40 z-10">
+      <div class="page-width-constraint -mt-40 z-10">
         <div class="flex flex-col">
           <div class="flex flex-wrap justify-center">
             <ChildCard
