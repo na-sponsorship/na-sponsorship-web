@@ -1,15 +1,18 @@
 @tailwind base;
 @tailwind components;
+
+/* Components */
 @import "components/buttons.css";
 @import "components/tooltips.css";
 @import "components/forms.css";
+
 @import "typography.css";
 .page-width-constraint {
     @apply w-3/4 max-w-6xl;
 }
 
 html {
-    @apply font-sans;
+    @apply font-sansSarif;
 }
 
 .text-indent {
