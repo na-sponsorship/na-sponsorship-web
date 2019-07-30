@@ -22,16 +22,24 @@
             <input
               placeholder="First Name"
               class="form-input w-full"
-              v-model="username"
+              v-model="contactForm.firstname"
             />
           </div>
           <div class="flex-1 mr-2 form-group">
-            <input placeholder="Last Name" class="form-input w-full" />
+            <input
+              placeholder="Last Name"
+              class="form-input w-full"
+              v-model="contactForm.lastName"
+            />
           </div>
         </div>
         <div class="flex mb-3">
           <div class="flex-1 mr-2 form-group">
-            <input placeholder="Email" class="form-input w-full" />
+            <input
+              placeholder="Email"
+              class="form-input w-full"
+              v-model="contactForm.email"
+            />
           </div>
         </div>
         <div class="flex mb-3">
@@ -39,6 +47,7 @@
             <textarea
               placeholder="Message Us"
               class="form-input w-full h-56"
+              v-model="contactForm.message"
             ></textarea>
           </div>
         </div>
@@ -93,6 +102,12 @@ export default {
   components: { hero },
   data() {
     return {
+      contactForm: {
+        firstName: null,
+        lastName: null,
+        email: null,
+        message: null
+      },
       bgImage: require("@assets/img/headers/children2.jpg")
     };
   }
