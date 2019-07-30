@@ -262,7 +262,7 @@
                   >
                 </label>
                 <input
-                  class="-ml-8 focus:border-gray-400 focus:outline-none focus:shadow-none form-input pl-10 py-3 w-1/3"
+                  class="-ml-8 focus:border-gray-400 focus:outline-none focus:shadow-none form-input pl-10 py-3 w-1/3 rounded-r-full"
                   @focus="oneTimeDonation = 'single'"
                   type="number"
                   placeholder="Enter a one time donation"
