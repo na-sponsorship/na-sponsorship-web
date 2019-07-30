@@ -2,20 +2,22 @@
   <div>
     <hero :header-bg="bgImage">
       <div class="mt-48">
-        <h1 class="text-3xl text-gray-300 font-bold">
+        <h1 class="text-5xl w-8/12 text-white font-cursive">
           Be the reason someone smiles today
         </h1>
       </div>
-      <div class="mt-2 mb-8 opacity-75">
-        <span class="text-gray-500 text-base">
+      <div class="mt-2 mb-8">
+        <span class="text-white text-base">
           With your help, we can change the life stories of many children
         </span>
       </div>
       <div class="flex">
-        <div class="flex tracking-widest text-lg">
+        <div
+          class="flex tracking-widest text-sm font-bold uppercase text-gray-300"
+        >
           <router-link
             to="/children"
-            class="btn btn-primary text-lg flex items-center"
+            class="bg-orange-500 px-6 py-3 rounded-lg flex items-center hover:bg-orange-600"
             >Sponsor Now</router-link
           >
           <div class="flex ml-4">
@@ -25,7 +27,7 @@
               {{ childrenCount }}
             </span>
             <span
-              class="items-center flex -ml-1 rounded-l-none bg-green-500 px-6 py-2 rounded-r-lg text-gray-300 uppercase font-semibold"
+              class="items-center flex -ml-1 rounded-l-none bg-green-500 px-6 py-2 rounded-r-lg"
               >Children in Program</span
             >
           </div>

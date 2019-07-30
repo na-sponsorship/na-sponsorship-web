@@ -7,7 +7,7 @@
           <div class="text-right mb-4">
             <a
               @click="$router.go(-1)"
-              class="cursor-pointer font-semibold text-gray-400 bg-gray-800 hover:bg-gray-700 opacity-75 border rounded-lg px-3 py-1"
+              class="cursor-pointer text-white border border-gray-600 rounded-lg px-3 py-1 hover:bg-gray-700 tracking-widest font-bold"
             >
               <FAIcon :icon="['fas', 'long-arrow-alt-left']" />&nbsp; RETURN TO
               ALL CHILDREN
@@ -23,7 +23,7 @@
             <div class="flex-1 p-2">
               <div class="flex flex-col">
                 <div class="px-5">
-                  <h2 class="text-4xl font-bold text-gray-700">
+                  <h2 class="text-5xl text-gray-700 font-cursive">
                     {{ child.firstName | lowercase | capitalize }}
                     {{ child.lastName | lowercase | capitalize }}
                   </h2>
@@ -31,15 +31,18 @@
                   <p class="text-gray-700 pb-5 text-indent">
                     {{ child.story | capitalize({ onlyFirstLetter: true }) }}
                   </p>
-                  <span class="block uppercase font-semibold text-gray-700 py-1"
-                    >Age: {{ age }} {{ age | pluralize("year") }} old</span
-                  >
-                  <span class="block uppercase font-semibold text-gray-700 py-1"
-                    >Gender: {{ child.gender }}</span
-                  >
-                  <span class="block uppercase font-semibold text-gray-700 py-1"
-                    >Grade: {{ child.grade }}</span
-                  >
+                  <div class="font-bold uppercase tracking-widest">
+                    <span class="block text-gray-700 py-1"
+                      >Age: &nbsp;{{ age }}
+                      {{ age | pluralize("year") }} old</span
+                    >
+                    <span class="block text-gray-700 py-1"
+                      >Gender: &nbsp;{{ child.gender }}</span
+                    >
+                    <span class="block text-gray-700 py-1"
+                      >Grade: &nbsp;{{ child.grade }}</span
+                    >
+                  </div>
                 </div>
               </div>
             </div>

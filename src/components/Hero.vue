@@ -12,7 +12,7 @@
       </div>
     </div>
     <div
-      class="absolute bg-black h-full opacity-50 w-full"
+      class="absolute bg-black h-full opacity-75 w-full"
       :class="heroSize"
     ></div>
     <div class="overflow-hidden" :class="heroSize" :style="headerSyles"></div>

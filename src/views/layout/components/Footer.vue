@@ -2,30 +2,26 @@
   <div class="mt-16">
     <hero :header-bg="bgImage" size="md">
       <div class="mt-32">
-        <h1 class="text-3xl text-green-500 font-bold text-center">
+        <h1 class="text-3xl text-green-500 text-center font-cursive">
           Vestibulum id nisi Est
         </h1>
       </div>
 
       <div class="text-sm text-white text-center">
-        <h2>
-          A simply dummy text of the pribeen the industry's standard dum
-        </h2>
-        <h3>
-          imply dummy text of the pribeen the industry's standard dum fsafsfsfa
-        </h3>
-        <h4>imply dummy text of the pribeen the industry's standard</h4>
+        <p>
+          A simply dummy text of the pribeen the industry's standard dum imply
+          dummy text of the pribeen the industry's standard dum fsafsfsfa imply
+          dummy text of the pribeen the industry's standard
+        </p>
         <button class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 mr-2 mt-4">
           Read More
         </button>
       </div>
     </hero>
-    <div class="bg-brown-500">
+    <div class="bg-brown-fade-to-black">
       <div class="flex justify-center">
         <div class="page-width-constraint">
-          <div
-            class="antialiased flex font-bold opacity-75 py-20 text-gray-300"
-          >
+          <div class="antialiased flex font-bold py-20 text-white">
             <div class="flex-1 font-medium leading-relaxed text-indent">
               <img :src="logoLight" />
               <p>
@@ -39,14 +35,14 @@
                 affiliation.
               </p>
             </div>
-            <div class="flex-1 mx-4 uppercase">
+            <div class="flex-1 mx-16 uppercase">
               <h2 class="text-3xl">About Us</h2>
               <span class="block border-b h-2 mb-2 w-1/6">&nbsp;</span>
               <ul>
-                <li>
+                <li class="mb-4">
                   <a href="">History</a>
                 </li>
-                <li>
+                <li class="mb-4">
                   <a href="">How We Serve</a>
                 </li>
               </ul>
@@ -55,13 +51,13 @@
               <h2 class="text-3xl">Conect with Us:</h2>
               <span class="block border-b h-2 mb-2 w-1/6">&nbsp;</span>
               <ul>
-                <li>
+                <li class="mb-4">
                   <a href="">Facebook</a>
                 </li>
-                <li>
+                <li class="mb-4">
                   <a href="">Instagram</a>
                 </li>
-                <li>
+                <li class="mb-4">
                   <a href="">Twitter</a>
                 </li>
               </ul>
@@ -70,7 +66,7 @@
         </div>
       </div>
       <div
-        class="flex justify-center border-t border-grey-darker mt-4 pt-5 pb-5 bg-black text-gray-500 opacity-75 border-gray-600"
+        class="flex justify-center border-t mt-4 pt-5 pb-5 text-white border-gray-900"
       >
         <div class="page-width-constraint">
           <div class="flex items-center">
@@ -98,10 +94,13 @@
 </template>
 
 <style lang="postcss">
-.w-370 {
-  width: 370px;
+.bg-brown-fade-to-black {
+  background: linear-gradient(
+    0deg,
+    rgba(16, 13, 11, 1) 0%,
+    rgba(82, 63, 56, 1) 100%
+  );
 }
-
 .social-icons {
   width: 25px;
   @apply m-2 p-2 text-2xl;
