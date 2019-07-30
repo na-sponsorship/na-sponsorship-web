@@ -26,7 +26,7 @@
             <router-link
               class="btn btn-primary ml-2"
               :to="{ name: 'children.view', params: { id: child.id } }"
-              >Read More</router-link
+              >Sponsor</router-link
             >
           </div>
         </div>
