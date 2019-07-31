@@ -35,6 +35,19 @@
         </div>
       </div>
     </div>
+    <div class="flex justify-center">
+      <div class="page-width-constraint">
+        <div class="flex mb-4 ">
+          <div class="w-1/4 bg-gray-500 h-12"></div>
+          <div class="w-1/4 bg-gray-400 h-12"></div>
+          <div class="w-1/4 bg-gray-500 h-12">
+            <div class=""></div>
+          </div>
+          <div class="w-1/4 bg-gray-400 h-12"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-green-500 h-screen"></div>
   </div>
 </template>
 <script>

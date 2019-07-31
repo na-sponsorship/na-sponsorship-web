@@ -18,28 +18,80 @@
         class="page-width-constraint z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white"
       >
         <div class="flex mb-3 mt-10">
-          <div class="flex-1 mr-2 form-group">
+          <div
+            class="flex-1 mr-2 form-group"
+            :class="{
+              'has-error': $v.contactForm.firstName.$error,
+              'is-valid':
+                $v.contactForm.firstName.$dirty &&
+                !$v.contactForm.firstName.$invalid
+            }"
+          >
             <input
               placeholder="First Name"
               class="form-input w-full"
-              v-model="contactForm.firstname"
+              v-model="$v.contactForm.firstName.$model"
             />
+            <div
+              class="error"
+              v-if="
+                !$v.contactForm.firstName.required &&
+                  $v.contactForm.firstName.$dirty
+              "
+            >
+              Please enter a first name
+            </div>
           </div>
-          <div class="flex-1 mr-2 form-group">
+          <div
+            class="flex-1 mr-2 form-group"
+            :class="{
+              'has-error': $v.contactForm.lastName.$error,
+              'is-valid':
+                $v.contactForm.lastName.$dirty &&
+                !$v.contactForm.lastName.$invalid
+            }"
+          >
             <input
               placeholder="Last Name"
               class="form-input w-full"
-              v-model="contactForm.lastName"
+              v-model="$v.contactForm.lastName.$model"
             />
+            <div
+              class="error"
+              v-if="
+                !$v.contactForm.lastName.required &&
+                  $v.contactForm.lastName.$dirty
+              "
+            >
+              Please enter a last name
+            </div>
           </div>
         </div>
         <div class="flex mb-3">
-          <div class="flex-1 mr-2 form-group">
+          <div
+            class="flex-1 mr-2 form-group"
+            :class="{
+              'has-error': $v.contactForm.email.$error,
+              'is-valid':
+                $v.contactForm.email.$dirty && !$v.contactForm.email.$invalid
+            }"
+          >
             <input
               placeholder="Email"
               class="form-input w-full"
-              v-model="contactForm.email"
+              v-model="$v.contactForm.email.$model"
             />
+            <div
+              class="error"
+              v-if="
+                !$v.contactForm.email.required && $v.contactForm.email.$dirty
+              "
+            >
+              Please enter an email
+            </div>
+            <div class="error" v-if="!$v.contactForm.email.email">
+              Please enter a valid email address
+            </div>
           </div>
         </div>
         <div class="flex mb-3">
@@ -97,18 +149,32 @@
 </template>
 <script>
 import hero from "../../components/Hero";
+import { required, email } from "vuelidate/lib/validators";
 
 export default {
   components: { hero },
+  validations: {
+    contactForm: {
+      firstName: {
+        required
+      },
+      lastName: {
+        required
+      },
+      email: {
+        required,
+        email
+      }
+    }
+  },
   data() {
     return {
+      bgImage: require("@assets/img/headers/children2.jpg"),
       contactForm: {
         firstName: null,
         lastName: null,
-        email: null,
-        message: null
-      },
-      bgImage: require("@assets/img/headers/children2.jpg")
+        email: null
+      }
     };
   }
 };
