@@ -268,6 +268,7 @@
                   class="-ml-8 focus:border-gray-400 focus:outline-none focus:shadow-none form-input pl-10 py-3 w-1/3 rounded-r-full"
                   @focus="oneTimeDonation = 'single'"
                   type="number"
+                  v-model="oneTimeDonationAmount"
                   placeholder="Enter a one time donation"
                 />
               </div>
@@ -304,10 +305,7 @@
               <div class="flex mb-12">
                 <div class="flex-auto uppercase">
                   <span class="font-bold text-4xl text-orange-500"
-                    >Donation total:
-                    {{
-                      (39.0 + (sponsor.payment.extraMonthly ? 5 : 0)) | currency
-                    }}</span
+                    >Donation total: {{ totalDonation | currency }}</span
                   >
                 </div>
                 <div class="flex-1">
@@ -368,6 +366,23 @@ export default {
       }
     }
   },
+  computed: {
+    age() {
+      return dayjs().diff(this.child.dateOfBirth, "years");
+    },
+    totalDonation() {
+      let total = 0;
+      const extraMonthly = this.sponsor.payment.extraMonthly ? 5 : 0;
+
+      if (this.oneTimeDonation === "single") {
+        total = parseFloat(this.oneTimeDonationAmount) + extraMonthly;
+      } else {
+        total = 39.0 + extraMonthly;
+      }
+
+      return total;
+    }
+  },
   data() {
     return {
       bgImage: require("@assets/img/headers/children.jpg"),
@@ -377,6 +392,7 @@ export default {
       selectedPaymentMethod: "true",
       child: null,
       oneTimeDonation: "recurring",
+      oneTimeDonationAmount: 0.0,
       sponsor: {
         address: {
           line1: null,
@@ -402,11 +418,6 @@ export default {
         this.child = child.data;
         this.sponsor.child_id = child.data.id;
       });
-  },
-  computed: {
-    age() {
-      return dayjs().diff(this.child.dateOfBirth, "years");
-    }
   },
   methods: {
     setToken(token) {
