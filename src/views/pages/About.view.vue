@@ -10,9 +10,7 @@
       <div class="text-sm text-white text-center">
         <h2>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque,
-          nesciunt ducimus! Tempore laborum quia ut pariatur aliquid molestiae
-          quasi, provident ipsam, repellat eaque adipisci atque nam quis nulla,
-          nemo amet.
+          nesciunt ducimus!
         </h2>
       </div>
     </hero>
