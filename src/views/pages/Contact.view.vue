@@ -105,6 +105,7 @@
         </div>
         <div class="flex-1">
           <button
+            @click="sendMessage(contactForm)"
             class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 float-right mr-2 "
           >
             Submit
@@ -150,6 +151,7 @@
 <script>
 import hero from "../../components/Hero";
 import { required, email } from "vuelidate/lib/validators";
+import axios from "axios";
 
 export default {
   components: { hero },
@@ -176,6 +178,14 @@ export default {
         email: null
       }
     };
+  },
+  methods: {
+    sendMessage(contactForm) {
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        axios.post(`${process.env.VUE_APP_API}/sponsorChild`, contactForm);
+      }
+    }
   }
 };
 </script>
