@@ -27,10 +27,10 @@
                   <h2 class="text-xl text-gray-700 font-cursive">Our Vision</h2>
                   <hr class="bg-gray-700 h-px" />
                   <p class="text-green-700 pb-5 text-small">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus enim architecto beatae consectetur autem accusantium,
-                    quae quaerat ex dicta ipsa aperiam! Doloremque asperiores
-                    nihil animi hic voluptas obcaecati odit sapiente!
+                    Fighting and eradicating hunger, poverty, illiteracy, and
+                    exposure to preventable diseases to all unconditionally,
+                    without basing on their religion, race and political
+                    affiliation.
                   </p>
                 </div>
               </div>
@@ -42,7 +42,7 @@
     <div class="flex justify-center">
       <div class="page-width-constraint">
         <div class="flex mb-4 ">
-          <div class="w-1/4 h-12">
+          <div class="h-12">
             <h1 class="text-3xl text-green-500 font-cursive">Lorem Sertem</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
