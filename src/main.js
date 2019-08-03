@@ -19,6 +19,7 @@ import {
   faLongArrowAltLeft,
   faPhone,
   faEnvelope,
+  faSpinner,
   faWallet
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -47,7 +48,8 @@ library.add(
   faLongArrowAltLeft,
   faPhone,
   faEnvelope,
-  faWallet
+  faWallet,
+  faSpinner
 );
 import FeatureFlagged from "./components/FeatureFlagged";
 

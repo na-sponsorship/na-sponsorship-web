@@ -7,19 +7,35 @@
       </div>
     </hero>
     <div class="flex justify-center">
-      <div class="page-width-constraint -mt-40 z-10">
+      <div
+        class="page-width-constraint z-10"
+        :class="{ '-mt-40': !isLoading, '-mt-16': isLoading }"
+      >
         <div class="flex flex-col">
           <div class="flex flex-wrap justify-center">
-            <ChildCard
-              v-for="(child, index) in children"
-              v-bind:key="index"
-              :child="child"
-              @onSponsor="sponsor"
-            ></ChildCard>
+            <template v-if="isLoading">
+              <div class="m-8 bg-white p-4 rounded rounded-lg shadow-2xl">
+                <span class="">
+                  <FAIcon :icon="['fas', 'spinner']" pulse size="3x" />
+                </span>
+              </div>
+            </template>
+            <template v-if="!isLoading">
+              <ChildCard
+                v-for="(child, index) in children"
+                v-bind:key="index"
+                :child="child"
+                @onSponsor="sponsor"
+              ></ChildCard>
+            </template>
           </div>
         </div>
-        <div class="flex justify-center my-10">
+        <div
+          class="flex justify-center"
+          :class="{ '-mt-16': isLoading, 'mb-4': !isLoading }"
+        >
           <Pagination
+            v-if="!isLoading"
             :pages="pagination.pageCount"
             :currentPage="pagination.currentPage"
             @on-page-navigate="goToPage"
@@ -45,6 +61,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       children: [],
       selectedChild: null,
       bgImage: require("@assets/img/headers/children.jpg"),
@@ -66,9 +83,11 @@ export default {
     },
 
     loadPage(page) {
+      this.isLoading = true;
       axios
         .get(`${process.env.VUE_APP_API}/children?page=${page}`)
         .then(children => {
+          this.isLoading = false;
           this.children = children.data.items;
           this.pagination.pageCount = children.data.pageCount;
           this.pagination.totalItems = children.data.totalItems;
