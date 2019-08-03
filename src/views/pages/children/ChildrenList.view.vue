@@ -15,9 +15,16 @@
           <div class="flex flex-wrap justify-center">
             <template v-if="isLoading">
               <div class="m-8 bg-white p-4 rounded rounded-lg shadow-2xl">
-                <span class="">
-                  <FAIcon :icon="['fas', 'spinner']" pulse size="3x" />
-                </span>
+                <FAIcon
+                  :icon="['fas', 'spinner']"
+                  pulse
+                  size="3x"
+                  v-if="!loadingError"
+                />
+                <span v-if="loadingError"
+                  >There was a problem loading. Check your internet
+                  connection</span
+                >
               </div>
             </template>
             <template v-if="!isLoading">
@@ -62,6 +69,7 @@ export default {
   data() {
     return {
       isLoading: false,
+      loadingError: false,
       children: [],
       selectedChild: null,
       bgImage: require("@assets/img/headers/children.jpg"),
@@ -88,6 +96,7 @@ export default {
         .get(`${process.env.VUE_APP_API}/children?page=${page}`)
         .then(children => {
           this.isLoading = false;
+          this.loadingError = false;
           this.children = children.data.items;
           this.pagination.pageCount = children.data.pageCount;
           this.pagination.totalItems = children.data.totalItems;
@@ -95,6 +104,9 @@ export default {
           if (this.children.length === 0) {
             this.$router.replace({ path: "/children" });
           }
+        })
+        .catch(() => {
+          this.loadingError = true;
         });
     },
     sponsor(child) {
