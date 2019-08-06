@@ -1,5 +1,8 @@
 <template>
   <div class="mt-16">
+    <Modal v-if="donationModal">
+      <pre>Form goes here</pre>
+    </Modal>
     <hero :header-bg="bgImage" size="md">
       <div class="mt-32">
         <h1 class="text-3xl text-green-500 text-center font-cursive">
@@ -13,7 +16,11 @@
           dummy text of the pribeen the industry's standard dum fsafsfsfa imply
           dummy text of the pribeen the industry's standard
         </p>
-        <button class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 mr-2 mt-4">
+        <button
+          class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 mr-2 mt-4"
+          @click="donate()"
+          @onDismiss="donationModal = false"
+        >
           Read More
         </button>
       </div>
@@ -115,11 +122,13 @@
 
 <script>
 import hero from "../../../components/Hero";
+import Modal from "../../../components/ui/Modal";
 
 export default {
-  components: { hero },
+  components: { hero, Modal },
   data() {
     return {
+      donationModal: false,
       bgImage: require("@assets/img/headers/children2.jpg"),
       logoLight: require("@assets/img/logo/light@3x.png"),
       socialLinks: [
@@ -136,6 +145,16 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    donate() {
+      debugger;
+      this.donationModal = true;
+    },
+    closeModal() {
+      debugger;
+      this.donationModal = false;
+    }
   }
 };
 </script>
