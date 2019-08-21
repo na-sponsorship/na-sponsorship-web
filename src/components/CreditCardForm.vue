@@ -46,14 +46,13 @@ export default {
     cvc.mount("#card-cvc");
   },
   methods: {
-    submit() {
-      this.$Stripe.createToken(card).then(data => {
+    async getToken() {
+      return await this.$Stripe.createToken(card).then(data => {
         if (data.error) {
           return;
         }
 
-        this.$emit("ontoken", data.token.id);
-        // send token to server
+        return data.token.id;
       });
     }
   }

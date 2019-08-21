@@ -243,7 +243,7 @@
                     name="donationFrequency"
                     type="radio"
                     value="recurring"
-                    v-model="oneTimeDonation"
+                    v-model="payment.type"
                   />
                   <span class="ml-2 text-gray-200 uppercase font-semibold"
                     >Give $39.00 Monthly</span
@@ -256,7 +256,7 @@
                   <input
                     class="form-radio cursor-pointer"
                     type="radio"
-                    v-model="oneTimeDonation"
+                    v-model="payment.type"
                     value="single"
                     name="donationFrequency"
                   />
@@ -266,9 +266,9 @@
                 </label>
                 <input
                   class="-ml-8 focus:border-gray-400 focus:outline-none focus:shadow-none form-input pl-10 py-3 w-1/3 rounded-r-full"
-                  @focus="oneTimeDonation = 'single'"
+                  @focus="payment.type = 'single'"
                   type="number"
-                  v-model="oneTimeDonationAmount"
+                  v-model="payment.singleDonationAmount"
                   placeholder="Enter a one time donation"
                 />
               </div>
@@ -276,7 +276,7 @@
               <span class="font-bold mb-2 mt-3 text-gray-700 text-sm uppercase"
                 >Payment Information</span
               >
-              <CrediCardForm @ontoken="setToken"></CrediCardForm>
+              <CrediCardForm ref="stripeForm"></CrediCardForm>
               <div class="flex-1 mb-6 mt-2">
                 <FAIcon
                   class="mx-1 text-green-600 text-lg"
@@ -289,7 +289,7 @@
                   <input
                     class="form-checkbox"
                     type="checkbox"
-                    v-model="sponsor.payment.extraMonthly"
+                    v-model="payment.extraAmount"
                   />
                   <span class="ml-3 text-gray-800 font-medium cursor-pointer">
                     Add extra $5.00 to the general children's fund
@@ -314,7 +314,7 @@
                     class="btn btn-primary mt-2 px-6 py-2 text-base float-right"
                     @click.prevent="startSponsorship(sponsor)"
                   >
-                    {{ oneTimeDonation === "single" ? "Give" : "Give Monthly" }}
+                    {{ payment.type === "single" ? "Give" : "Give Monthly" }}
                     Now
                   </button>
                 </div>
@@ -330,39 +330,23 @@
 <script>
 import axios from "axios";
 import dayjs from "dayjs";
-import countries from "@src/helpers/countries.helper";
-import states from "@src/helpers/states.helper";
+import { required, email } from "vuelidate/lib/validators";
+
 import CrediCardForm from "@components/CreditCardForm";
 import hero from "@components/Hero";
-import { required, email } from "vuelidate/lib/validators";
 
 export default {
   components: { CrediCardForm, hero },
   validations: {
     sponsor: {
-      firstName: {
-        required
-      },
-      lastName: {
-        required
-      },
-      email: {
-        required,
-        email
-      },
+      firstName: { required },
+      lastName: { required },
+      email: { required, email },
       address: {
-        line1: {
-          required
-        },
-        city: {
-          required
-        },
-        postal_code: {
-          required
-        },
-        state: {
-          mustHaveSelection: value => value !== -1
-        }
+        line1: { required },
+        city: { required },
+        postal_code: { required },
+        state: { mustHaveSelection: value => value !== -1 }
       }
     }
   },
@@ -372,12 +356,12 @@ export default {
     },
     totalDonation() {
       let total = 0;
-      const extraMonthly = this.sponsor.payment.extraMonthly ? 5 : 0;
+      const extraAmount = this.payment.extraAmount ? 5 : 0;
 
-      if (this.oneTimeDonation === "single") {
-        total = parseFloat(this.oneTimeDonationAmount) + extraMonthly;
+      if (this.payment.type === "single") {
+        total = parseFloat(this.payment.singleDonationAmount) + extraAmount;
       } else {
-        total = 39.0 + extraMonthly;
+        total = 39.0 + extraAmount;
       }
 
       return total;
@@ -386,28 +370,27 @@ export default {
   data() {
     return {
       bgImage: require("@assets/img/headers/children.jpg"),
-      countries: countries,
-      states: states,
+      countries: require("@src/helpers/countries.helper").default,
+      states: require("@src/helpers/states.helper").default,
       paymentMethods: ["card", "ach"],
       selectedPaymentMethod: "true",
       child: null,
-      oneTimeDonation: "recurring",
-      oneTimeDonationAmount: 0.0,
       sponsor: {
+        firstName: null,
+        lastName: null,
+        email: null,
         address: {
           line1: null,
           city: null,
           postal_code: null,
           state: -1
-        },
-        firstName: null,
-        lastName: null,
-        email: null,
-        child_id: null,
-        payment: {
-          token: null,
-          extraMonthly: false
         }
+      },
+      payment: {
+        type: "recurring",
+        singleDonationAmount: null,
+        stripeToken: null,
+        extraAmount: false
       }
     };
   },
@@ -416,17 +399,22 @@ export default {
       .get(`${process.env.VUE_APP_API}/children/${this.$route.params.id}`)
       .then(child => {
         this.child = child.data;
-        this.sponsor.child_id = child.data.id;
       });
   },
   methods: {
     setToken(token) {
-      this.sponsor.payment.token = token;
+      this.sponsor.payment.stripeToken = token;
     },
-    startSponsorship(sponsor) {
+    async startSponsorship(sponsor) {
+      this.payment.stripeToken = await this.$refs.stripeForm.getToken();
+
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        axios.post(`${process.env.VUE_APP_API}/sponsorChild`, sponsor);
+        axios.post(`${process.env.VUE_APP_API}/sponsors`, {
+          childId: this.child.id,
+          sponsor,
+          payment: this.payment
+        });
       }
     }
   }
