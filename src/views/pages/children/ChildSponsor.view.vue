@@ -393,7 +393,7 @@ export default {
       },
       payment: {
         type: "recurring",
-        singleDonationAmount: null,
+        singleDonationAmount: 0,
         stripeToken: null,
         extraAmount: false
       }
