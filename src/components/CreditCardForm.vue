@@ -36,6 +36,10 @@
     &.StripeElement--invalid {
       @apply border-red-500;
     }
+
+    &.StripeElement--complete {
+      @apply border-green-500 border-2;
+    }
   }
 }
 </style>
