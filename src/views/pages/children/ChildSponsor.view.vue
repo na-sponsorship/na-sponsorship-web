@@ -264,13 +264,17 @@
                     >One Time:</span
                   >
                 </label>
-                <input
+                <vue-numeric
                   class="-ml-8 focus:border-gray-400 focus:outline-none focus:shadow-none form-input pl-10 py-3 w-1/3 rounded-r-full"
                   @focus="payment.type = 'single'"
-                  type="number"
+                  currency="$"
+                  separator=","
+                  :min="1"
+                  :max="1000"
+                  maxlength="4"
                   v-model="payment.singleDonationAmount"
                   placeholder="Enter a one time donation"
-                />
+                ></vue-numeric>
               </div>
               <hr class="bg-gray-400 h-px mt-6 w-full" />
               <span class="font-bold mb-2 mt-3 text-gray-700 text-sm uppercase"
