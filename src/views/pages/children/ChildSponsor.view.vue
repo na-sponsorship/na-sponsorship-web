@@ -334,6 +334,7 @@
 <script>
 import axios from "axios";
 import dayjs from "dayjs";
+import { isUndefined } from "lodash";
 import { required, email } from "vuelidate/lib/validators";
 
 import CrediCardForm from "@components/CreditCardForm";
@@ -406,14 +407,13 @@ export default {
       });
   },
   methods: {
-    setToken(token) {
-      this.sponsor.payment.stripeToken = token;
-    },
     async startSponsorship(sponsor) {
+      this.$v.$touch();
       this.payment.stripeToken = await this.$refs.stripeForm.getToken();
 
-      this.$v.$touch();
-      if (!this.$v.$invalid) {
+      const paymentInvalid = isUndefined(this.payment.stripeToken);
+
+      if (!this.$v.$invalid && !paymentInvalid) {
         axios.post(`${process.env.VUE_APP_API}/sponsors`, {
           childId: this.child.id,
           sponsor,
