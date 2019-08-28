@@ -14,9 +14,7 @@
       </div>
     </hero>
     <div class="flex justify-center">
-      <div
-        class="page-width-constraint z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white"
-      >
+      <div class="z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white">
         <div class="flex mb-3 mt-10">
           <div
             class="flex-1 mr-2 form-group"

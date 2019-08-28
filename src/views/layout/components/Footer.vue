@@ -4,31 +4,33 @@
       <pre>Form goes here</pre>
     </Modal>
     <hero :header-bg="bgImage" size="md">
-      <div class="mt-32">
-        <h1 class="text-3xl text-green-500 text-center font-cursive">
-          Vestibulum id nisi Est
-        </h1>
-      </div>
+      <div class="md:w-3/4 md:m-auto">
+        <div class="mt-32">
+          <h1 class="text-3xl text-green-500 text-center font-cursive">
+            Vestibulum id nisi Est
+          </h1>
+        </div>
 
-      <div class="text-sm text-white text-center">
-        <p>
-          A simply dummy text of the pribeen the industry's standard dum imply
-          dummy text of the pribeen the industry's standard dum fsafsfsfa imply
-          dummy text of the pribeen the industry's standard
-        </p>
-        <button
-          class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 mr-2 mt-4"
-          @click="donate()"
-          @onDismiss="donationModal = false"
-        >
-          Read More
-        </button>
+        <div class="text-sm text-white text-center">
+          <p>
+            A simply dummy text of the pribeen the industry's standard dum imply
+            dummy text of the pribeen the industry's standard dum fsafsfsfa
+            imply dummy text of the pribeen the industry's standard
+          </p>
+          <button
+            class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 mr-2 mt-4"
+            @click="donate()"
+            @onDismiss="donationModal = false"
+          >
+            Read More
+          </button>
+        </div>
       </div>
     </hero>
     <div class="bg-brown-fade-to-black">
-      <div class="flex flex-col md:flex-row">
+      <div class="flex flex-col md:flex-row md:w-3/4 md:m-auto">
         <div class="flex-1 px-5">
-          <img :src="logoLight" class="w-3/4 mx-auto my-2" />
+          <img :src="logoLight" class=" my-2" />
           <p class="leading-relaxed font-medium text-white text-indent">
             Noah’s ARC is a Christian based NGO/CBO operating in Kyenjojo
             District, Mid-Western Uganda.
@@ -53,7 +55,9 @@
           </ul>
         </div>
       </div>
-      <div class="flex items-center px-5 py-5 justify-between">
+      <div
+        class="flex items-center px-5 py-5 justify-between md:w-3/4 md:m-auto"
+      >
         <div class="text-sm text-white">
           &copy; 2019 All right reserved. Noah's Arc
         </div>

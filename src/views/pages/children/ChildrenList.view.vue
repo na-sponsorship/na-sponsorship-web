@@ -6,11 +6,8 @@
         <hr class="bg-white h-px opacity-50 w-1/2" />
       </div>
     </hero>
-    <div class="flex justify-center">
-      <div
-        class="page-width-constraint z-10"
-        :class="{ '-mt-40': !isLoading, '-mt-16': isLoading }"
-      >
+    <div class="flex justify-center w-3/4 m-auto">
+      <div class="z-10" :class="{ '-mt-40': !isLoading, '-mt-16': isLoading }">
         <div class="flex flex-col">
           <div class="flex flex-wrap justify-center">
             <template v-if="isLoading">
