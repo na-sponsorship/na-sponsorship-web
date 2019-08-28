@@ -3,17 +3,17 @@
     <div class="flex opacity-0 z-40">
       <div class="flex-1 bg-gray-600 w-full h-16"></div>
     </div>
-    <div class="flex flex-row justify-center flex-no-wrap z-40 -mt-20 pt-3">
-      <div class="page-width-constraint flex items-center">
+    <div class="-mt-20 md:justify-center pt-3 z-40">
+      <div class="flex items-center m-auto md:w-3/4">
         <div class="w-56 p-2">
           <router-link to="/">
             <img :src="logoLight" />
           </router-link>
         </div>
         <div class="flex-1">
-          <div class="flex justify-end">
+          <div class="flex items-center justify-end">
             <ul
-              class="top-menu items-center"
+              class="top-menu items-center hidden md:flex"
               :class="{ 'top-menu-alt': $route.name !== 'home' }"
             >
               <router-link
@@ -33,6 +33,12 @@
                 </router-link>
               </FeatureFlagged>
             </ul>
+            <a
+              href=""
+              class="text-white border-white border py-1 px-2 mx-5 rounded md:hidden"
+            >
+              <FAIcon :icon="['fas', 'bars']" />
+            </a>
           </div>
         </div>
       </div>
@@ -42,7 +48,6 @@
 
 <style lang="postcss">
 .top-menu {
-  @apply flex;
   @apply list-none uppercase;
 }
 

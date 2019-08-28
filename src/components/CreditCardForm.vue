@@ -7,9 +7,9 @@
           {{ cardError }}
         </div>
       </div>
-      <div class="flex">
+      <div class="flex flex-col md:flex-row">
         <div class="flex flex-col flex-1">
-          <div id="card-expiration" class="mr-2 stripe-field"></div>
+          <div id="card-expiration" class="stripe-field md:mr-2"></div>
           <div class="text-red-500 font-medium">
             {{ expirationError }}
           </div>

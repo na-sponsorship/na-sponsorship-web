@@ -24,7 +24,7 @@
           </p>
           <div class="flex-auto mt-2">
             <router-link
-              class="btn btn-primary ml-2"
+              class="btn btn-primary ml-2 text-2xl block text-center"
               :to="{ name: 'children.view', params: { id: child.id } }"
               >Sponsor</router-link
             >

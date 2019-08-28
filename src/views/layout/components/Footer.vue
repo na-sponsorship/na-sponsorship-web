@@ -26,73 +26,46 @@
       </div>
     </hero>
     <div class="bg-brown-fade-to-black">
-      <div class="flex justify-center">
-        <div class="page-width-constraint">
-          <div class="antialiased flex font-bold py-20 text-white">
-            <div class="flex-1 font-medium leading-relaxed text-indent">
-              <img :src="logoLight" />
-              <p>
-                Noah’s ARC is a Christian based NGO/CBO operating in Kyenjojo
-                District, Mid-Western Uganda.
-              </p>
-              <p>
-                The main focus is on aimed at fighting and eradicating hunger,
-                poverty, illiteracy, and exposure to preventable diseases to all
-                unconditionally regardless of religion, race and political
-                affiliation.
-              </p>
-            </div>
-            <div class="flex-1 mx-16 uppercase">
-              <h2 class="text-3xl">About Us</h2>
-              <span class="block border-b h-2 mb-2 w-1/6">&nbsp;</span>
-              <ul>
-                <li class="mb-4">
-                  <a href="">History</a>
-                </li>
-                <li class="mb-4">
-                  <a href="">How We Serve</a>
-                </li>
-              </ul>
-            </div>
-            <div class="flex-1 mx-2 uppercase">
-              <h2 class="text-3xl">Conect with Us:</h2>
-              <span class="block border-b h-2 mb-2 w-1/6">&nbsp;</span>
-              <ul>
-                <li class="mb-4">
-                  <a href="">Facebook</a>
-                </li>
-                <li class="mb-4">
-                  <a href="">Instagram</a>
-                </li>
-                <li class="mb-4">
-                  <a href="">Twitter</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div class="flex flex-col md:flex-row">
+        <div class="flex-1 px-5">
+          <img :src="logoLight" class="w-3/4 mx-auto my-2" />
+          <p class="leading-relaxed font-medium text-white text-indent">
+            Noah’s ARC is a Christian based NGO/CBO operating in Kyenjojo
+            District, Mid-Western Uganda.
+          </p>
+          <p class="leading-relaxed font-medium text-white text-indent">
+            The main focus is on aimed at fighting and eradicating hunger,
+            poverty, illiteracy, and exposure to preventable diseases to all
+            unconditionally regardless of religion, race and political
+            affiliation.
+          </p>
+        </div>
+        <div class="flex-1 mx-5 my-2">
+          <h2 class="uppercase text-white text-3xl">About Us</h2>
+          <span class="block border-b h-2 mb-2 w-1/6">&nbsp;</span>
+          <ul>
+            <li class="my-2 text-white">
+              <a href="">History</a>
+            </li>
+            <li class="my-2 text-white">
+              <a href="">How We Serve</a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div
-        class="flex justify-center border-t mt-4 pt-5 pb-5 text-white border-gray-900"
-      >
-        <div class="page-width-constraint">
-          <div class="flex items-center">
-            <div class="w-3/4 text-center text-grey text-sm">
-              &copy; 2019 All right reserved. Noah's Arc
-            </div>
-            <div class="w-1/4">
-              <div class="flex">
-                <div
-                  class="social-icons"
-                  v-bind:key="index"
-                  v-for="(item, index) in socialLinks"
-                >
-                  <a :href="item.to" target="_blank">
-                    <FAIcon class="block" :icon="['fab', item.icon]" />
-                  </a>
-                </div>
-              </div>
-            </div>
+      <div class="flex items-center px-5 py-5 justify-between">
+        <div class="text-sm text-white">
+          &copy; 2019 All right reserved. Noah's Arc
+        </div>
+        <div class="flex">
+          <div
+            class="px-2"
+            v-bind:key="index"
+            v-for="(item, index) in socialLinks"
+          >
+            <a :href="item.to" target="_blank">
+              <FAIcon class="text-white text-2xl" :icon="['fab', item.icon]" />
+            </a>
           </div>
         </div>
       </div>
@@ -107,16 +80,6 @@
     rgba(16, 13, 11, 1) 0%,
     rgba(82, 63, 56, 1) 100%
   );
-}
-.social-icons {
-  width: 25px;
-  @apply m-2 p-2 text-2xl;
-}
-.contact-form input,
-.contact-form textarea {
-  @apply mt-2 mb-2 p-2 w-full bg-white;
-  @apply text-black text-sm font-light;
-  @apply rounded-sm resize-none outline-none;
 }
 </style>
 
@@ -138,7 +101,6 @@ export default {
           to:
             "http://www.facebook.com/profile.php?id=100000461473064&ref=content_filter"
         },
-        { icon: "twitter", to: "http://www.twitter.com" },
         {
           icon: "youtube",
           to: "http://www.youtube.com/channel/UCpHmZSfKw3iFA0hnWI9CX6A"
