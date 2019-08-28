@@ -7,9 +7,6 @@
 @import "components/forms.css";
 
 @import "typography.css";
-.page-width-constraint {
-    @apply w-3/4 max-w-6xl;
-}
 
 html {
     @apply font-sansSarif;
