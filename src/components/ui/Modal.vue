@@ -7,7 +7,7 @@
           <h3 class="flex-1">{{ title }}</h3>
           <span>
             <a class="cursor-pointer" @click="$emit('onDismiss')">
-              <FAIcon :icon="['fas', 'times']" />
+              <FAIcon icon="times" />
             </a>
           </span>
         </div>
