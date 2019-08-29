@@ -125,19 +125,14 @@
           <div class="w-1/4 bg-white-500 h-12">
             <h1 class="font-bold text-gray-700">Phone</h1>
             <p class="text-gray-700">
-              <FAIcon
-                class="inline-flex mr-1 text-gray-700"
-                :icon="['fas', 'phone']"
-              />+ 1 404-384-4324
+              <FAIcon class="inline-flex mr-1 text-gray-700" icon="phone" />+ 1
+              404-384-4324
             </p>
           </div>
           <div class="w-1/4 bg-white-400 h-12">
             <h1 class="font-bold text-gray-700">Email</h1>
             <p class="text-gray-700">
-              <FAIcon
-                class="inline-flex mr-1 text-gray-700"
-                :icon="['fas', 'envelope']"
-              />
+              <FAIcon class="inline-flex mr-1 text-gray-700" icon="envelope" />
               info@noahsarc.com
             </p>
           </div>

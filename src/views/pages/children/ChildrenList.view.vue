@@ -12,12 +12,7 @@
           <div class="flex flex-wrap justify-center">
             <template v-if="isLoading">
               <div class="m-8 bg-white p-4 rounded rounded-lg shadow-2xl">
-                <FAIcon
-                  :icon="['fas', 'spinner']"
-                  pulse
-                  size="3x"
-                  v-if="!loadingError"
-                />
+                <FAIcon icon="spinner" pulse size="3x" v-if="!loadingError" />
                 <span v-if="loadingError"
                   >There was a problem loading. Check your internet
                   connection</span

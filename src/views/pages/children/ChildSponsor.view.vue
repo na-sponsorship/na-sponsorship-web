@@ -293,10 +293,7 @@
               >
               <CrediCardForm ref="stripeForm"></CrediCardForm>
               <div class="flex-1 mb-6 mt-2">
-                <FAIcon
-                  class="mx-1 text-green-600 text-lg"
-                  :icon="['fas', 'shield-alt']"
-                />
+                <FAIcon class="mx-1 text-green-600 text-lg" icon="shield-alt" />
                 <span class="text-gray-700">This is a secure SSL payment</span>
               </div>
               <div class="flex flex-col items-center md:flex-row">

@@ -3,7 +3,7 @@ import Vue2Filters from "vue2-filters";
 import VueFilterDateFormat from "vue-filter-date-format";
 import VTooltip from "v-tooltip";
 import Vuelidate from "vuelidate";
-import VueNumeric from 'vue-numeric'
+import VueNumeric from "vue-numeric";
 
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -23,8 +23,6 @@ import {
   faSpinner,
   faWallet,
   faBars,
-  faArrowUp,
-  faAngleUp,
   faCaretUp
 } from "@fortawesome/free-solid-svg-icons";
 import {
