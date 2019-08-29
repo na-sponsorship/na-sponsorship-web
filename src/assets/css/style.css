@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat:400,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 
@@ -6,7 +8,6 @@
 @import "components/tooltips.css";
 @import "components/forms.css";
 
-@import "typography.css";
 
 .text-indent {
     text-indent: 2em;
