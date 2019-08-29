@@ -2,10 +2,17 @@
   <div class="m-8 w-20-rem bg-white p-4 rounded rounded-lg shadow-2xl">
     <div class="flex flex-col content-start h-full">
       <div class="flex-1 h-64">
-        <img
-          class="w-full rounded rounded-lg flex-auto h-full w-full object-cover"
-          :src="child.image"
-        />
+        <cld-image
+          :publicId="child.image"
+          class="rounded-lg w-full flex-auto h-full object-cover"
+        >
+          <cld-transformation
+            width="250"
+            height="250"
+            gravity="face"
+            crop="fill"
+          />
+        </cld-image>
       </div>
       <div class="flex-1">
         <div class="flex flex-col h-27-rem">
@@ -37,8 +44,10 @@
 
 <script>
 import dayjs from "dayjs";
+import { CldImage, CldTransformation } from "cloudinary-vue";
 
 export default {
+  components: { CldImage, CldTransformation },
   props: {
     child: {
       type: Object

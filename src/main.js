@@ -4,6 +4,7 @@ import VueFilterDateFormat from "vue-filter-date-format";
 import VTooltip from "v-tooltip";
 import Vuelidate from "vuelidate";
 import VueNumeric from "vue-numeric";
+import Cloudinary from "cloudinary-vue";
 
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -73,6 +74,11 @@ Vue.use(VueFilterDateFormat);
 Vue.use(VTooltip);
 Vue.use(Vuelidate);
 Vue.use(VueNumeric);
+Vue.use(Cloudinary, {
+  configuration: {
+    cloudName: process.env.VUE_APP_CLAUDINARY_CLOUD_NAME
+  }
+});
 
 new Vue({
   router,

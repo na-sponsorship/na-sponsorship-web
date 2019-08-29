@@ -2,7 +2,7 @@
   <div>
     <hero :header-bg="bgImage"></hero>
     <div class="flex m-auto md:w-3/4">
-      <div class="z-10" v-if="child">
+      <div class="z-10 m-auto" v-if="child">
         <div class="flex flex-col -mt-64 -mb-20">
           <div class="inline-flex mb-4 justify-center md:justify-end">
             <a
@@ -16,10 +16,14 @@
             class="flex flex-col shadow-lg bg-white p-3 md:rounded-lg md:flex-row"
           >
             <div class="flex-initial md:w-1/4 md:h-auto">
-              <img
-                class="rounded-lg flex-auto h-full w-full object-cover"
-                :src="child.image"
-              />
+              <cld-image :publicId="child.image" class="rounded-lg w-full">
+                <cld-transformation
+                  width="250"
+                  height="250"
+                  gravity="face"
+                  crop="fill"
+                />
+              </cld-image>
             </div>
             <div class="flex-1 p-2">
               <div class="flex flex-col">
@@ -359,12 +363,13 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { isUndefined } from "lodash";
 import { required, email } from "vuelidate/lib/validators";
+import { CldImage, CldTransformation } from "cloudinary-vue";
 
 import CrediCardForm from "@components/CreditCardForm";
 import hero from "@components/Hero";
 
 export default {
-  components: { CrediCardForm, hero },
+  components: { CldImage, CrediCardForm, CldTransformation, hero },
   validations: {
     sponsor: {
       firstName: { required },
