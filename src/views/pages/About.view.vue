@@ -15,7 +15,7 @@
       </div>
     </hero>
     <div class="flex justify-center">
-      <div class="page-width-constraint z-10">
+      <div class="w-3/4 z-10">
         <div class="flex flex-col -mt-64 -mt-40 pb-12">
           <div class="flex shadow-lg bg-white rounded-lg p-20 ">
             <div class="flex-initial w-2/4 h-auto">
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="flex justify-center">
-      <div class="page-width-constraint">
+      <div class="w-3/4">
         <div class="flex mb-4 ">
           <div class="h-12">
             <h1 class="text-3xl text-green-500 font-cursive">Lorem Sertem</h1>
@@ -58,7 +58,7 @@
     </div>
     <div class="bg-green-500 object-cover h-68 w-full -mt-16">
       <div class="flex justify-center">
-        <div class="page-width-constraint">
+        <div class="w-3/4">
           <div class="flex mb-4 mt-24">
             <div class="w-1/4 h-12">
               <h1 class="text-2xl text-white font-cursive">Our Team</h1>
@@ -84,7 +84,7 @@
       class="bg-white-500 object-cover w-full h-cover h-68 mb-64 -mt-10 z-10"
     >
       <div class="flex justify-center ">
-        <div class="page-width-constraint">
+        <div class="w-3/4">
           <div class="flex mb-4 pt-40">
             <div class="w-1/2 h-12 mr-4">
               <h1 class="text-3xl text-green-500 font-cursive">Lorem Sertem</h1>
