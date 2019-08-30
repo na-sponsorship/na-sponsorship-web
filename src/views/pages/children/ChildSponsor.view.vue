@@ -20,7 +20,7 @@
                 <cld-transformation
                   width="250"
                   height="350"
-                  gravity="face:center"
+                  gravity="face"
                   crop="fill"
                 />
               </cld-image>
