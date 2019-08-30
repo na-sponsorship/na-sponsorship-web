@@ -17,7 +17,7 @@
         >
           <router-link
             to="/children"
-            class="bg-orange-500 px-6 py-3 rounded-lg hover:bg-orange-600"
+            class="bg-orange-500 px-6 py-3 rounded-lg hover:bg-orange-600 text-center"
             >Sponsor Now</router-link
           >
           <div class="flex mt-5 md:mt-0 md:ml-5">
