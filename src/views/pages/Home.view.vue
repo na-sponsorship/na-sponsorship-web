@@ -2,7 +2,9 @@
   <div>
     <hero :header-bg="bgImage">
       <div class="mt-48 mx-5">
-        <h1 class="text-3xl md:text-5xl w-8/12 text-white font-cursive">
+        <h1
+          class="text-3xl md:text-5xl w-8/12 text-white font-cursive text-center mb-5 md:text-left md:mb-0"
+        >
           Be the reason someone smiles today
         </h1>
       </div>

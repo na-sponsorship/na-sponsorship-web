@@ -1,5 +1,5 @@
 <template>
-  <div class="m-8 w-20-rem bg-white p-4 rounded rounded-lg shadow-2xl">
+  <div class="m-8 w-56 bg-white p-4 rounded rounded-lg shadow-2xl">
     <div class="flex flex-col content-start h-full">
       <div class="flex-1">
         <cld-image
