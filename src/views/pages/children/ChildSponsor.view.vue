@@ -19,8 +19,8 @@
               <cld-image :publicId="child.image" class="rounded-lg w-full">
                 <cld-transformation
                   width="250"
-                  height="250"
-                  gravity="face"
+                  height="350"
+                  gravity="face:center"
                   crop="fill"
                 />
               </cld-image>

@@ -1,15 +1,15 @@
 <template>
   <div class="m-8 w-20-rem bg-white p-4 rounded rounded-lg shadow-2xl">
     <div class="flex flex-col content-start h-full">
-      <div class="flex-1 h-64">
+      <div class="flex-1">
         <cld-image
           :publicId="child.image"
           class="rounded-lg w-full flex-auto h-full object-cover"
         >
           <cld-transformation
             width="250"
-            height="250"
-            gravity="face"
+            height="350"
+            gravity="face:center"
             crop="fill"
           />
         </cld-image>
