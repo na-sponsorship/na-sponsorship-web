@@ -14,7 +14,7 @@
       </div>
     </hero>
     <div class="flex justify-center">
-      <div class="z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white">
+      <div class="z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white md:w-3/4">
         <div class="flex mb-3 mt-10">
           <div
             class="flex-1 mr-2 form-group"
@@ -111,25 +111,24 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center mb-32 mt-10 ">
-      <div class="page-width-constraint">
-        <div class="flex mb-4">
-          <div class="w-1/4 bg-white-500 h-12">
+    <div class="flex mb-32 mt-10 ">
+      <div class="md:w-3/4 md:m-auto">
+        <div class="flex mb-4 flex-col md:justify-around px-4 md:flex-row">
+          <div class="mb-2">
             <h1 class="font-bold text-gray-700">Our Location</h1>
             <p class="text-gray-700">
-              Str 24 Avenue North Atlanta Georgia 30043 USA
+              Str 24 Avenue North 
             </p>
+            <p>Atlanta Georgia 30043 USA</p>
           </div>
-          <div class="w-1/4 bg-white-400 h-12"></div>
-          <div class="w-1/4 bg-white-500 h-12"></div>
-          <div class="w-1/4 bg-white-500 h-12">
+          <div class="mb-2">
             <h1 class="font-bold text-gray-700">Phone</h1>
             <p class="text-gray-700">
               <FAIcon class="inline-flex mr-1 text-gray-700" icon="phone" />+ 1
               404-384-4324
             </p>
           </div>
-          <div class="w-1/4 bg-white-400 h-12">
+          <div class="w-1/4 h-12">
             <h1 class="font-bold text-gray-700">Email</h1>
             <p class="text-gray-700">
               <FAIcon class="inline-flex mr-1 text-gray-700" icon="envelope" />
