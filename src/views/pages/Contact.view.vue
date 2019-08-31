@@ -14,7 +14,9 @@
       </div>
     </hero>
     <div class="flex justify-center">
-      <div class="z-10 -mt-56  w-full mx-2 rounded-lg shadow-2xl px-2 mb-3 pt-3 bg-white md:w-3/5 md:px-8">
+      <div
+        class="z-10 -mt-56  w-full mx-2 rounded-lg shadow-2xl px-2 mb-3 pt-3 bg-white md:w-3/5 md:px-8"
+      >
         <div class="md:flex mt-10">
           <div
             class="flex-1 md:mr-2 form-group mb-2"
@@ -117,7 +119,7 @@
           <div class="mb-2">
             <h1 class="font-bold text-gray-700">Our Location</h1>
             <p class="text-gray-700">
-              Str 24 Avenue North 
+              Str 24 Avenue North
             </p>
             <p>Atlanta Georgia 30043 USA</p>
           </div>

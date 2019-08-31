@@ -8,7 +8,7 @@
       </div>
       <hr class="bg-white h-px opacity-50 w-1/2" />
       <div class="text-sm text-white text-center">
-        <h2>
+        <h2 class="invisible md:visible lg:visible">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque,
           nesciunt ducimus!
         </h2>
@@ -17,14 +17,22 @@
     <div class="flex justify-center">
       <div class="w-3/4 z-10">
         <div class="flex flex-col -mt-64 -mt-40 pb-12">
-          <div class="flex shadow-lg bg-white rounded-lg p-20 ">
-            <div class="flex-initial w-2/4 h-auto">
+          <div
+            class="shadow-lg bg-white rounded-lg md:p-20 lg:p-20 md:flex lg:flex"
+          >
+            <div
+              class="flex-initial w-2/4 h-auto invisible md:visible md:visible"
+            >
               <!-- image here -->
             </div>
             <div class="div flex-1 p-2 mb-2">
               <div class="flex flex-col">
                 <div class="px-5 ">
-                  <h2 class="text-xl text-gray-700 font-cursive">Our Vision</h2>
+                  <h2
+                    class="text-xl text-gray-700 font-cursive text-center md:text-left lg:text-left"
+                  >
+                    Our Vision
+                  </h2>
                   <hr class="bg-gray-700 h-px" />
                   <p class="text-green-700 pb-5 text-small">
                     Fighting and eradicating hunger, poverty, illiteracy, and
@@ -41,25 +49,29 @@
     </div>
     <div class="flex justify-center">
       <div class="w-3/4">
-        <div class="flex mb-4 ">
-          <div class="h-12">
+        <div class="flex flex-col mb-4 md:flex-row lg:flex-row">
+          <div class="h-12 pb-40 -mt-40">
             <h1 class="text-3xl text-green-500 font-cursive">Lorem Sertem</h1>
-            <p>
+            <p class="">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
               unde accusamus doloribus corrupti quas cupiditate? Praesentium
               cumque quo aspernatur. Quibusdam quos omnis
             </p>
           </div>
           <div class="w-1/4 h-12"></div>
-          <div class="w-1/4 shadow-lg bg-white rounded-lg h-12 p-40 mr-4"></div>
-          <div class="w-1/4 shadow-lg bg-white rounded-lg h-12 p-40"></div>
+          <div class="w-1/4 shadow-lg bg-white rounded-lg h-12 p-40 mr-4 mb-4">
+            hele
+          </div>
+          <div class="w-1/4 shadow-lg bg-white rounded-lg h-12 p-40">
+            welcome
+          </div>
         </div>
       </div>
     </div>
-    <div class="bg-green-500 object-cover h-68 w-full -mt-16">
+    <div class="bg-green-500 object-cover h-68 w-full md:-mt-16 lg:-mt-16">
       <div class="flex justify-center">
         <div class="w-3/4">
-          <div class="flex mb-4 mt-24">
+          <div class="flex mb-4 mt-24 flex-col md:flex-row lg:flex-row">
             <div class="w-1/4 h-12">
               <h1 class="text-2xl text-white font-cursive">Our Team</h1>
               <p class="text-white">
@@ -73,9 +85,13 @@
             </div>
             <div class="w-1/4 h-12"></div>
             <div
-              class="w-1/4 shadow-lg bg-white rounded-lg h-12 p-40 mr-4"
-            ></div>
-            <div class="w-1/4 shadow-lg bg-white rounded-lg h-12 p-40"></div>
+              class="w-1/4 shadow-lg bg-white rounded-lg h-12 p-40 mr-4 mb-4"
+            >
+              helo
+            </div>
+            <div class="w-1/4 shadow-lg bg-white rounded-lg h-12 p-40">
+              welcome
+            </div>
           </div>
         </div>
       </div>
@@ -110,7 +126,6 @@
 </template>
 <script>
 import hero from "../../components/Hero";
-
 export default {
   components: { hero },
   data() {
