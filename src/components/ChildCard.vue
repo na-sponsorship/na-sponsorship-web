@@ -1,5 +1,5 @@
 <template>
-  <div class="m-8 w-56 bg-white p-4 rounded rounded-lg shadow-2xl">
+  <div class="m-8 w-64 bg-white p-4 rounded rounded-lg shadow-2xl">
     <div class="flex flex-col content-start h-full">
       <div class="flex-1">
         <cld-image
@@ -7,8 +7,8 @@
           class="rounded-lg w-full flex-auto h-full object-cover"
         >
           <cld-transformation
-            width="250"
-            height="350"
+            width="350"
+            height="450"
             gravity="face"
             crop="fill"
           />
