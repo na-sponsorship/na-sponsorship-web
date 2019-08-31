@@ -14,10 +14,10 @@
       </div>
     </hero>
     <div class="flex justify-center">
-      <div class="z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white md:w-3/4">
+      <div class="z-10 -mt-56  w-full mx-2 rounded-lg shadow-2xl px-2 mb-3 pt-3 bg-white md:w-3/5 md:px-8">
         <div class="md:flex mt-10">
           <div
-            class="flex-1 mr-2 form-group mb-2"
+            class="flex-1 md:mr-2 form-group mb-2"
             :class="{
               'has-error': $v.contactForm.firstName.$error,
               'is-valid':
@@ -27,7 +27,7 @@
           >
             <input
               placeholder="First Name"
-              class="form-input w-full"
+              class="form-input w-full sm:text-xl"
               v-model="$v.contactForm.firstName.$model"
             />
             <div
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div
-            class="flex-1 mr-2 form-group"
+            class="flex-1 md:mr-2 form-group"
             :class="{
               'has-error': $v.contactForm.lastName.$error,
               'is-valid':
@@ -51,7 +51,7 @@
           >
             <input
               placeholder="Last Name"
-              class="form-input w-full mb-2"
+              class="form-input w-full mb-2 sm:text-xl"
               v-model="$v.contactForm.lastName.$model"
             />
             <div
@@ -67,7 +67,7 @@
         </div>
         <div class="flex mb-3">
           <div
-            class="flex-1 mr-2 form-group"
+            class="flex-1 md:mr-2 form-group"
             :class="{
               'has-error': $v.contactForm.email.$error,
               'is-valid':
@@ -76,7 +76,7 @@
           >
             <input
               placeholder="Email"
-              class="form-input w-full"
+              class="form-input w-full sm:text-xl"
               v-model="$v.contactForm.email.$model"
             />
             <div
@@ -93,7 +93,7 @@
           </div>
         </div>
         <div class="flex mb-3">
-          <div class="flex-1 mr-2 form-group">
+          <div class="flex-1 md:mr-2 form-group">
             <textarea
               placeholder="Message Us"
               class="form-input w-full h-56"
@@ -104,7 +104,7 @@
         <div class="flex-1">
           <button
             @click="sendMessage(contactForm)"
-            class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 float-right mr-2 "
+            class="btn btn-primary mr-0 mt-2 px-6 py-2 text-base mb-8 float-right md:mr-2"
           >
             Submit
           </button>
@@ -112,7 +112,7 @@
       </div>
     </div>
     <div class="flex mb-32 mt-10 ">
-      <div class="md:w-3/4 md:m-auto">
+      <div class="md:w-3/5 md:m-auto">
         <div class="flex mb-4 flex-col md:justify-around px-4 md:flex-row">
           <div class="mb-2">
             <h1 class="font-bold text-gray-700">Our Location</h1>
