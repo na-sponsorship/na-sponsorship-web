@@ -15,9 +15,9 @@
     </hero>
     <div class="flex justify-center">
       <div class="z-10 -mt-56  px-16 rounded-lg shadow-2xl mb-3 pt-3 bg-white md:w-3/4">
-        <div class="flex mb-3 mt-10">
+        <div class="md:flex mt-10">
           <div
-            class="flex-1 mr-2 form-group"
+            class="flex-1 mr-2 form-group mb-2"
             :class="{
               'has-error': $v.contactForm.firstName.$error,
               'is-valid':
@@ -51,7 +51,7 @@
           >
             <input
               placeholder="Last Name"
-              class="form-input w-full"
+              class="form-input w-full mb-2"
               v-model="$v.contactForm.lastName.$model"
             />
             <div
