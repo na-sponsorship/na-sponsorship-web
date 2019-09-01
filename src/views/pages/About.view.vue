@@ -15,8 +15,8 @@
       </div>
     </hero>
     <div class="flex justify-center">
-      <div class="w-3/4 z-10">
-        <div class="flex flex-col -mt-64 -mt-40 pb-12">
+      <div class="w-3/4 z-10 ">
+        <div class="flex flex-col sm:-mt-42 md:-mt-64 lg:-mt-64 md:-mt-40 lg:-mt-40 pb-12">
           <div
             class="shadow-lg bg-white rounded-lg md:p-20 lg:p-20 md:flex lg:flex"
           >
@@ -50,7 +50,7 @@
     <div class="flex justify-center">
       <div class="w-3/4">
         <div class="flex flex-col mb-4 md:flex-row lg:flex-row">
-          <div class="h-12 pb-40 -mt-40">
+          <div class="h-12 pb-40 md:-mt-40 lg:-mt-40">
             <h1 class="text-3xl text-green-500 font-cursive">Lorem Sertem</h1>
             <p class="">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
@@ -71,8 +71,8 @@
     <div class="bg-green-500 object-cover h-68 w-full md:-mt-16 lg:-mt-16">
       <div class="flex justify-center">
         <div class="w-3/4">
-          <div class="flex mb-4 mt-24 flex-col md:flex-row lg:flex-row">
-            <div class="w-1/4 h-12">
+          <div class="flex mb-4 mt-10 md:mt-24 lg:mt-24 flex-col md:flex-row lg:flex-row">
+            <div class="w-2/3 h-12 mb-48">
               <h1 class="text-2xl text-white font-cursive">Our Team</h1>
               <p class="text-white">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -101,20 +101,18 @@
     >
       <div class="flex justify-center ">
         <div class="w-3/4">
-          <div class="flex mb-4 pt-40">
-            <div class="w-1/2 h-12 mr-4">
+          <div class="flex mb-4 pt-20 md:pt-40 lg:pt-40">
+            <div class="w-2/3 h-12 mr-4">
               <h1 class="text-3xl text-green-500 font-cursive">Lorem Sertem</h1>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias, distinctio. Unde sit quod in culpa fugit quidem quo
-                asperiores distinctio id ipsa.
+                a.
               </p>
             </div>
-            <div class="w-1/2 h-12 pt-10">
-              <p class="">
+            <div class="w-2/3 h-12 pt-10">
+              <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                facere corporis officiis laborum fugiat quam vitae magnam quasi
-                laboriosam amet reprehenderit excepturi reiciendis harum, sit
+                 excepturi reiciendis harum, sit
                 cupiditate qui. Nihil, sed dolores!
               </p>
             </div>
