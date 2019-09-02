@@ -17,7 +17,7 @@
     <div class="flex justify-center">
       <div class="w-3/4 z-10 ">
         <div
-          class="flex flex-col sm:-mt-42 md:-mt-64 lg:-mt-64 md:-mt-40 lg:-mt-40 pb-12"
+          class="flex flex-col -mt-56 md:-mt-64 lg:-mt-64 md:-mt-40 lg:-mt-40 pb-12"
         >
           <div
             class="shadow-lg bg-white rounded-lg md:p-20 lg:p-20 md:flex lg:flex"
