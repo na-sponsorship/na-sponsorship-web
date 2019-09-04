@@ -25,7 +25,8 @@ import {
   faSpinner,
   faWallet,
   faBars,
-  faCaretUp
+  faCaretUp,
+  faCheckCircle
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -56,7 +57,8 @@ library.add(
   faWallet,
   faSpinner,
   faBars,
-  faCaretUp
+  faCaretUp,
+  faCheckCircle
 );
 import FeatureFlagged from "./components/FeatureFlagged";
 
