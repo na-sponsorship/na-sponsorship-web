@@ -1,5 +1,8 @@
 <template>
-  <div class="m-8 w-64 bg-white p-4 rounded rounded-lg shadow-2xl">
+  <div
+    class="m-8 bg-white p-4 rounded rounded-lg shadow-2xl"
+    style="width: 22rem;"
+  >
     <div class="flex flex-col content-start h-full">
       <div class="flex-1">
         <cld-image
