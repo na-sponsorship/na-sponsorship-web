@@ -23,6 +23,7 @@
     "vue": "^2.5.22",
     "vue-filter-date-format": "^1.2.5",
     "vue-numeric": "^2.3.0",
+    "vue-recaptcha-v3": "^1.5.0",
     "vue-router": "^3.0.1",
     "vue2-filters": "^0.4.1",
     "vuelidate": "^0.7.4",

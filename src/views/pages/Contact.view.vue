@@ -103,10 +103,27 @@
             ></textarea>
           </div>
         </div>
-        <div class="flex-1">
+        <div class="flex items-center justify-between mb-8">
+          <span class="text-xs -mt-12">
+            This site is protected by reCAPTCHA and the Google
+            <a
+              class="text-orange-500"
+              target="_blank"
+              href="https://policies.google.com/privacy"
+              >Privacy Policy</a
+            >
+            and
+            <a
+              class="text-orange-500"
+              target="_blank"
+              href="https://policies.google.com/terms"
+              >Terms of Service</a
+            >
+            apply.
+          </span>
           <button
             @click="sendMessage(contactForm)"
-            class="btn btn-primary mr-0 mt-2 px-6 py-2 text-base mb-8 float-right md:mr-2"
+            class="btn btn-primary mr-0 mt-2 px-6 py-2 text-base float-right md:mr-2"
           >
             Submit
           </button>
@@ -143,7 +160,8 @@
   </div>
 </template>
 <script>
-import hero from "../../components/Hero";
+import hero from "@components/Hero";
+
 import { required, email } from "vuelidate/lib/validators";
 import axios from "axios";
 
@@ -176,9 +194,13 @@ export default {
   methods: {
     sendMessage(contactForm) {
       this.$v.$touch();
-      if (!this.$v.$invalid) {
-        axios.post(`${process.env.VUE_APP_API}/sponsorChild`, contactForm);
-      }
+      this.$recaptcha("contact").then(token => {
+        if (!this.$v.$invalid) {
+          axios.post(`${process.env.VUE_APP_API}/app/contact`, contactForm, {
+            headers: { recaptcha: token }
+          });
+        }
+      });
     }
   }
 };

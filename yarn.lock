@@ -8862,6 +8862,11 @@ realpath-native@^1.0.0:
   dependencies:
     util.promisify "^1.0.0"
 
+recaptcha-v3@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/recaptcha-v3/-/recaptcha-v3-1.5.0.tgz#299ed2f72be07570e6a91342b41d58e2a005db17"
+  integrity sha512-iZgVoxQU56yqrrlLu/dlcwmvCMq0gHo1VLqVCzCIOeDfj/1zOqDkeI7G8HuDI6S2ptpVlLBMeBYX64/Z5OgvEA==
+
 redent@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-1.0.0.tgz#cf916ab1fd5f1f16dfb20822dd6ec7f730c2afde"
@@ -10683,6 +10688,13 @@ vue-numeric@^2.3.0:
   integrity sha1-1uWqfFA1qG8uNkgfsf0P4rxEX5I=
   dependencies:
     accounting-js "^1.1.1"
+
+vue-recaptcha-v3@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/vue-recaptcha-v3/-/vue-recaptcha-v3-1.5.0.tgz#b5062d4859aae90875a31f1ec3feb42b43971d6c"
+  integrity sha512-e033CZk8VwmzFjrvpz8YcRSuOgL79YrNI1ROEYZ2IZGnVniaMMyQqbNmLHTSTdu/IDqjDuVCIGtURJaXmpquEA==
+  dependencies:
+    recaptcha-v3 "^1.5.0"
 
 vue-resize@^0.4.5:
   version "0.4.5"

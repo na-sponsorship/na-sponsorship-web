@@ -5,6 +5,7 @@ import VTooltip from "v-tooltip";
 import Vuelidate from "vuelidate";
 import VueNumeric from "vue-numeric";
 import Cloudinary from "cloudinary-vue";
+import { VueReCaptcha } from "vue-recaptcha-v3";
 
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -77,6 +78,12 @@ Vue.use(VueNumeric);
 Vue.use(Cloudinary, {
   configuration: {
     cloudName: process.env.VUE_APP_CLAUDINARY_CLOUD_NAME
+  }
+});
+Vue.use(VueReCaptcha, {
+  siteKey: process.env.VUE_APP_RECAPTCHA_SITE_ID,
+  loaderOptions: {
+    autoHideBadge: true
   }
 });
 
