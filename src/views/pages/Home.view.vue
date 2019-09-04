@@ -1,37 +1,34 @@
 <template>
   <div>
     <hero :header-bg="bgImage">
-      <div class="mt-48 mx-5">
-        <h1
-          class="text-3xl md:text-5xl w-8/12 text-white font-cursive text-center mb-5 md:text-left md:mb-0"
-        >
-          Be the reason someone smiles today
-        </h1>
-      </div>
-      <div class="mt-2 mb-8 mx-5">
-        <span class="text-white text-base">
-          With your help, we can change the life stories of many children
-        </span>
-      </div>
-      <div class="flex">
-        <div
-          class="mx-5 flex flex-col w-full tracking-widest text-2xl font-bold uppercase text-gray-300 md:flex-row md:text-sm"
-        >
-          <router-link
-            to="/children"
-            class="bg-orange-500 px-6 py-3 rounded-lg hover:bg-orange-600 text-center"
-            >Sponsor Now</router-link
+      <div class="flex m-auto md:w-3/4">
+        <div class="flex flex-col mx-5 md:mx-0">
+          <div class="mt-48">
+            <h1
+              class="text-3xl md:text-5xl text-white font-cursive text-center mb-5 md:text-left md:mb-0"
+            >
+              With your help, we can change the life stories of many children.
+            </h1>
+          </div>
+          <div
+            class="flex flex-col w-full tracking-widest text-2xl font-bold uppercase text-gray-300 md:flex-row md:text-sm"
           >
-          <div class="flex mt-5 md:mt-0 md:ml-5">
-            <span
-              class="text-gray-300 rounded-l-lg border px-6 border-gray-500 inline-flex items-center"
+            <router-link
+              to="/children"
+              class="bg-orange-500 px-6 py-3 rounded-lg hover:bg-orange-600 text-center"
+              >Sponsor Now</router-link
             >
-              {{ childrenCount }}
-            </span>
-            <span
-              class="rounded-l-none bg-green-500 px-6 py-3 rounded-r-lg w-full"
-              >Children in Program</span
-            >
+            <div class="flex mt-5 md:mt-0 md:ml-5">
+              <span
+                class="text-gray-300 rounded-l-lg border px-6 border-gray-500 inline-flex items-center"
+              >
+                {{ childrenCount }}
+              </span>
+              <span
+                class="rounded-l-none bg-green-500 px-6 py-3 rounded-r-lg w-full"
+                >Children in Program</span
+              >
+            </div>
           </div>
         </div>
       </div>
