@@ -15,118 +15,126 @@
     </hero>
     <div class="flex justify-center">
       <div
-        class="z-10 -mt-56  w-full mx-2 rounded-lg shadow-2xl px-2 mb-3 pt-3 bg-white md:w-3/5 md:px-8"
+        class="z-10 -mt-56 w-full mx-2 rounded-lg shadow-2xl px-2 mb-3 pt-3 bg-white flex items-center justify-around md:w-3/5 md:px-8"
       >
-        <div class="md:flex mt-10">
-          <div
-            class="flex-1 md:mr-2 form-group mb-2"
-            :class="{
-              'has-error': $v.contactForm.firstName.$error,
-              'is-valid':
-                $v.contactForm.firstName.$dirty &&
-                !$v.contactForm.firstName.$invalid
-            }"
-          >
-            <input
-              placeholder="First Name"
-              class="form-input w-full sm:text-xl"
-              v-model="$v.contactForm.firstName.$model"
-            />
-            <div
-              class="error"
-              v-if="
-                !$v.contactForm.firstName.required &&
-                  $v.contactForm.firstName.$dirty
-              "
-            >
-              Please enter a first name
-            </div>
-          </div>
-          <div
-            class="flex-1 md:mr-2 form-group"
-            :class="{
-              'has-error': $v.contactForm.lastName.$error,
-              'is-valid':
-                $v.contactForm.lastName.$dirty &&
-                !$v.contactForm.lastName.$invalid
-            }"
-          >
-            <input
-              placeholder="Last Name"
-              class="form-input w-full mb-2 sm:text-xl"
-              v-model="$v.contactForm.lastName.$model"
-            />
-            <div
-              class="error"
-              v-if="
-                !$v.contactForm.lastName.required &&
-                  $v.contactForm.lastName.$dirty
-              "
-            >
-              Please enter a last name
-            </div>
-          </div>
+        <div
+          v-if="messageSent"
+          class="text-3xl text-green-700 font-extrabold uppercase"
+        >
+          <FAIcon icon="check-circle" /> Message Sent
         </div>
-        <div class="flex mb-3">
-          <div
-            class="flex-1 md:mr-2 form-group"
-            :class="{
-              'has-error': $v.contactForm.email.$error,
-              'is-valid':
-                $v.contactForm.email.$dirty && !$v.contactForm.email.$invalid
-            }"
-          >
-            <input
-              placeholder="Email"
-              class="form-input w-full sm:text-xl"
-              v-model="$v.contactForm.email.$model"
-            />
+        <div v-if="!messageSent" class="flex-1">
+          <div class="md:flex mt-10">
             <div
-              class="error"
-              v-if="
-                !$v.contactForm.email.required && $v.contactForm.email.$dirty
-              "
+              class="flex-1 md:mr-2 form-group mb-2"
+              :class="{
+                'has-error': $v.contactForm.firstName.$error,
+                'is-valid':
+                  $v.contactForm.firstName.$dirty &&
+                  !$v.contactForm.firstName.$invalid
+              }"
             >
-              Please enter an email
+              <input
+                placeholder="First Name"
+                class="form-input w-full sm:text-xl"
+                v-model="$v.contactForm.firstName.$model"
+              />
+              <div
+                class="error"
+                v-if="
+                  !$v.contactForm.firstName.required &&
+                    $v.contactForm.firstName.$dirty
+                "
+              >
+                Please enter a first name
+              </div>
             </div>
-            <div class="error" v-if="!$v.contactForm.email.email">
-              Please enter a valid email address
+            <div
+              class="flex-1 md:mr-2 form-group"
+              :class="{
+                'has-error': $v.contactForm.lastName.$error,
+                'is-valid':
+                  $v.contactForm.lastName.$dirty &&
+                  !$v.contactForm.lastName.$invalid
+              }"
+            >
+              <input
+                placeholder="Last Name"
+                class="form-input w-full mb-2 sm:text-xl"
+                v-model="$v.contactForm.lastName.$model"
+              />
+              <div
+                class="error"
+                v-if="
+                  !$v.contactForm.lastName.required &&
+                    $v.contactForm.lastName.$dirty
+                "
+              >
+                Please enter a last name
+              </div>
             </div>
           </div>
-        </div>
-        <div class="flex mb-3">
-          <div class="flex-1 md:mr-2 form-group">
-            <textarea
-              placeholder="Message Us"
-              class="form-input w-full h-56"
-              v-model="contactForm.message"
-            ></textarea>
+          <div class="flex mb-3">
+            <div
+              class="flex-1 md:mr-2 form-group"
+              :class="{
+                'has-error': $v.contactForm.email.$error,
+                'is-valid':
+                  $v.contactForm.email.$dirty && !$v.contactForm.email.$invalid
+              }"
+            >
+              <input
+                placeholder="Email"
+                class="form-input w-full sm:text-xl"
+                v-model="$v.contactForm.email.$model"
+              />
+              <div
+                class="error"
+                v-if="
+                  !$v.contactForm.email.required && $v.contactForm.email.$dirty
+                "
+              >
+                Please enter an email
+              </div>
+              <div class="error" v-if="!$v.contactForm.email.email">
+                Please enter a valid email address
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="flex items-center justify-between mb-8">
-          <span class="text-xs -mt-12">
-            This site is protected by reCAPTCHA and the Google
-            <a
-              class="text-orange-500"
-              target="_blank"
-              href="https://policies.google.com/privacy"
-              >Privacy Policy</a
+          <div class="flex mb-3">
+            <div class="flex-1 md:mr-2 form-group">
+              <textarea
+                placeholder="Message Us"
+                class="form-input w-full h-56"
+                v-model="contactForm.message"
+              ></textarea>
+            </div>
+          </div>
+          <div class="flex items-center justify-between mb-8">
+            <span class="text-xs -mt-12">
+              This site is protected by reCAPTCHA and the Google
+              <a
+                class="text-orange-500"
+                target="_blank"
+                href="https://policies.google.com/privacy"
+                >Privacy Policy</a
+              >
+              and
+              <a
+                class="text-orange-500"
+                target="_blank"
+                href="https://policies.google.com/terms"
+                >Terms of Service</a
+              >
+              apply.
+            </span>
+            <button
+              @click="sendMessage(contactForm)"
+              class="btn btn-primary mr-0 mt-2 px-6 py-2 text-base float-right md:mr-2"
             >
-            and
-            <a
-              class="text-orange-500"
-              target="_blank"
-              href="https://policies.google.com/terms"
-              >Terms of Service</a
-            >
-            apply.
-          </span>
-          <button
-            @click="sendMessage(contactForm)"
-            class="btn btn-primary mr-0 mt-2 px-6 py-2 text-base float-right md:mr-2"
-          >
-            Submit
-          </button>
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -184,6 +192,7 @@ export default {
   data() {
     return {
       bgImage: require("@assets/img/headers/children2.jpg"),
+      messageSent: false,
       contactForm: {
         firstName: null,
         lastName: null,
@@ -196,9 +205,13 @@ export default {
       this.$v.$touch();
       this.$recaptcha("contact").then(token => {
         if (!this.$v.$invalid) {
-          axios.post(`${process.env.VUE_APP_API}/app/contact`, contactForm, {
-            headers: { recaptcha: token }
-          });
+          axios
+            .post(`${process.env.VUE_APP_API}/app/contact`, contactForm, {
+              headers: { recaptcha: token }
+            })
+            .then(() => {
+              this.messageSent = true;
+            });
         }
       });
     }
