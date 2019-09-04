@@ -42,7 +42,6 @@
                     diseases to all unconditionally without basing on their
                     religion, race and political affiliation.
                   </p>
-  
                 </div>
               </div>
             </div>
@@ -100,13 +99,12 @@
                 To promote health among the OVCs, widows and rural poor by
                 helping them access affordable medical care
               </p>
-                <p>
+              <p>
                 To promote peace, human rights and engaging in conflicts
                 resolutions at family levels
               </p>
               <p>Promotion of spiritual growth among the community members</p>
             </div>
-        
           </div>
         </div>
       </div>
