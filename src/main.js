@@ -25,8 +25,7 @@ import {
   faSpinner,
   faWallet,
   faBars,
-  faCaretUp,
-  faCheckCircle
+  faCaretUp
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
