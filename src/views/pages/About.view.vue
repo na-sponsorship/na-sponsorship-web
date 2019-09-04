@@ -42,14 +42,7 @@
                     diseases to all unconditionally without basing on their
                     religion, race and political affiliation.
                   </p>
-                  <p class="text-green-700 pb-5 text-small">
-                    It started in November 2008 and got registered in November
-                    2009 (KCD 00952) as a community based organization operating
-                    in Kyenjojo District and the surrounding after realizing
-                    that the majority of the population in Kyenjojo District
-                    live below the poverty line and is thus exposed to hunger,
-                    poverty, illiteracy and preventable diseases.
-                  </p>
+  
                 </div>
               </div>
             </div>
