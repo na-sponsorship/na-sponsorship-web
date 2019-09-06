@@ -5,12 +5,6 @@
   &:focus {
     @apply outline-none;
   }
-
-  &[disabled] {
-    @apply bg-green-400;
-    @apply text-gray-200;
-    @apply cursor-auto;
-  }
 }
 
 .btn-lg {
@@ -23,6 +17,12 @@
 
   &:hover {
     @apply bg-orange-600 outline-none;
+  }
+
+  &[disabled], &[disabled]:hover {
+    @apply bg-orange-400;
+    @apply text-gray-200;
+    @apply cursor-auto;
   }
 }
 

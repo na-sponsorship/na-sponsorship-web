@@ -343,6 +343,7 @@
                   <button
                     type="button"
                     class="btn btn-primary mt-2 px-6 py-10 text-base w-full md:w-auto md:py-2"
+                    :disabled="isSponsoringPending"
                     @click.prevent="startSponsorship(sponsor)"
                   >
                     {{ payment.type === "single" ? "Give" : "Give Monthly" }}
@@ -352,6 +353,40 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="isSponsorshipSuccessfull">
+      <div
+        class="fixed flex h-screen top-0 w-screen z-20 bg-black opacity-75"
+      ></div>
+      <div
+        class="fixed flex h-screen items-center justify-around top-0 w-screen z-30"
+      >
+        <div
+          class="flex flex-col items-center bg-white w-4/5 rounded-lg p-3 md:w-3/5"
+        >
+          <h2 class="text-2xl">Sponsorship Successfull</h2>
+          <FAIcon icon="check-circle" class="text-4xl text-green-500 my-2" />
+          <div class="my-2 text-center">
+            Your are now sponsoring
+            <span class="font-bold italic capitalize">{{
+              child.firstName
+            }}</span>
+            for
+            <span class="font-bold ">{{ totalDonation | currency }}</span> per
+            month starting today and reapeating every month until stopped.
+          </div>
+          <span class="my-2 text-center"
+            >We sent an email confirmation to
+            <span class="font-bold italic">{{ sponsor.email }}</span></span
+          >
+          <button
+            class="btn btn-primary btn-lg py-2 my-2"
+            @click="isSponsorshipSuccessfull = false"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
@@ -402,6 +437,8 @@ export default {
   },
   data() {
     return {
+      isSponsoringPending: false,
+      isSponsorshipSuccessfull: false,
       bgImage: require("@assets/img/headers/children.jpg"),
       countries: require("@src/helpers/countries.helper").default,
       states: require("@src/helpers/states.helper").default,
@@ -427,12 +464,12 @@ export default {
       }
     };
   },
-  created() {
-    axios
-      .get(`${process.env.VUE_APP_API}/children/${this.$route.params.id}`)
-      .then(child => {
-        this.child = child.data;
-      });
+  async created() {
+    const { data } = await axios.get(
+      `${process.env.VUE_APP_API}/children/${this.$route.params.id}`
+    );
+
+    this.child = data;
   },
   methods: {
     async startSponsorship(sponsor) {
@@ -442,11 +479,16 @@ export default {
       const paymentInvalid = isUndefined(this.payment.stripeToken);
 
       if (!this.$v.$invalid && !paymentInvalid) {
-        axios.post(`${process.env.VUE_APP_API}/sponsors`, {
+        this.isSponsoringPending = true;
+
+        await axios.post(`${process.env.VUE_APP_API}/sponsors`, {
           childId: this.child.id,
           sponsor,
           payment: this.payment
         });
+
+        this.isSponsoringPending = false;
+        this.isSponsorshipSuccessfull = true;
       }
     }
   }
