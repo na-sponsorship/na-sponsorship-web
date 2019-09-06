@@ -110,8 +110,10 @@
               ></textarea>
             </div>
           </div>
-          <div class="flex items-center justify-between mb-8">
-            <span class="text-xs -mt-12">
+          <div
+            class="flex flex-col items-center justify-between mb-8 md:flex-row"
+          >
+            <span class="text-center -mt-1 text-xs md:-mt-12 md:text-left">
               This site is protected by reCAPTCHA and the Google
               <a
                 class="text-orange-500"
