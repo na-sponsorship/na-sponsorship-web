@@ -61,9 +61,11 @@
               <p class="text-white">
                 Kenneth & Beatrice school directors
               </p>
-              <button class="btn btn-primary mt-2 px-2 py-2 text-base mb-8 ">
+              <router-link to="/contact">
+              <button class="btn btn-primary mt-2 px-2 py-2 text-base mb-8">
                 Contact Us
               </button>
+              </router-link>
             </div>
             <div class="w-1/4 h-12"></div>
             <div class="shadow-lg bg-white p-3 rounded-lg mr-4 mb-4">
