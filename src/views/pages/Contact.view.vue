@@ -132,9 +132,11 @@
             </span>
             <button
               @click="sendMessage(contactForm)"
+              :disabled="isSending"
               class="btn btn-primary mr-0 mt-2 px-6 py-2 text-base float-right md:mr-2"
             >
-              Submit
+              <FAIcon icon="spinner" pulse v-if="isSending" />
+              <span v-if="!isSending">Submit</span>
             </button>
           </div>
         </div>
@@ -170,10 +172,10 @@
   </div>
 </template>
 <script>
-import hero from "@components/Hero";
-
 import { required, email } from "vuelidate/lib/validators";
 import axios from "axios";
+
+import hero from "@components/Hero";
 
 export default {
   components: { hero },
@@ -195,6 +197,7 @@ export default {
     return {
       bgImage: require("@assets/img/headers/children2.jpg"),
       messageSent: false,
+      isSending: false,
       contactForm: {
         firstName: null,
         lastName: null,
@@ -207,12 +210,14 @@ export default {
       this.$v.$touch();
       this.$recaptcha("contact").then(token => {
         if (!this.$v.$invalid) {
+          this.isSending = true;
           axios
             .post(`${process.env.VUE_APP_API}/app/contact`, contactForm, {
               headers: { recaptcha: token }
             })
             .then(() => {
               this.messageSent = true;
+              this.isSending = false;
             });
         }
       });
