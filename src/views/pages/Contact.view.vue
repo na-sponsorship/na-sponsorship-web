@@ -208,9 +208,9 @@ export default {
   methods: {
     sendMessage(contactForm) {
       this.$v.$touch();
+      this.isSending = true;
       this.$recaptcha("contact").then(token => {
         if (!this.$v.$invalid) {
-          this.isSending = true;
           axios
             .post(`${process.env.VUE_APP_API}/app/contact`, contactForm, {
               headers: { recaptcha: token }
