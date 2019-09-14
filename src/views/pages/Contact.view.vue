@@ -206,22 +206,30 @@ export default {
     };
   },
   methods: {
-    sendMessage(contactForm) {
+    async sendMessage(contactForm) {
       this.$v.$touch();
 
       if (!this.$v.$invalid) {
         this.isSending = true;
 
-        this.$recaptcha("contact").then(token => {
-          axios
-            .post(`${process.env.VUE_APP_API}/app/contact`, contactForm, {
-              headers: { recaptcha: token }
-            })
-            .then(() => {
-              this.messageSent = true;
-              this.isSending = false;
-            });
-        });
+        try {
+          const capthaToken = await this.$recaptcha("contact");
+
+          await axios.post(
+            `${process.env.VUE_APP_API}/app/contact`,
+            contactForm,
+            { headers: { recaptcha: capthaToken } }
+          );
+
+          this.messageSent = true;
+          this.isSending = false;
+        } catch (err) {
+          /**
+           * @TODO Log error to sentry and fail silently
+           */
+          this.isSending = false;
+          this.messageSent = true;
+        }
       }
     }
   }
