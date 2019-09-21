@@ -7,12 +7,6 @@
         </h1>
       </div>
       <hr class="bg-white h-px opacity-50 w-1/2" />
-      <div class="text-sm text-white text-center">
-        <h2 class="invisible md:visible lg:visible">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque,
-          nesciunt ducimus!
-        </h2>
-      </div>
     </hero>
     <div class="flex justify-center">
       <div class="w-3/4 z-10 ">
@@ -62,12 +56,12 @@
                 Kenneth & Beatrice school directors
               </p>
               <router-link to="/contact">
-              <button class="btn btn-primary mt-2 px-2 py-2 text-base mb-8">
-                Contact Us
-              </button>
+                <button class="btn btn-primary mt-2 px-2 py-2 text-base mb-8">
+                  Contact Us
+                </button>
               </router-link>
             </div>
-            <div class="w-1/4 h-12"></div>
+            <div class=""></div>
             <div class="shadow-lg bg-white p-3 rounded-lg mr-4 mb-4">
               <img :src="Kenneth" class="rounded-lg w-full" />
             </div>
@@ -78,36 +72,29 @@
         </div>
       </div>
     </div>
-    <div
-      class="bg-white-500 object-cover w-full h-cover h-68 mb-64 -mt-10 z-10"
-    >
+    <div class="bg-white-500 object-cover w-full h-cover h-68 mt-6 ">
       <div class="flex justify-center">
-        <div class="w-3/4">
-          <div class="flex mb-4 pt-20">
-            <div class="w-2/3 h-12 mr-4 py-26">
-              <h1 class="text-3xl text-green-500 font-cursive">
-                Goals & Objectives
-              </h1>
-
-              <p>
-                To help orphans and vulnerable children access education and
-                live in a conducive environment
-              </p>
-              <p>
-                To promote agriculture in Kyenjojo and surroundings so as to
-                enhance income generation for self sustainability
-              </p>
-              <p>
-                To promote health among the OVCs, widows and rural poor by
-                helping them access affordable medical care
-              </p>
-              <p>
-                To promote peace, human rights and engaging in conflicts
-                resolutions at family levels
-              </p>
-              <p>Promotion of spiritual growth among the community members</p>
-            </div>
-          </div>
+        <div class="flex-row w-10/12 md:w-3/4 lg:w-3/4 mb-6">
+          <h1 class="text-3xl text-green-500 font-cursive">
+            Goals & Objectives
+          </h1>
+          <p>
+            To help orphans and vulnerable children access education and live in
+            a conducive environment
+          </p>
+          <p>
+            To promote agriculture in Kyenjojo and surroundings so as to enhance
+            income generation for self sustainability
+          </p>
+          <p>
+            To promote health among the OVCs, widows and rural poor by helping
+            them access affordable medical care
+          </p>
+          <p>
+            To promote peace, human rights and engaging in conflicts resolutions
+            at family levels
+          </p>
+          <p>Promotion of spiritual growth among the community members</p>
         </div>
       </div>
     </div>
