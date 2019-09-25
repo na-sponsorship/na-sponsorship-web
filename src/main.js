@@ -10,54 +10,54 @@ import { VueReCaptcha } from "vue-recaptcha-v3";
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-    faTimes,
-    faUser,
-    faGift,
-    faCheckCircle,
-    faCaretRight,
-    faCaretLeft,
-    faDollarSign,
-    faQuestionCircle,
-    faShieldAlt,
-    faLongArrowAltLeft,
-    faPhone,
-    faEnvelope,
-    faSpinner,
-    faWallet,
-    faBars,
-    faCaretUp
+  faTimes,
+  faUser,
+  faGift,
+  faCheckCircle,
+  faCaretRight,
+  faCaretLeft,
+  faDollarSign,
+  faQuestionCircle,
+  faShieldAlt,
+  faLongArrowAltLeft,
+  faPhone,
+  faEnvelope,
+  faSpinner,
+  faWallet,
+  faBars,
+  faCaretUp
 } from "@fortawesome/free-solid-svg-icons";
 import {
-    faFacebookF,
-    faTwitter,
-    faYoutube,
-    faInstagram
+  faFacebookF,
+  faTwitter,
+  faYoutube,
+  faInstagram
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import "@assets/css/style.css";
 library.add(
-    faFacebookF,
-    faTwitter,
-    faYoutube,
-    faInstagram,
-    faTimes,
-    faUser,
-    faGift,
-    faCheckCircle,
-    faCaretRight,
-    faCaretLeft,
-    faDollarSign,
-    faQuestionCircle,
-    faShieldAlt,
-    faLongArrowAltLeft,
-    faPhone,
-    faEnvelope,
-    faWallet,
-    faSpinner,
-    faBars,
-    faCaretUp,
-    faCheckCircle
+  faFacebookF,
+  faTwitter,
+  faYoutube,
+  faInstagram,
+  faTimes,
+  faUser,
+  faGift,
+  faCheckCircle,
+  faCaretRight,
+  faCaretLeft,
+  faDollarSign,
+  faQuestionCircle,
+  faShieldAlt,
+  faLongArrowAltLeft,
+  faPhone,
+  faEnvelope,
+  faWallet,
+  faSpinner,
+  faBars,
+  faCaretUp,
+  faCheckCircle
 );
 import FeatureFlagged from "./components/FeatureFlagged";
 
@@ -77,19 +77,19 @@ Vue.use(VTooltip);
 Vue.use(Vuelidate);
 Vue.use(VueNumeric);
 Vue.use(Cloudinary, {
-    configuration: {
-        cloudName: process.env.VUE_APP_CLAUDINARY_CLOUD_NAME
-    }
+  configuration: {
+    cloudName: process.env.VUE_APP_CLAUDINARY_CLOUD_NAME
+  }
 });
 Vue.use(VueReCaptcha, {
-    siteKey: process.env.VUE_APP_RECAPTCHA_SITE_ID,
-    loaderOptions: {
-        autoHideBadge: true
-    }
+  siteKey: process.env.VUE_APP_RECAPTCHA_SITE_ID,
+  loaderOptions: {
+    autoHideBadge: true
+  }
 });
 
 new Vue({
-    router,
-    store,
-    render: h => h(App)
+  router,
+  store,
+  render: h => h(App)
 }).$mount("#app");
