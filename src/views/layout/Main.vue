@@ -3,7 +3,7 @@
     div.w-full
       Header
       slot
-      Footer
+      Footer(class="-mt-5")
 </template>
 
 <script>

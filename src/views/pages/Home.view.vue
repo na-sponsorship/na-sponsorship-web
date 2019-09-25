@@ -33,15 +33,27 @@
         </div>
       </div>
     </hero>
-    <div class="flex-1 bg-gray-100 h-new">
-      <iframe
-        class="w-full md:w-1/4"
-        height="315"
-        src="https://www.youtube.com/embed/J1P5KgUBgm8"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+    <div class="flex bg-gray-100 m-auto md:w-3/4">
+      <div
+        class="flex-1 -mt-16 z-10 p-5 bg-white rounded-lg shadow-2xl"
+        style="height: 24rem"
+      >
+        <iframe
+          class="w-full h-full rounded-lg"
+          src="https://www.youtube.com/embed/J1P5KgUBgm8"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="flex-1 inline-flex items-center justify-around">
+        <div class="flex flex-col text-center">
+          <h2 class="text-3xl font-cursive text-green-500">What We Do</h2>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
