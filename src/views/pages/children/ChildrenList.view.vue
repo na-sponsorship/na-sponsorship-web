@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-16">
     <hero :header-bg="bgImage">
       <div class="text-center mt-48">
         <span class="text-white text-4xl">Sponsor a Child</span>

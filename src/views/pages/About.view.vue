@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-16">
     <hero :header-bg="bgImage" class="mb-32" size="md">
       <div class="mt-48">
         <h1 class="text-3xl text-white font-bold text-center">
