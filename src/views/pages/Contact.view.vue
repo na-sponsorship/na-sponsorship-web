@@ -3,7 +3,7 @@
     <hero :header-bg="bgImage">
       <div class="mt-48">
         <h1 class="text-3xl text-white font-bold text-center">
-          Contact Us
+          Contact Us Nows
         </h1>
       </div>
       <hr class="bg-white h-px opacity-50 w-1/2" />
