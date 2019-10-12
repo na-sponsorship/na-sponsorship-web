@@ -33,7 +33,7 @@
         </div>
       </div>
     </hero>
-    <div class="flex bg-gray-100 m-auto md:w-3/4">
+    <div class="flex flex-col bg-gray-100 m-auto md:w-3/4">
       <div
         class="flex-1 -mt-16 z-10 p-5 bg-white rounded-lg shadow-2xl"
         style="height: 24rem"
@@ -46,11 +46,28 @@
           allowfullscreen
         ></iframe>
       </div>
-      <div class="flex-1 inline-flex items-center justify-around">
+      <div class="flex-1 inline-flex items-center justify-around mb-12">
         <div class="flex flex-col text-center">
           <h2 class="text-3xl font-cursive text-green-500">What We Do</h2>
           <p>
-            Content
+            Noah's Arc is a Christian based organization, giving a home to
+            nearly 100 children who are abandoned, thrown away, abused of left
+            behind. More than 395 children from the poorest families in the
+            surrounding communities enjoy free education in our Joy Christian
+            School.
+          </p>
+        </div>
+      </div>
+      <div class="flex-1 inline-flex items-center justify-around mb-32">
+        <div class="flex flex-col text-center">
+          <h2 class="text-3xl font-cursive text-green-500">
+            How you can help?
+          </h2>
+          <p>
+            You can get involved with our work by joining one of our sponsorship
+            programs and sponsor a child from our home or sponsor a teacher from
+            our school. You can also support our work with your donation to one
+            of our projects or your time as a volunteer.
           </p>
         </div>
       </div>
