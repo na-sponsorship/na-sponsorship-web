@@ -35,7 +35,7 @@
     </hero>
     <div class="flex justify-center flex-col m-auto md:w:screen md:flex-row ">
       <div
-        class="flex-1 -mt-16 z-10 p-5 bg-white rounded-lg shadow-2xl p-4"
+        class="flex-1 -mt-16 z-10 p-3 bg-white rounded-lg shadow-2xl"
         style="height: 24rem"
       >
         <iframe
@@ -61,7 +61,9 @@
         </div>
       </div>
       <div class="flex-1 items-center justify-around md:mb-32  z-10 p-4">
-        <div class="flex flex-col text-center bg-white px-2 py-3 shadow-lg rounded-lg">
+        <div
+          class="flex flex-col text-center bg-white px-2 py-3 shadow-lg rounded-lg"
+        >
           <h2 class="text-3xl font-cursive text-green-500 md:mt-6">
             How you can help?
           </h2>
