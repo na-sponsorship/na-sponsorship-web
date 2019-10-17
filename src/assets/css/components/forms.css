@@ -1,6 +1,6 @@
 .form-group {
   &.is-valid {
-    input, select {
+    input, select, textarea {
       @apply border-green-500 border-2;
 
       &:focus {
@@ -10,8 +10,8 @@
   }
 
   &.has-error {
-    input, select {
-      @apply border-red-500;
+    input, select, textarea {
+      @apply border-red-500 border-2;
 
       &:focus {
         @apply shadow-none;
