@@ -3,7 +3,7 @@
     <div class="absolute w-full" :class="heroSize">
       <div class="flex flex-row justify-center">
         <div class="flex flex-col">
-          <div class="z-10">
+          <div style="z-index:1">
             <slot></slot>
           </div>
         </div>
@@ -51,7 +51,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .h-27-rem {
   height: 27rem;
 }
