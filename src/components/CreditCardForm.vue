@@ -34,7 +34,7 @@
     @apply border border-gray-400 rounded-lg py-3 px-2 mt-3 bg-white;
 
     &.StripeElement--invalid {
-      @apply border-red-500;
+      @apply border-red-500 border-2;
     }
 
     &.StripeElement--complete {
