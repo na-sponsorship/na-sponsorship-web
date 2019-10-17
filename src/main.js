@@ -2,18 +2,20 @@ import Vue from "vue";
 import Vue2Filters from "vue2-filters";
 import VueFilterDateFormat from "vue-filter-date-format";
 import VTooltip from "v-tooltip";
-import Vuelidate from "vuelidate";
 import VueNumeric from "vue-numeric";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 import Cloudinary from "cloudinary-vue";
 import { VueReCaptcha } from "vue-recaptcha-v3";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "@assets/css/style.css";
 import "./icons";
+import "./validation";
 
 import FeatureFlagged from "./components/FeatureFlagged";
 
 Vue.component("FAIcon", FontAwesomeIcon);
 Vue.component("FeatureFlagged", FeatureFlagged);
+
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -25,7 +27,6 @@ Vue.use(Vue2Filters);
 Vue.use(StripePlugin);
 Vue.use(VueFilterDateFormat);
 Vue.use(VTooltip);
-Vue.use(Vuelidate);
 Vue.use(VueNumeric);
 Vue.use(Cloudinary, {
   configuration: {
@@ -38,6 +39,9 @@ Vue.use(VueReCaptcha, {
     autoHideBadge: true
   }
 });
+
+Vue.component("ValidationProvider", ValidationProvider);
+Vue.component("ValidationObserver", ValidationObserver);
 
 new Vue({
   router,

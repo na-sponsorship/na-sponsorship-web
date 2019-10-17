@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <ValidationObserver
+    ref="form"
+    tag="form"
+    @submit.prevent="sendMessage(contactForm)"
+  >
     <hero :header-bg="bgImage">
       <div class="mt-48">
         <h1 class="text-3xl text-white font-bold text-center">
@@ -25,91 +29,71 @@
         </div>
         <div v-if="!messageSent" class="flex-1">
           <div class="md:flex mt-10">
-            <div
-              class="flex-1 md:mr-2 form-group mb-2"
-              :class="{
-                'has-error': $v.contactForm.firstName.$error,
-                'is-valid':
-                  $v.contactForm.firstName.$dirty &&
-                  !$v.contactForm.firstName.$invalid
-              }"
+            <ValidationProvider
+              name="first name"
+              rules="required"
+              v-slot="{ errors, classes }"
+              slim
             >
-              <input
-                placeholder="First Name"
-                class="form-input w-full sm:text-xl"
-                v-model="$v.contactForm.firstName.$model"
-              />
-              <div
-                class="error"
-                v-if="
-                  !$v.contactForm.firstName.required &&
-                    $v.contactForm.firstName.$dirty
-                "
-              >
-                Please enter a first name
+              <div class="flex-1 mb-2 form-group md:mr-2" :class="classes">
+                <input
+                  placeholder="First Name"
+                  class="form-input w-full mb-2 sm:text-xl"
+                  v-model="contactForm.firstName"
+                />
+                <div class="error">{{ errors[0] }}</div>
               </div>
-            </div>
-            <div
-              class="flex-1 md:mr-2 form-group"
-              :class="{
-                'has-error': $v.contactForm.lastName.$error,
-                'is-valid':
-                  $v.contactForm.lastName.$dirty &&
-                  !$v.contactForm.lastName.$invalid
-              }"
+            </ValidationProvider>
+            <ValidationProvider
+              name="last name"
+              rules="required"
+              v-slot="{ errors, classes }"
+              slim
             >
-              <input
-                placeholder="Last Name"
-                class="form-input w-full mb-2 sm:text-xl"
-                v-model="$v.contactForm.lastName.$model"
-              />
-              <div
-                class="error"
-                v-if="
-                  !$v.contactForm.lastName.required &&
-                    $v.contactForm.lastName.$dirty
-                "
-              >
-                Please enter a last name
+              <div class="flex-1 md:mr-2 form-group" :class="classes">
+                <input
+                  placeholder="Last Name"
+                  class="form-input w-full mb-2 sm:text-xl"
+                  v-model="contactForm.lastName"
+                />
+                <div class="error">{{ errors[0] }}</div>
+              </div>
+            </ValidationProvider>
+          </div>
+          <ValidationProvider
+            name="email"
+            rules="required|email"
+            v-slot="{ errors, classes }"
+            slim
+          >
+            <div class="flex mb-3">
+              <div class="flex-1 md:mr-2 form-group" :class="classes">
+                <input
+                  placeholder="Email"
+                  class="form-input w-full sm:text-xl"
+                  v-model="contactForm.email"
+                />
+                <div class="error">{{ errors[0] }}</div>
               </div>
             </div>
-          </div>
-          <div class="flex mb-3">
-            <div
-              class="flex-1 md:mr-2 form-group"
-              :class="{
-                'has-error': $v.contactForm.email.$error,
-                'is-valid':
-                  $v.contactForm.email.$dirty && !$v.contactForm.email.$invalid
-              }"
-            >
-              <input
-                placeholder="Email"
-                class="form-input w-full sm:text-xl"
-                v-model="$v.contactForm.email.$model"
-              />
-              <div
-                class="error"
-                v-if="
-                  !$v.contactForm.email.required && $v.contactForm.email.$dirty
-                "
-              >
-                Please enter an email
-              </div>
-              <div class="error" v-if="!$v.contactForm.email.email">
-                Please enter a valid email address
+          </ValidationProvider>
+          <ValidationProvider
+            name="message"
+            rules="required"
+            v-slot="{ errors, classes }"
+            slim
+          >
+            <div class="flex mb-3">
+              <div class="flex-1 md:mr-2 form-group" :class="classes">
+                <textarea
+                  placeholder="Message Us"
+                  class="form-input w-full h-56"
+                  v-model="contactForm.message"
+                ></textarea>
+                <div class="error">{{ errors[0] }}</div>
               </div>
             </div>
-          </div>
-          <div class="flex mb-3">
-            <div class="flex-1 md:mr-2 form-group">
-              <textarea
-                placeholder="Message Us"
-                class="form-input w-full h-56"
-                v-model="contactForm.message"
-              ></textarea>
-            </div>
-          </div>
+          </ValidationProvider>
           <div
             class="flex flex-col items-center justify-between mb-8 md:flex-row"
           >
@@ -131,7 +115,7 @@
               apply.
             </span>
             <button
-              @click="sendMessage(contactForm)"
+              type="submit"
               :disabled="isSending"
               class="btn btn-primary mr-0 mt-2 px-6 py-2 text-base float-right md:mr-2"
             >
@@ -169,67 +153,54 @@
         </div>
       </div>
     </div>
-  </div>
+  </ValidationObserver>
 </template>
 <script>
-import { required, email } from "vuelidate/lib/validators";
 import axios from "axios";
 
 import hero from "@components/Hero";
 
 export default {
   components: { hero },
-  validations: {
-    contactForm: {
-      firstName: {
-        required
-      },
-      lastName: {
-        required
-      },
-      email: {
-        required,
-        email
-      }
-    }
-  },
   data() {
     return {
       bgImage: require("@assets/img/headers/children2.jpg"),
       messageSent: false,
       isSending: false,
       contactForm: {
-        firstName: null,
-        lastName: null,
-        email: null
+        firstName: "",
+        lastName: "",
+        email: ""
       }
     };
   },
   methods: {
     async sendMessage(contactForm) {
-      this.$v.$touch();
+      const isValid = await this.$refs.form.validate();
 
-      if (!this.$v.$invalid) {
-        this.isSending = true;
+      if (!isValid) {
+        return;
+      }
 
-        try {
-          const capthaToken = await this.$recaptcha("contact");
+      this.isSending = true;
 
-          await axios.post(
-            `${process.env.VUE_APP_API}/app/contact`,
-            contactForm,
-            { headers: { recaptcha: capthaToken } }
-          );
+      try {
+        const capthaToken = await this.$recaptcha("contact");
 
-          this.messageSent = true;
-          this.isSending = false;
-        } catch (err) {
-          /**
-           * @TODO Log error to sentry and fail silently
-           */
-          this.isSending = false;
-          this.messageSent = true;
-        }
+        await axios.post(
+          `${process.env.VUE_APP_API}/app/contact`,
+          contactForm,
+          { headers: { recaptcha: capthaToken } }
+        );
+
+        this.messageSent = true;
+        this.isSending = false;
+      } catch (err) {
+        /**
+         * @TODO Log error to sentry and fail silently
+         */
+        this.isSending = false;
+        this.messageSent = true;
       }
     }
   }
