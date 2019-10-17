@@ -30,14 +30,14 @@ Vue.use(VTooltip);
 Vue.use(VueNumeric);
 Vue.use(Cloudinary, {
   configuration: {
-    cloudName: process.env.VUE_APP_CLAUDINARY_CLOUD_NAME
-  }
+    cloudName: process.env.VUE_APP_CLAUDINARY_CLOUD_NAME,
+  },
 });
 Vue.use(VueReCaptcha, {
   siteKey: process.env.VUE_APP_RECAPTCHA_SITE_ID,
   loaderOptions: {
-    autoHideBadge: true
-  }
+    autoHideBadge: true,
+  },
 });
 
 Vue.component("ValidationProvider", ValidationProvider);
@@ -46,5 +46,5 @@ Vue.component("ValidationObserver", ValidationObserver);
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount("#app");

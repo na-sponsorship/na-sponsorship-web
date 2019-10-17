@@ -1,5 +1,5 @@
 export default {
-  "Select a State": -1,
+  "Select a State": "",
   ALABAMA: "AL",
   ALASKA: "AK",
   ARIZONA: "AZ",
@@ -50,5 +50,5 @@ export default {
   WASHINGTON: "WA",
   "WEST VIRGINIA": "WV",
   WISCONSIN: "WI",
-  WYOMING: "WY"
+  WYOMING: "WY",
 };
