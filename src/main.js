@@ -6,59 +6,10 @@ import Vuelidate from "vuelidate";
 import VueNumeric from "vue-numeric";
 import Cloudinary from "cloudinary-vue";
 import { VueReCaptcha } from "vue-recaptcha-v3";
-
-// Icons
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faTimes,
-  faUser,
-  faGift,
-  faCheckCircle,
-  faCaretRight,
-  faCaretLeft,
-  faDollarSign,
-  faQuestionCircle,
-  faShieldAlt,
-  faLongArrowAltLeft,
-  faPhone,
-  faEnvelope,
-  faSpinner,
-  faWallet,
-  faBars,
-  faCaretUp
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebookF,
-  faTwitter,
-  faYoutube,
-  faInstagram
-} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
 import "@assets/css/style.css";
-library.add(
-  faFacebookF,
-  faTwitter,
-  faYoutube,
-  faInstagram,
-  faTimes,
-  faUser,
-  faGift,
-  faCheckCircle,
-  faCaretRight,
-  faCaretLeft,
-  faDollarSign,
-  faQuestionCircle,
-  faShieldAlt,
-  faLongArrowAltLeft,
-  faPhone,
-  faEnvelope,
-  faWallet,
-  faSpinner,
-  faBars,
-  faCaretUp,
-  faCheckCircle
-);
+import "./icons";
+
 import FeatureFlagged from "./components/FeatureFlagged";
 
 Vue.component("FAIcon", FontAwesomeIcon);
