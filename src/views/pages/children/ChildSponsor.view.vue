@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <ValidationObserver
+    ref="form"
+    tag="form"
+    @submit.prevent="startSponsorship(sponsor)"
+  >
     <hero :header-bg="bgImage"></hero>
     <div class="flex m-auto md:w-3/4">
       <div class="z-10 m-auto" v-if="child">
@@ -16,7 +20,11 @@
             class="flex flex-col shadow-lg bg-white p-3 md:rounded-lg md:flex-row"
           >
             <div class="flex-initial md:w-1/4 md:h-auto">
-              <cld-image :publicId="child.image" class="rounded-lg w-full">
+              <cld-image
+                :publicId="child.image"
+                class="rounded-lg w-full"
+                v-if="child.image"
+              >
                 <cld-transformation
                   width="250"
                   height="350"
@@ -63,186 +71,132 @@
                 >Your Information</span
               >
               <div class="flex flex-col mb-3 md:flex-row">
-                <div
-                  class="flex-1 form-group mb-3 md:mb-0 md:mr-2"
-                  :class="{
-                    'has-error': $v.sponsor.firstName.$error,
-                    'is-valid':
-                      $v.sponsor.firstName.$dirty &&
-                      !$v.sponsor.firstName.$invalid
-                  }"
+                <ValidationProvider
+                  name="first name"
+                  rules="required"
+                  v-slot="{ errors, classes }"
+                  slim
                 >
-                  <input
-                    class="form-input w-full"
-                    v-model="$v.sponsor.firstName.$model"
-                    placeholder="First Name"
-                  />
                   <div
-                    class="error"
-                    v-if="
-                      !$v.sponsor.firstName.required &&
-                        $v.sponsor.firstName.$dirty
-                    "
+                    class="flex-1 form-group mb-3 md:mb-0 md:mr-2"
+                    :class="classes"
                   >
-                    Please enter a first name
+                    <input
+                      class="form-input w-full"
+                      v-model="sponsor.firstName"
+                      placeholder="First Name"
+                    />
+                    <div class="error">{{ errors[0] }}</div>
                   </div>
-                </div>
-                <div
-                  class="flex-1 form-group"
-                  :class="{
-                    'has-error': $v.sponsor.lastName.$error,
-                    'is-valid':
-                      $v.sponsor.lastName.$dirty &&
-                      !$v.sponsor.lastName.$invalid
-                  }"
+                </ValidationProvider>
+                <ValidationProvider
+                  name="last name"
+                  rules="required"
+                  v-slot="{ errors, classes }"
+                  slim
                 >
-                  <input
-                    class="form-input w-full"
-                    v-model="$v.sponsor.lastName.$model"
-                    placeholder="Last Name"
-                  />
-                  <div
-                    class="error"
-                    v-if="
-                      !$v.sponsor.lastName.required &&
-                        $v.sponsor.lastName.$dirty
-                    "
-                  >
-                    Please enter a last name
+                  <div class="flex-1 form-group" :class="classes">
+                    <input
+                      class="form-input w-full"
+                      v-model="sponsor.lastName"
+                      placeholder="Last Name"
+                    />
+                    <div class="error">{{ errors[0] }}</div>
                   </div>
-                </div>
+                </ValidationProvider>
               </div>
               <div class="flex mb-3">
-                <div
-                  class="flex-1 form-group"
-                  :class="{
-                    'has-error': $v.sponsor.email.$error,
-                    'is-valid':
-                      $v.sponsor.email.$dirty && !$v.sponsor.email.$invalid
-                  }"
+                <ValidationProvider
+                  name="email name"
+                  rules="required|email"
+                  v-slot="{ errors, classes }"
+                  slim
                 >
-                  <input
-                    class="form-input w-full"
-                    v-model="$v.sponsor.email.$model"
-                    placeholder="Email"
-                  />
-                  <div
-                    class="error"
-                    v-if="!$v.sponsor.email.required && $v.sponsor.email.$dirty"
-                  >
-                    Please enter an email
+                  <div class="flex-1 form-group" :class="classes">
+                    <input
+                      class="form-input w-full"
+                      v-model="sponsor.email"
+                      placeholder="Email"
+                    />
+                    <div class="error">{{ errors[0] }}</div>
                   </div>
-                  <div class="error" v-if="!$v.sponsor.email.email">
-                    Please enter a valid email address
-                  </div>
-                </div>
+                </ValidationProvider>
               </div>
               <div class="flex mb-3">
-                <div
-                  class="flex-1 form-group"
-                  :class="{
-                    'has-error': $v.sponsor.address.line1.$error,
-                    'is-valid':
-                      $v.sponsor.address.line1.$dirty &&
-                      !$v.sponsor.address.line1.$invalid
-                  }"
+                <ValidationProvider
+                  name="address"
+                  rules="required"
+                  v-slot="{ errors, classes }"
+                  slim
                 >
-                  <input
-                    class="form-input w-full"
-                    v-model="$v.sponsor.address.line1.$model"
-                    placeholder="Address"
-                  />
-                  <div
-                    class="error"
-                    v-if="
-                      !$v.sponsor.address.line1.required &&
-                        $v.sponsor.address.line1.$dirty
-                    "
-                  >
-                    Please enter an address
+                  <div class="flex-1 form-group" :class="classes">
+                    <input
+                      class="form-input w-full"
+                      v-model="sponsor.address.line1"
+                      placeholder="Address"
+                    />
+                    <div class="error">{{ errors[0] }}</div>
                   </div>
-                </div>
+                </ValidationProvider>
               </div>
               <div class="flex flex-col mb-3 md:flex-row">
-                <div
-                  class="flex-1 form-group mb-3 md:mr-2 md:mb-0"
-                  :class="{
-                    'has-error': $v.sponsor.address.city.$error,
-                    'is-valid':
-                      $v.sponsor.address.city.$dirty &&
-                      !$v.sponsor.address.city.$invalid
-                  }"
+                <ValidationProvider
+                  name="city"
+                  rules="required"
+                  v-slot="{ errors, classes }"
+                  slim
                 >
-                  <input
-                    class="form-input w-full"
-                    v-model="sponsor.address.city"
-                    placeholder="City"
-                  />
                   <div
-                    class="error"
-                    v-if="
-                      !$v.sponsor.address.city.required &&
-                        $v.sponsor.address.city.$dirty
-                    "
+                    class="flex-1 form-group mb-3 md:mr-2 md:mb-0"
+                    :class="classes"
                   >
-                    Please enter a city
+                    <input
+                      class="form-input w-full"
+                      v-model="sponsor.address.city"
+                      placeholder="City"
+                    />
+                    <div class="error">{{ errors[0] }}</div>
                   </div>
-                </div>
-                <div
-                  class="flex-1 form-group mb-3 md:mr-2 md:mb-0"
-                  :class="{
-                    'has-error': $v.sponsor.address.state.$error,
-                    'is-valid':
-                      $v.sponsor.address.state.$dirty &&
-                      !$v.sponsor.address.state.$invalid
-                  }"
+                </ValidationProvider>
+                <ValidationProvider
+                  name="state"
+                  rules="required"
+                  v-slot="{ errors, classes }"
+                  slim
                 >
-                  <select
-                    class="form-select w-full"
-                    v-model="sponsor.address.state"
+                  <div
+                    class="flex-1 form-group mb-3 md:mr-2 md:mb-0"
+                    :class="classes"
                   >
-                    <option
-                      v-for="(state_code, state_name) in states"
-                      :value="state_code"
-                      :key="state_code"
-                      >{{ state_name | lowercase | capitalize }}</option
+                    <select
+                      class="form-select w-full"
+                      v-model="sponsor.address.state"
                     >
-                  </select>
-                  <div
-                    class="error"
-                    v-if="
-                      !$v.sponsor.address.state.mustHaveSelection &&
-                        $v.sponsor.address.state.$dirty
-                    "
-                  >
-                    Please select a state
+                      <option
+                        v-for="(state_code, state_name) in states"
+                        :value="state_code"
+                        :key="state_code"
+                        >{{ state_name | lowercase | capitalize }}</option
+                      >
+                    </select>
+                    <div class="error">{{ errors[0] }}</div>
                   </div>
-                </div>
-                <div
-                  class="flex-1 form-group"
-                  :class="{
-                    'has-error': $v.sponsor.address.postal_code.$error,
-                    'is-valid':
-                      $v.sponsor.address.postal_code.$dirty &&
-                      !$v.sponsor.address.postal_code.$invalid
-                  }"
+                </ValidationProvider>
+                <ValidationProvider
+                  name="zip"
+                  rules="required"
+                  v-slot="{ errors, classes }"
+                  slim
                 >
-                  <input
-                    class="form-input w-full"
-                    v-model="sponsor.address.postal_code"
-                    placeholder="Zip Code"
-                  />
-
-                  <div
-                    class="error"
-                    v-if="
-                      !$v.sponsor.address.postal_code.required &&
-                        $v.sponsor.address.postal_code.$dirty
-                    "
-                  >
-                    Please enter a zip code
+                  <div class="flex-1 form-group" :class="classes">
+                    <input
+                      class="form-input w-full"
+                      v-model="sponsor.address.postal_code"
+                      placeholder="Zip Code"
+                    />
+                    <div class="error">{{ errors[0] }}</div>
                   </div>
-                </div>
+                </ValidationProvider>
               </div>
               <div
                 class="flex flex-col mt-4 items-start md:items-center md:flex-row"
@@ -279,17 +233,28 @@
                     >One Time<span class="hidden md:inline">:</span></span
                   >
                 </label>
-                <vue-numeric
-                  class="focus:border-gray-400 focus:outline-none focus:shadow-none form-input pl-10 py-3 rounded-none w-full md:w-auto md:rounded-r-full md:-ml-8 md:w-1/3"
-                  @focus="payment.type = 'single'"
-                  currency="$"
-                  separator=","
-                  :min="1"
-                  :max="1000"
-                  maxlength="4"
-                  v-model="payment.singleDonationAmount"
-                  placeholder="Enter a one time donation"
-                ></vue-numeric>
+                <ValidationProvider
+                  name="donation amount"
+                  :rules="
+                    payment.type == 'single' ? 'required|min_value:1' : ''
+                  "
+                  v-slot="{ errors, classes }"
+                  class="w-full md:-ml-8 md:w-1/3"
+                >
+                  <vue-numeric
+                    class="focus:border-gray-400 focus:outline-none focus:shadow-none form-input pl-10 py-3 rounded-none w-full md:w-2/3 md:rounded-r-full "
+                    currency="$"
+                    separator=","
+                    :min="1"
+                    :max="1000"
+                    maxlength="4"
+                    v-model="payment.singleDonationAmount"
+                    placeholder="One time donation"
+                  ></vue-numeric>
+                  <div class="text-red-500 -mb-6 md:-ml-32" v-if="errors[0]">
+                    {{ errors[0] }}
+                  </div>
+                </ValidationProvider>
               </div>
               <hr class="bg-gray-400 h-px mt-6 w-full" />
               <span class="font-bold mb-2 mt-3 text-gray-700 text-sm uppercase"
@@ -341,10 +306,9 @@
                 </div>
                 <div>
                   <button
-                    type="button"
+                    type="submit"
                     class="btn btn-primary mt-2 px-6 py-10 text-base w-full md:w-auto md:py-2"
                     :disabled="isSponsoringPending"
-                    @click.prevent="startSponsorship(sponsor)"
                   >
                     {{ payment.type === "single" ? "Give" : "Give Monthly" }}
                     Now
@@ -390,14 +354,13 @@
         </div>
       </div>
     </div>
-  </div>
+  </ValidationObserver>
 </template>
 
 <script>
 import axios from "axios";
 import dayjs from "dayjs";
 import { isUndefined } from "lodash";
-import { required, email } from "vuelidate/lib/validators";
 import { CldImage, CldTransformation } from "cloudinary-vue";
 
 import CrediCardForm from "@components/CreditCardForm";
@@ -405,19 +368,6 @@ import hero from "@components/Hero";
 
 export default {
   components: { CldImage, CrediCardForm, CldTransformation, hero },
-  validations: {
-    sponsor: {
-      firstName: { required },
-      lastName: { required },
-      email: { required, email },
-      address: {
-        line1: { required },
-        city: { required },
-        postal_code: { required },
-        state: { mustHaveSelection: value => value !== -1 }
-      }
-    }
-  },
   computed: {
     age() {
       return dayjs().diff(this.child.dateOfBirth, "years");
@@ -453,7 +403,7 @@ export default {
           line1: null,
           city: null,
           postal_code: null,
-          state: -1
+          state: ""
         }
       },
       payment: {
@@ -473,23 +423,25 @@ export default {
   },
   methods: {
     async startSponsorship(sponsor) {
-      this.$v.$touch();
-      this.payment.stripeToken = await this.$refs.stripeForm.getToken();
+      const formValid = await this.$refs.form.validate();
+      const stripeToken = await this.$refs.stripeForm.getToken();
 
-      const paymentInvalid = isUndefined(this.payment.stripeToken);
-
-      if (!this.$v.$invalid && !paymentInvalid) {
-        this.isSponsoringPending = true;
-
-        await axios.post(`${process.env.VUE_APP_API}/sponsors`, {
-          childId: this.child.id,
-          sponsor,
-          payment: this.payment
-        });
-
-        this.isSponsoringPending = false;
-        this.isSponsorshipSuccessfull = true;
+      if (!formValid || isUndefined(stripeToken)) {
+        return;
       }
+
+      this.payment.stripeToken = stripeToken;
+
+      this.isSponsoringPending = true;
+
+      await axios.post(`${process.env.VUE_APP_API}/sponsors`, {
+        childId: this.child.id,
+        sponsor,
+        payment: this.payment
+      });
+
+      this.isSponsoringPending = false;
+      this.isSponsorshipSuccessfull = true;
     }
   }
 };
