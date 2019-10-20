@@ -415,11 +415,15 @@ export default {
     };
   },
   async created() {
-    const { data } = await axios.get(
-      `${process.env.VUE_APP_API}/children/${this.$route.params.id}`
-    );
+    try {
+      const { data } = await axios.get(
+        `${process.env.VUE_APP_API}/children/${this.$route.params.id}`
+      );
 
-    this.child = data;
+      this.child = data;
+    } catch (err) {
+      this.$router.replace("/children");
+    }
   },
   methods: {
     async startSponsorship(sponsor) {
