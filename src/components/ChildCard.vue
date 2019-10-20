@@ -6,6 +6,7 @@
     <div class="flex flex-col content-start h-full">
       <div class="flex-1">
         <cld-image
+          v-if="child.image"
           :publicId="child.image"
           class="rounded-lg w-full flex-auto h-full object-cover"
         >
