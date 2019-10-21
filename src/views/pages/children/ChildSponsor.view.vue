@@ -184,7 +184,7 @@
                 </ValidationProvider>
                 <ValidationProvider
                   name="zip"
-                  rules="required"
+                  rules="required|numeric|max:5"
                   v-slot="{ errors, classes }"
                   slim
                 >
