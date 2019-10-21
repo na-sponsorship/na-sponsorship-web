@@ -310,8 +310,11 @@
                     class="btn btn-primary mt-2 px-6 py-10 text-base w-full md:w-auto md:py-2"
                     :disabled="isSponsoringPending"
                   >
-                    {{ payment.type === "single" ? "Give" : "Give Monthly" }}
-                    Now
+                    <FAIcon icon="spinner" pulse v-if="isSponsoringPending" />
+                    <span v-if="!isSponsoringPending">
+                      {{ payment.type === "single" ? "Give" : "Give Monthly" }}
+                      Now
+                    </span>
                   </button>
                 </div>
               </div>
