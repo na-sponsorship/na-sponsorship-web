@@ -350,7 +350,10 @@
           >
           <button
             class="btn btn-primary btn-lg py-2 my-2"
-            @click="isSponsorshipSuccessfull = false"
+            @click="
+              isSponsorshipSuccessfull = false;
+              $router.replace('/');
+            "
           >
             Close
           </button>
