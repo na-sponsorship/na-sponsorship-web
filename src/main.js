@@ -7,7 +7,7 @@ import { ValidationProvider, ValidationObserver } from "vee-validate";
 import Cloudinary from "cloudinary-vue";
 import { VueReCaptcha } from "vue-recaptcha-v3";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import LogRocket from "logrocket";
+import "./logrocket";
 
 import "@assets/css/style.css";
 import "./icons";
@@ -24,10 +24,6 @@ import store from "./store";
 import StripePlugin from "./plugins/stripe.plugin";
 
 Vue.config.productionTip = false;
-
-if (process.env.NODE_ENV === "production") {
-  LogRocket.init(process.env.VUE_APP_LOGROCKET_ID);
-}
 
 Vue.use(Vue2Filters);
 Vue.use(StripePlugin);
