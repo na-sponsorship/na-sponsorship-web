@@ -19,6 +19,8 @@
     "cloudinary-vue": "^1.0.0-beta2",
     "dayjs": "^1.8.12",
     "lodash-es": "^4.17.11",
+    "logrocket": "^1.0.3",
+    "logrocket-vuex": "^0.0.3",
     "v-tooltip": "^2.0.2",
     "vee-validate": "^3.0.11",
     "vue": "^2.5.22",
