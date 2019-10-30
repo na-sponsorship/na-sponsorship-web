@@ -1,6 +1,7 @@
 <template>
   <div>
     <button
+      v-if="currentPage > 1"
       :disabled="currentPage <= 1"
       class="btn btn-secondary mr-3 text-2xl md:text-base"
       @click="$emit('on-page-navigate', currentPage - 1)"
@@ -20,6 +21,7 @@
       {{ page }}
     </button>
     <button
+      v-if="currentPage !== pages"
       :disabled="currentPage == pages"
       class="btn btn-secondary ml-3 text-2xl md:text-base"
       @click="$emit('on-page-navigate', currentPage + 1)"
@@ -33,7 +35,7 @@
 export default {
   props: {
     pages: Number,
-    currentPage: Number
-  }
+    currentPage: Number,
+  },
 };
 </script>
