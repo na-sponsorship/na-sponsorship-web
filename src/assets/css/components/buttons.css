@@ -5,6 +5,10 @@
   &:focus {
     @apply outline-none;
   }
+
+  &:disabled {
+    @apply bg-gray-500;
+  }
 }
 
 .btn-lg {
