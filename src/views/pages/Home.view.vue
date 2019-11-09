@@ -36,7 +36,7 @@
     <div class="flex justify-center  flex-col m-auto md:flex-row md:w-3/4">
       <div
         class="flex-1 -mt-16 z-10 p-3 bg-white rounded-lg shadow-2xl"
-        style="height: 30rem; width: 30rem;"
+        style="height: 30rem;"
       >
         <iframe
           class="w-full h-full rounded-lg"
@@ -46,7 +46,9 @@
           allowfullscreen
         ></iframe>
       </div>
-      <div class="flex-1 items-center justify-around md:mr-4 md:mb-12 p-4 z-10 md:-mt-20">
+      <div
+        class="flex-1 items-center justify-around md:mr-4 md:mb-12 md:p-4 z-10 md:-mt-20"
+      >
         <div
           class="flex flex-col text-center pt-6 bg-white px-2 py-3 shadow-lg rounded-lg justify-around"
           style="height: 30rem;"
@@ -70,7 +72,54 @@
           </p>
         </div>
       </div>
-     
+    </div>
+
+    <div class="pt-20 bg-gray-200 pb-16">
+      <div>
+        <div class="text-center">
+          <FAIcon class="text-5xl" icon="school" />
+        </div>
+        <h1 class="font-bold p-1 text-center">
+          What makes child sponsorship with Noahs Arc unique?
+        </h1>
+        <p class="text-center">
+          Sponsoring a child with Compassion is the most cost-effective way to
+          end extreme child poverty. It not only addresses a child’s immediate
+          physical needs, it also builds self-esteem and self-respect. Although
+          these are similarities across other child sponsorship programs,
+          Compassion’s approach is unique because we are:
+        </p>
+      </div>
+      <div>
+        <div class="text-center">
+          <FAIcon class="text-5xl" icon="cross" />
+        </div>
+        <h1 class="font-bold p-1 text-center">
+          What makes child sponsorship with Compassion unique?
+        </h1>
+        <p class="text-center">
+          Sponsoring a child with Compassion is the most cost-effective way to
+          end extreme child poverty. It not only addresses a child’s immediate
+          physical needs, it also builds self-esteem and self-respect. Although
+          these are similarities across other child sponsorship programs,
+          Compassion’s approach is unique because we are:
+        </p>
+      </div>
+      <div class="">
+         <div class="text-center">
+          <FAIcon class="text-5xl" icon="child" />
+        </div>
+        <h1 class="font-bold p-1 text-center">
+          What makes child sponsorship with Compassion unique?
+        </h1>
+        <p class="text-center">
+          Sponsoring a child with Compassion is the most cost-effective way to
+          end extreme child poverty. It not only addresses a child’s immediate
+          physical needs, it also builds self-esteem and self-respect. Although
+          these are similarities across other child sponsorship programs,
+          Compassion’s approach is unique because we are:
+        </p>
+      </div>
     </div>
   </div>
 </template>
