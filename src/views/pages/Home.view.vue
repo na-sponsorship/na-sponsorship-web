@@ -73,6 +73,31 @@
         </div>
       </div>
     </div>
+    <div class="my-4 bg-gray-200 py-4">
+      <div class="w-3/4 mx-auto flex text-gray-800">
+        <div class="flex-1 flex-col text-center">
+          <FAIcon class="text-5xl py-1" icon="school" />
+          <h4 class="text-base font-semibold">
+           Key point 1
+          </h4>
+          <p>Desc here</p>
+        </div>
+        <div class="flex-1 flex-col text-center">
+          <FAIcon class="text-5xl py-1" icon="cross" />
+          <h4 class="text-base font-semibold">
+            key point 2
+          </h4>
+          <p>Desc here</p>
+        </div>
+        <div class="flex-1 flex-col text-center">
+          <FAIcon class="text-5xl py-1" icon="child" />
+          <h4 class="text-base font-semibold">
+            key point 1
+          </h4>
+          <p>Desc here</p>
+        </div>
+      </div>
+    </div>
     <div class="mx-auto w-3/4 my-4">
       <h2 class="text-xl">Ministry Partners</h2>
       <div class="flex my-2 flex-wrap">
