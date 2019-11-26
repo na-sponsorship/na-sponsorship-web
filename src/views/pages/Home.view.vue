@@ -36,7 +36,7 @@
     <div class="flex justify-center  flex-col m-auto md:flex-row md:w-3/4">
       <div
         class="flex-1 -mt-16 z-10 p-3 bg-white rounded-lg shadow-2xl"
-        style="height: 30rem; width: 30rem;"
+        style="height: 30rem"
       >
         <iframe
           class="w-full h-full rounded-lg"
@@ -46,7 +46,9 @@
           allowfullscreen
         ></iframe>
       </div>
-      <div class="flex-1 items-center justify-around md:mr-4 md:mb-12 p-4 z-10 md:-mt-20">
+      <div
+        class="flex-1 items-center justify-around md:mr-4 md:mb-12 p-4 z-10 md:-mt-20"
+      >
         <div
           class="flex flex-col text-center pt-6 bg-white px-2 py-3 shadow-lg rounded-lg justify-around"
           style="height: 30rem;"
@@ -108,8 +110,8 @@
 </style>
 
 <script>
-import axios from "axios";
-import hero from "../../components/Hero";
+import axios from 'axios';
+import hero from '../../components/Hero';
 
 export default {
   components: { hero },
@@ -126,11 +128,9 @@ export default {
     };
   },
   created() {
-    axios
-      .get(process.env.VUE_APP_API + "/children/needingSponsorship")
-      .then(res => {
-        this.childrenCount = res.data;
-      });
-  }
+    axios.get(process.env.VUE_APP_API + '/children/needingSponsorship').then(res => {
+      this.childrenCount = res.data;
+    });
+  },
 };
 </script>

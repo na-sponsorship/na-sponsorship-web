@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-16">
+  <div>
     <Modal v-if="donationModal">
       <pre>Form goes here</pre>
     </Modal>

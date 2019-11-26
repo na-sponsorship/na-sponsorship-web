@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1 bg-gray-400 -mt-16">
+  <div class="flex-1 bg-gray-400">
     <div class="absolute w-full" :class="heroSize">
       <div class="flex flex-row justify-center">
         <div class="flex flex-col">
