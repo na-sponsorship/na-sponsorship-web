@@ -70,7 +70,33 @@
           </p>
         </div>
       </div>
-     
+    </div>
+    <div class="mx-auto w-3/4 my-4">
+      <h2 class="text-xl">Ministry Partners</h2>
+      <div class="flex my-2 flex-wrap">
+        <a
+          :href="ministryPartners.emmaus.link"
+          class="mx-2 my-2"
+          target="_blank"
+        >
+          <img
+            :src="ministryPartners.emmaus.logo"
+            class="bg-gray-800 p-2 shadow-xl rounded h-12"
+          />
+        </a>
+
+        <a
+          href="https://www.thinspaceafrica.org/"
+          class="mx-2 my-2"
+          target="_blank"
+        >
+          <span
+            class="h-12 inline-flex items-center px-5 font-bold text-lg text-gray-800 rounded shadow"
+            style="background-color: #f7db09"
+            >ThinSpace Africa</span
+          >
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -89,8 +115,14 @@ export default {
   components: { hero },
   data() {
     return {
-      bgImage: require("@assets/img/headers/children2.jpg"),
-      childrenCount: null
+      bgImage: require('@assets/img/headers/children2.jpg'),
+      ministryPartners: {
+        emmaus: {
+          logo: require('@assets/img/partners/emmaus-logo-white-text.svg'),
+          link: 'http://emmausbible.com/',
+        },
+      },
+      childrenCount: null,
     };
   },
   created() {
