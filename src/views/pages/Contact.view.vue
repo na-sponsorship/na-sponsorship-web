@@ -128,27 +128,43 @@
     </div>
     <div class="flex mb-32 mt-10 ">
       <div class="md:w-3/5 md:m-auto">
-        <div class="flex mb-4 flex-col md:justify-around px-4 md:flex-row">
+        <div class="flex mb-4 flex-col md:justify-between px-4 md:flex-row">
           <div class="mb-2">
-            <h1 class="font-bold text-gray-700">Our Location</h1>
-            <p class="text-gray-700">
-              Str 24 Avenue North
-            </p>
-            <p>Atlanta Georgia 30043 USA</p>
+            <h1 class="font-bold text-gray-700">Uganda</h1>
+            <div class="flex flex-col">
+              <p class="text-gray-700 font-bold italic">
+                Noah's Arc Organization
+              </p>
+              <p>Kenneth Kabagambe and Beatrice Kabagambe</p>
+              <div class="flex mb-1 mt-1">
+                <span class="w-6"><FAIcon class="w-20" icon="building"/></span>
+                <span>P.O. Box 1083 Kyenjojo, Uganda</span>
+              </div>
+              <div class="flex">
+                <span class="w-6"><FAIcon icon="phone"/></span>
+                <span><a href="tel:+256 701 117410">+256 701 117410</a></span>
+              </div>
+            </div>
           </div>
           <div class="mb-2">
-            <h1 class="font-bold text-gray-700">Phone</h1>
-            <p class="text-gray-700">
-              <FAIcon class="inline-flex mr-1 text-gray-700" icon="phone" />+ 1
-              404-384-4324
-            </p>
-          </div>
-          <div class="w-1/4 h-12">
-            <h1 class="font-bold text-gray-700">Email</h1>
-            <p class="text-gray-700">
-              <FAIcon class="inline-flex mr-1 text-gray-700" icon="envelope" />
-              info@noahsarc.com
-            </p>
+            <h1 class="font-bold text-gray-700">United States</h1>
+            <div class="flex flex-col">
+              <p class="text-gray-700 font-bold italic">
+                ThinSpace Africa
+              </p>
+              <div class="flex mb-1 mt-1">
+                <span class="w-6"><FAIcon class="w-20" icon="building"/></span>
+                <span>P.O. 7471, Burbank CA, 91505</span>
+              </div>
+              <div class="flex">
+                <span class="w-6"><FAIcon icon="envelope"/></span>
+                <span>
+                  <a href="mailto:info@thinspaceafrica.org"
+                    >info@thinspaceafrica.org</a
+                  ></span
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -156,22 +172,22 @@
   </ValidationObserver>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 
-import hero from "@components/Hero";
+import hero from '@components/Hero';
 
 export default {
   components: { hero },
   data() {
     return {
-      bgImage: require("@assets/img/headers/children2.jpg"),
+      bgImage: require('@assets/img/headers/children2.jpg'),
       messageSent: false,
       isSending: false,
       contactForm: {
-        firstName: "",
-        lastName: "",
-        email: ""
-      }
+        firstName: '',
+        lastName: '',
+        email: '',
+      },
     };
   },
   methods: {
@@ -185,13 +201,9 @@ export default {
       this.isSending = true;
 
       try {
-        const capthaToken = await this.$recaptcha("contact");
+        const capthaToken = await this.$recaptcha('contact');
 
-        await axios.post(
-          `${process.env.VUE_APP_API}/app/contact`,
-          contactForm,
-          { headers: { recaptcha: capthaToken } }
-        );
+        await axios.post(`${process.env.VUE_APP_API}/app/contact`, contactForm, { headers: { recaptcha: capthaToken } });
 
         this.messageSent = true;
         this.isSending = false;
@@ -202,7 +214,7 @@ export default {
         this.isSending = false;
         this.messageSent = true;
       }
-    }
-  }
+    },
+  },
 };
 </script>

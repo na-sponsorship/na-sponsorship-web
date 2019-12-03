@@ -22,7 +22,7 @@
             @click="donate()"
             @onDismiss="donationModal = false"
           >
-            Read More
+            Donate
           </button>
         </div>
       </div>
@@ -31,16 +31,18 @@
       <div class="flex flex-col md:flex-row md:w-3/4 md:m-auto">
         <div class="flex-1 px-5">
           <img :src="logoLight" class=" my-2" />
-          <p class="leading-relaxed font-medium text-white text-indent">
-            Noah’s ARC is a Christian based NGO/CBO operating in Kyenjojo
-            District, Mid-Western Uganda.
-          </p>
-          <p class="leading-relaxed font-medium text-white text-indent">
-            The main focus is on aimed at fighting and eradicating hunger,
-            poverty, illiteracy, and exposure to preventable diseases to all
-            unconditionally regardless of religion, race and political
-            affiliation.
-          </p>
+          <div>
+            <p class="leading-relaxed font-medium text-white text-indent">
+              Noah’s ARC is a Christian based NGO/CBO operating in Kyenjojo
+              District, Mid-Western Uganda.
+            </p>
+            <p class="leading-relaxed font-medium text-white text-indent">
+              The main focus is on aimed at fighting and eradicating hunger,
+              poverty, illiteracy, and exposure to preventable diseases to all
+              unconditionally regardless of religion, race and political
+              affiliation.
+            </p>
+          </div>
         </div>
         <div class="flex-1 mx-5 my-2">
           <h2 class="uppercase text-white text-3xl">About Us</h2>
@@ -58,9 +60,14 @@
       <div
         class="flex items-center px-5 py-5 justify-between md:w-3/4 md:m-auto"
       >
-        <div class="text-sm text-white">
-          &copy; 2019 All right reserved. Noah's Arc
+        <div class="flex flex-col text-sm text-white">
+          <span></span>&copy; 2019 All right reserved. Noah's Arc
+          <span
+            >ThinSpace Africa is a registered 501(c)(3) nonprofit organization.
+            EIN 47-5374451 Contributions are tax deductible</span
+          >
         </div>
+
         <div class="flex">
           <div
             class="px-2"
@@ -88,28 +95,27 @@
 </style>
 
 <script>
-import hero from "../../../components/Hero";
-import Modal from "../../../components/ui/Modal";
+import hero from '../../../components/Hero';
+import Modal from '../../../components/ui/Modal';
 
 export default {
   components: { hero, Modal },
   data() {
     return {
       donationModal: false,
-      bgImage: require("@assets/img/headers/children2.jpg"),
-      logoLight: require("@assets/img/logo/light@3x.png"),
+      bgImage: require('@assets/img/headers/children2.jpg'),
+      logoLight: require('@assets/img/logo/light@3x.png'),
       socialLinks: [
-        { icon: "instagram", to: "http://www.instagram.com/noahsark10/" },
+        { icon: 'instagram', to: 'http://www.instagram.com/noahsark10/' },
         {
-          icon: "facebook-f",
-          to:
-            "http://www.facebook.com/profile.php?id=100000461473064&ref=content_filter"
+          icon: 'facebook-f',
+          to: 'http://www.facebook.com/profile.php?id=100000461473064&ref=content_filter',
         },
         {
-          icon: "youtube",
-          to: "http://www.youtube.com/channel/UCpHmZSfKw3iFA0hnWI9CX6A"
-        }
-      ]
+          icon: 'youtube',
+          to: 'http://www.youtube.com/channel/UCpHmZSfKw3iFA0hnWI9CX6A',
+        },
+      ],
     };
   },
   methods: {
@@ -120,7 +126,7 @@ export default {
     closeModal() {
       debugger;
       this.donationModal = false;
-    }
-  }
+    },
+  },
 };
 </script>
