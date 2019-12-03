@@ -7,13 +7,13 @@
     <hero :header-bg="bgImage">
       <div class="mt-48">
         <h1 class="text-3xl text-white font-bold text-center">
-          Contact Us
+          Get In Touch
         </h1>
       </div>
       <hr class="bg-white h-px opacity-50 w-1/2" />
       <div class="text-sm text-white text-center">
         <h2>
-          A simply dummy text of the pribeen the industry's standard dum .
+          For more information here is how you can reach us...
         </h2>
       </div>
     </hero>
