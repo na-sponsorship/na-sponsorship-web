@@ -123,6 +123,17 @@
             >ThinSpace Africa</span
           >
         </a>
+        <a
+          :href="ministryPartners.bringingHope.link"
+          class="mx-2 my-2 px-2 inline-flex items-center shadow-lg rounded border-gray-200 border h-12"
+          target="_blank"
+        >
+          <img
+            :src="ministryPartners.bringingHope.logo"
+            class="bg-white h-10"
+          />
+          <span class="text-gray-900 px-2">Bringing Hope To The Family</span>
+        </a>
       </div>
     </div>
   </div>
@@ -147,6 +158,10 @@ export default {
         emmaus: {
           logo: require('@assets/img/partners/emmaus-logo-white-text.svg'),
           link: 'http://emmausbible.com/',
+        },
+        bringingHope: {
+          logo: require('@assets/img/partners/bringing-hope-to-the-family.png'),
+          link: 'http://bringinghope.org/donate/',
         },
       },
       childrenCount: null,
