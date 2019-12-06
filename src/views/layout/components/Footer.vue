@@ -106,7 +106,6 @@
 import hero from '../../../components/Hero';
 import Modal from '../../../components/ui/Modal';
 import {FormWizard, TabContent} from 'vue-form-wizard'
-import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 
 export default {
   components: { hero, Modal, FormWizard, TabContent },
