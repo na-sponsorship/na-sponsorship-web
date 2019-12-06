@@ -74,7 +74,7 @@
       </div>
     </div>
     <div class="my-4 bg-gray-200 py-4">
-      <div class="w-3/4 mx-auto flex text-gray-800">
+      <div class="w-3/4 mx-auto flex flex-col sm:flex-row text-gray-800">
         <div class="flex-1 flex-col text-center">
           <FAIcon class="text-5xl py-1" icon="school" />
           <h4 class="text-base font-semibold">
