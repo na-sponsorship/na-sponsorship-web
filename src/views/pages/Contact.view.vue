@@ -13,7 +13,7 @@
       <hr class="bg-white h-px opacity-50 w-1/2" />
       <div class="text-sm text-white text-center">
         <h2>
-          For more information here is how you can reach us...
+          For more information do not hesitate to reach out to us.
         </h2>
       </div>
     </hero>

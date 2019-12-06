@@ -1,28 +1,36 @@
 <template>
   <div>
-    <Modal v-if="donationModal">
-      <pre>Form goes here</pre>
+    <Modal v-if="donationModal" @onCloseModal="closeModal">
+      <form-wizard>
+      <tab-content title="Donation Ammount">
+        
+      </tab-content>
+      <tab-content title="Payment">
+        
+      </tab-content>
+      <tab-content title="Summary">
+        
+      </tab-content>
+      </form-wizard>
     </Modal>
     <hero :header-bg="bgImage" size="md">
       <div class="md:w-3/4 md:m-auto">
         <div class="mt-32">
           <h1 class="text-3xl text-green-500 text-center font-cursive">
-            Vestibulum id nisi Est
+           Donation
           </h1>
         </div>
 
         <div class="text-sm text-white text-center">
           <p>
-            A simply dummy text of the pribeen the industry's standard dum imply
-            dummy text of the pribeen the industry's standard dum fsafsfsfa
-            imply dummy text of the pribeen the industry's standard
+            If you wish to make a general donation to Noah's Arc click bellow.
           </p>
           <button
             class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 mr-2 mt-4"
             @click="donate()"
             @onDismiss="donationModal = false"
           >
-            Donate
+            Donate Now
           </button>
         </div>
       </div>
@@ -97,9 +105,11 @@
 <script>
 import hero from '../../../components/Hero';
 import Modal from '../../../components/ui/Modal';
+import {FormWizard, TabContent} from 'vue-form-wizard'
+import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 
 export default {
-  components: { hero, Modal },
+  components: { hero, Modal, FormWizard, TabContent },
   data() {
     return {
       donationModal: false,
@@ -120,11 +130,12 @@ export default {
   },
   methods: {
     donate() {
-      debugger;
+ 
       this.donationModal = true;
     },
-    closeModal() {
-      debugger;
+    closeModal(vali) {
+      console.log(vali)
+ 
       this.donationModal = false;
     },
   },

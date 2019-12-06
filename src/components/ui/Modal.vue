@@ -6,7 +6,7 @@
         <div class="flex">
           <h3 class="flex-1">{{ title }}</h3>
           <span>
-            <a class="cursor-pointer" @click="$emit('onDismiss')">
+            <a class="cursor-pointer" @click="$emit('onCloseModal', 'hello')">
               <FAIcon icon="times" />
             </a>
           </span>
