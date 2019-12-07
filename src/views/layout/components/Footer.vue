@@ -1,30 +1,76 @@
 <template>
   <div>
-    <Modal v-if="donationModal" @onCloseModal="closeModal">
-      <form-wizard>
-      <tab-content title="Ammount">
-        <div>
-        <select class="w-1/4 h-10">
-            <option value="">One Time</option>
-            <option value="">Monthly</option>
-        </select>
-       
-        <input placeholder="" type="number" name="$">
-        </div>
-      </tab-content>
-      <tab-content title="Payment">
-        
-      </tab-content>
-      <tab-content title="Summary">
-        
-      </tab-content>
+    <Modal class="w" v-if="donationModal" @onCloseModal="closeModal" size="md">
+      <form-wizard
+        title="Donate to Noah's Arc"
+        subtitle="All donations are tax deductable"
+      >
+        <tab-content title="Amount">
+          <div class="flex flex-col text-sm">
+            <p class="mb-2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+              tempora provident labore ad? Quam atque facilis eaque sequi
+            </p>
+            <label class="my-1">
+              <input
+                type="text"
+                v-model="donation.payment.amount"
+                class="form-input"
+                placeholder="Choose amount"
+              />
+            </label>
+            <label class="my-1">
+              <input
+                type="checkbox"
+                v-model="donation.payment.isMonthly"
+                class="form-checkbox mr-2"
+                placeholder="Amout"
+              />
+              <span>Make this a monthly donation</span>
+            </label>
+          </div>
+        </tab-content>
+        <tab-content title="Payment" class="mb-5">
+          <div class="flex flex-col">
+            <div class="flex flex-row my-1">
+              <input
+                placeholder="First Name"
+                v-model="donation.donorInformation.firstName"
+                type="text"
+                class="form-input mr-2 w-1/2"
+              />
+              <input
+                placeholder="Last Name"
+                v-model="donation.donorInformation.lastName"
+                type="text"
+                class="form-input w-1/2"
+              />
+            </div>
+            <div class="my-1">
+              <input
+                placeholder="Email"
+                v-model="donation.donorInformation.email"
+                type="email"
+                class="form-input w-full my-1"
+                name=""
+                id=""
+              />
+            </div>
+            <CreditCardForm class="-mt-2"></CreditCardForm>
+          </div>
+        </tab-content>
+        <tab-content title="Summary">
+          <div>
+            <h4>Donation amount: {{ donation.payment.amount }}</h4>
+          </div>
+        </tab-content>
       </form-wizard>
     </Modal>
     <hero :header-bg="bgImage" size="md">
       <div class="md:w-3/4 md:m-auto">
         <div class="mt-32">
           <h1 class="text-3xl text-green-500 text-center font-cursive">
-           Donation
+            Donation
           </h1>
         </div>
 
@@ -110,43 +156,53 @@
 </style>
 
 <script>
-import hero from '../../../components/Hero';
-import Modal from '../../../components/ui/Modal';
-import {FormWizard, TabContent} from 'vue-form-wizard'
+import hero from "../../../components/Hero";
+import Modal from "../../../components/ui/Modal";
+import CreditCardForm from "../../../components/CreditCardForm";
+import { FormWizard, TabContent } from "vue-form-wizard";
 
 export default {
-  components: { hero, Modal, FormWizard, TabContent },
+  components: { hero, Modal, FormWizard, TabContent, CreditCardForm },
   data() {
- 
     return {
-      
+      donation: {
+        payment: {
+          amount: null,
+          isMonthly: false
+        },
+        donorInformation: {
+          firstName: null,
+          lastName: null,
+          email: null
+        }
+      },
       donationModal: false,
-      bgImage: require('@assets/img/headers/children2.jpg'),
-      logoLight: require('@assets/img/logo/light@3x.png'),
+      bgImage: require("@assets/img/headers/children2.jpg"),
+      logoLight: require("@assets/img/logo/light@3x.png"),
       socialLinks: [
-        { icon: 'instagram', to: 'http://www.instagram.com/noahsark10/' },
+        { icon: "instagram", to: "http://www.instagram.com/noahsark10/" },
         {
-          icon: 'facebook-f',
-          to: 'http://www.facebook.com/profile.php?id=100000461473064&ref=content_filter',
+          icon: "facebook-f",
+          to:
+            "http://www.facebook.com/profile.php?id=100000461473064&ref=content_filter"
         },
         {
-          icon: 'youtube',
-          to: 'http://www.youtube.com/channel/UCpHmZSfKw3iFA0hnWI9CX6A',
-        },
-      ],
+          icon: "youtube",
+          to: "http://www.youtube.com/channel/UCpHmZSfKw3iFA0hnWI9CX6A"
+        }
+      ]
     };
-    myOptions: ['One Time']
+    myOptions: ["One Time"];
   },
   methods: {
     donate() {
- 
       this.donationModal = true;
     },
     closeModal(vali) {
-      console.log(vali)
- 
+      console.log(vali);
+
       this.donationModal = false;
-    },
-  },
+    }
+  }
 };
 </script>

@@ -2,7 +2,7 @@
   <div>
     <div class="modal-backdrop"></div>
     <div class="modal">
-      <div class="modal-container">
+      <div class="modal-container" :class="_size">
         <div class="flex">
           <h3 class="flex-1">{{ title }}</h3>
           <span>
@@ -35,7 +35,7 @@
 }
 
 .modal-container {
-  @apply relative bg-white w-full max-w-md m-auto flex-col flex;
+  @apply relative bg-white m-auto flex-col flex;
 }
 
 .modal-container > div {
@@ -45,6 +45,26 @@
 
 <script>
 export default {
-  props: ["title", "footer"]
+  props: ["title", "footer", "size"],
+  computed: {
+    _size() {
+      let size = "w-1/2";
+
+      switch (this.size) {
+        case "sm":
+          size = "1/4";
+          break;
+        case "md":
+          size = "w-1/2";
+          break;
+
+        case "lg":
+          size = "w-3/4";
+          break;
+      }
+
+      return size;
+    }
+  }
 };
 </script>
