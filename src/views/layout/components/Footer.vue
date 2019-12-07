@@ -2,8 +2,15 @@
   <div>
     <Modal v-if="donationModal" @onCloseModal="closeModal">
       <form-wizard>
-      <tab-content title="Donation Ammount">
-        
+      <tab-content title="Ammount">
+        <div>
+        <select class="w-1/4 h-10">
+            <option value="">One Time</option>
+            <option value="">Monthly</option>
+        </select>
+       
+        <input placeholder="" type="number" name="$">
+        </div>
       </tab-content>
       <tab-content title="Payment">
         
@@ -110,7 +117,9 @@ import {FormWizard, TabContent} from 'vue-form-wizard'
 export default {
   components: { hero, Modal, FormWizard, TabContent },
   data() {
+ 
     return {
+      
       donationModal: false,
       bgImage: require('@assets/img/headers/children2.jpg'),
       logoLight: require('@assets/img/logo/light@3x.png'),
@@ -126,6 +135,7 @@ export default {
         },
       ],
     };
+    myOptions: ['One Time']
   },
   methods: {
     donate() {
