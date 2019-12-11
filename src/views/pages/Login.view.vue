@@ -1,59 +1,59 @@
 <template>
-  <div class="flex justify-center mb-10 mt-10">
-    <div
-      class="page-width-constraint flex-col shadow-lg p-3"
-      v-if="!codeRequested"
-    >
-      <div class="">
-        <h1 class="font-medium text-4xl">Secure Donation</h1>
-        <p class="text-lg mb-4">
-          Enter your email address to receive your security code.
-        </p>
+  <div>
+    <hero :header-bg="bgImage">
+      <div class="mt-48">
+        <h1 class="text-3xl text-white font-bold text-center">
+          Login
+        </h1>
       </div>
-      <div class="flex">
-        <div>
-          <input
-            class="w-full py-2 px-20 border rounded w-full"
-            type="text"
-            v-model="data.email"
-          />
-        </div>
-        <div class="flex">
-          <button
-            class="bg btn-primary border rounded w-full py-2 px-3 mb-2"
-            @click="getCode(data.email)"
-          >
-            GET CODE
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      class="page-width-constraint flex-col shadow-lg p-3"
-      v-if="codeRequested"
-    >
-      <div class="">
-        <h1 class="font-medium text-4xl">Verify code</h1>
-        <p class="text-lg mb-4">
-          Enter the code you received in the mail
-        </p>
-      </div>
-      <div class="flex">
-        <div>
-          <input
-            class="w-full py-2 px-20 border rounded w-full"
-            type="text"
-            v-model="data.verifycationCode"
-          />
-        </div>
-        <div class="flex">
-          <button
-            class="bg btn-primary border rounded w-full py-2 px-3 mb-2"
-            @click="verifyCode(data.email, data.verifycationCode)"
-          >
-            Verify Code
-          </button>
-        </div>
+    </hero>
+    <div class="flex justify-center -m-20">
+      <div class="w-full max-w-lg z-10">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-4"
+              for="username"
+            >
+              Login here
+            </label>
+            <input
+              class="shadow appearance-none border rounded-lg w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="email"
+              type="text"
+              placeholder="email"
+            />
+          </div>
+          <div class="mb-6">
+            <input
+              class="shadow appearance-none border rounded-lg w-full py-4 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              placeholder="Password"
+            />
+            <div class="flex items-center justify-between">
+              <label class="md:w-1/3 block text-black font-bold">
+                <input class="mr-2 leading-tight" type="checkbox" />
+                <span class="text-xs">
+                  Remember Me
+                </span>
+              </label>
+              <a
+                class="inline-block align-baseline font-bold text-xs text-black hover:text-blue-800"
+                href="#"
+              >
+                Forgot Password?
+              </a>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              class="bg-orange-500 px-6 py-3 rounded-lg hover:bg-orange-600 text-center w-full text-white font-bold"
+            >
+              Login
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -62,28 +62,13 @@
 <style lang="postcss"></style>
 
 <script>
-import axios from "axios";
-
+import hero from "@components/Hero";
 export default {
+  components: { hero },
   data() {
     return {
-      data: {
-        email: null,
-        verifycationCode: null
-      },
-      codeRequested: true
+      bgImage: require("@assets/img/headers/children2.jpg")
     };
-  },
-  methods: {
-    getCode(email) {
-      axios.post(`${process.env.VUE_APP_API}/getCode`, { email }).then(() => {
-        this.codeRequested = true;
-      });
-    },
-    verifyCode(email, code) {
-      this.$router.replace({ name: "account" });
-      axios.post(`${process.env.VUE_APP_API}/verifyCode`, { email, code });
-    }
   }
 };
 </script>

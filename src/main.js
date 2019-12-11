@@ -7,7 +7,7 @@ import { ValidationProvider, ValidationObserver } from "vee-validate";
 import Cloudinary from "cloudinary-vue";
 import { VueReCaptcha } from "vue-recaptcha-v3";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+import "vue-form-wizard/dist/vue-form-wizard.min.css";
 import "./logrocket";
 
 import "@assets/css/style.css";
