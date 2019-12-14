@@ -88,7 +88,8 @@ export default {
         { label: "Home", to: "/" },
         { label: "Sponsor a Child", to: "/children" },
         { label: "About", to: "/about" },
-        { label: "Contact Us", to: "/contact" }
+        { label: "Contact Us", to: "/contact" },
+        { label: "Sign Up", to: "/create-password" }
       ]
     };
   },

@@ -1,82 +1,67 @@
 <template>
   <div>
-    <hero :header-bg="bgImage">
-      <div>
+    <hero :header-bg="bgImage" size="md">
+      <div class="mt-48">
         <h1 class="text-3xl text-white font-bold text-center">
-          <template v-if="$route.name === 'create-password'">
-            Create A Password
-          </template>
-          <template v-if="$route.name === 'reset-password'">
-            Reset Password
-          </template>
+          Sign Up
         </h1>
+        <hr class="bg-white h-px opacity-50 w-1/2" />
       </div>
-      <hr class="bg-white h-px opacity-50 w-1/2" />
     </hero>
-    <div class="flex justify-center">
-      <div class="flex flex-col">
-        <div
-          class="page-width-constraint z-10 -mt-32 px-8 rounded-lg shadow-2xl mb-3 pt-3 bg-white w-full"
-        >
-          <h2 class="flex mt-5 text-orange-500 font-semibold">Username:</h2>
-          <h3 class="text-gray-700 font-medium">{{ username }}</h3>
-          <div class="flex mb-3 mt-5">
-            <div class="flex-1 mr-2 form-group">
-              <input placeholder="New Password" class="form-input w-full" />
-            </div>
-          </div>
-          <div class="flex mb-3">
-            <div class="flex-1 mr-2 form-group">
-              <input placeholder="Confirm Password" class="form-input w-full" />
-            </div>
-          </div>
-          <div class="flex-1">
-            <button
-              class="btn btn-primary mt-2 px-6 py-2 text-base mb-8 float-right mr-2 "
+    <div class="flex justify-center -m-20">
+      <div class="w-full max-w-sm z-10 md:max-w-md">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="mb-4">
+            <label
+              class="block text-orange-500 text-sm font-bold mb-4"
+              for="username"
             >
-              <template v-if="$route.name === 'create-password'">
-                Create Password
-              </template>
-              <template v-if="$route.name === 'reset-password'">
-                Reset Password
-              </template>
+              EMAIL:
+            </label>
+            <input
+              class="shadow appearance-none border rounded-lg w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="email"
+              type="text"
+              placeholder="Security Code"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              class="shadow appearance-none border rounded-lg w-full py-4 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="mb-6">
+            <input
+              class="shadow appearance-none border rounded-lg w-full py-4 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              placeholder="Confirm Password"
+            />
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              class="bg-orange-500 px-6 py-3 rounded-lg hover:bg-orange-600 text-center w-full text-white font-bold"
+            >
+              Login
             </button>
           </div>
-        </div>
-        <div class="my-10 text-gray-800 f">
-          If you have problems with your account, please
-          <router-link to="/contact" class="font-bold">contact us</router-link>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </template>
-<script>
-import axios from "axios";
-import hero from "../../components/Hero";
 
+<style lang="postcss"></style>
+
+<script>
+import hero from "@components/Hero";
 export default {
   components: { hero },
-  created() {
-    // If there is no token present, send them to the login page
-    if (!this.$route.query.token) {
-      this.$router.replace("/login");
-    }
-
-    // Look up the username based on the token
-    axios
-      .get(
-        `${process.env.VUE_APP_API}/user/usernameFromToken/${
-          this.$route.query.token
-        }`
-      )
-      .then(username => {
-        console.log(username);
-      });
-  },
   data() {
     return {
-      username: null,
       bgImage: require("@assets/img/headers/children2.jpg")
     };
   }

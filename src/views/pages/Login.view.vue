@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero :header-bg="bgImage">
+    <hero :header-bg="bgImage" size="md">
       <div class="mt-48">
         <h1 class="text-3xl text-white font-bold text-center">
           Login
@@ -8,7 +8,7 @@
       </div>
     </hero>
     <div class="flex justify-center -m-20">
-      <div class="w-full max-w-lg z-10">
+      <div class="w-full max-w-md z-10 md:max-w-md">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="mb-4">
             <label
