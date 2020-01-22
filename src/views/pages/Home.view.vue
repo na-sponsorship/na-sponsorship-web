@@ -78,7 +78,7 @@
         <div class="flex-1 flex-col text-center">
           <FAIcon class="text-5xl py-1" icon="school" />
           <h4 class="text-base font-semibold">
-           Key point 1
+            Key point 1
           </h4>
           <p>Desc here</p>
         </div>
@@ -99,8 +99,8 @@
       </div>
     </div>
     <div class="mx-auto w-3/4 my-4">
-      <h2 class="text-xl">Ministry Partners</h2>
-      <div class="flex my-2 flex-wrap">
+      <h2 class="text-center text-3xl font-cursive text-green-500 ">Ministry Partners</h2>
+      <div class="flex my-2 flex-wrap justify-center">
         <a
           :href="ministryPartners.emmaus.link"
           class="mx-2 my-2"
@@ -123,17 +123,6 @@
             >ThinSpace Africa</span
           >
         </a>
-        <a
-          :href="ministryPartners.bringingHope.link"
-          class="mx-2 my-2 px-2 inline-flex items-center shadow-lg rounded border-gray-200 border h-12"
-          target="_blank"
-        >
-          <img
-            :src="ministryPartners.bringingHope.logo"
-            class="bg-white h-10"
-          />
-          <span class="text-gray-900 px-2">Bringing Hope To The Family</span>
-        </a>
       </div>
     </div>
   </div>
@@ -146,31 +135,29 @@
 </style>
 
 <script>
-import axios from 'axios';
-import hero from '../../components/Hero';
+import axios from "axios";
+import hero from "../../components/Hero";
 
 export default {
   components: { hero },
   data() {
     return {
-      bgImage: require('@assets/img/headers/children2.jpg'),
+      bgImage: require("@assets/img/headers/children2.jpg"),
       ministryPartners: {
         emmaus: {
-          logo: require('@assets/img/partners/emmaus-logo-white-text.svg'),
-          link: 'http://emmausbible.com/',
-        },
-        bringingHope: {
-          logo: require('@assets/img/partners/bringing-hope-to-the-family.png'),
-          link: 'http://bringinghope.org/donate/',
-        },
+          logo: require("@assets/img/partners/emmaus-logo-white-text.svg"),
+          link: "http://emmausbible.com/"
+        }
       },
-      childrenCount: null,
+      childrenCount: null
     };
   },
   created() {
-    axios.get(process.env.VUE_APP_API + '/children/needingSponsorship').then(res => {
-      this.childrenCount = res.data;
-    });
-  },
+    axios
+      .get(process.env.VUE_APP_API + "/children/needingSponsorship")
+      .then(res => {
+        this.childrenCount = res.data;
+      });
+  }
 };
 </script>

@@ -22,6 +22,7 @@
               id="email"
               type="text"
               placeholder="email"
+              v-model="loginForm.email"
             />
           </div>
           <div class="mb-6">
@@ -30,6 +31,7 @@
               id="password"
               type="password"
               placeholder="Password"
+              v-model="loginForm.password"
             />
             <div class="flex items-center justify-between">
               <label class="md:w-1/3 block text-black font-bold">
@@ -63,11 +65,16 @@
 
 <script>
 import hero from "@components/Hero";
+import axios from 'axios';
 export default {
   components: { hero },
   data() {
     return {
-      bgImage: require("@assets/img/headers/children2.jpg")
+      bgImage: require("@assets/img/headers/children2.jpg"),
+      loginForm: {
+        email: '',
+        password: ''
+      },
     };
   }
 };
