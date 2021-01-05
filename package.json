@@ -15,7 +15,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.7.2",
     "@fortawesome/free-solid-svg-icons": "^5.7.1",
     "@fortawesome/vue-fontawesome": "^0.1.5",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "cloudinary-vue": "^1.0.0-beta2",
     "dayjs": "^1.8.12",
     "lodash-es": "^4.17.14",
