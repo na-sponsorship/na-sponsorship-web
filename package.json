@@ -18,7 +18,7 @@
     "axios": "^0.18.1",
     "cloudinary-vue": "^1.0.0-beta2",
     "dayjs": "^1.8.12",
-    "lodash-es": "^4.17.14",
+    "lodash-es": "^4.17.21",
     "logrocket": "^1.0.3",
     "logrocket-vuex": "^0.0.3",
     "v-tooltip": "^2.0.2",
